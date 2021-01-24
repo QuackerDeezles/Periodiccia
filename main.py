@@ -2,11 +2,12 @@ import discord
 import keep_alive
 import os
 import random
+import json
 from discord.ext import commands, tasks
 from itertools import cycle
 
 client = commands.Bot(command_prefix = 'p ')
-status = cycle(['Subscribe to QuackerDeezles on YouTube :)', 'p help = Help Command', 'Made by QuackerDeezlesYT#3393', 'An original, informational element bot.'])
+status = cycle([f'p help = Help Command', 'Made by QuackerDeezlesYT#3393', 'An original, informational element bot.'])
 client.remove_command('help')
 
 @client.command(pass_context=True)
@@ -676,5 +677,108 @@ async def socials(ctx):
   em = discord.Embed(title = '**Developer socials**',description = '**Discord Server**: https://discord.gg/Xt8UQj2neY\n**Youtube Channel**: https://www.youtube.com/channel/UC6PKOburRMFSjwTCQcL4wbQ?view_as=subscriber', color = discord.Color.orange())
   await ctx.send(embed = em)
 
+@client.command(aliases = ['bal'])
+async def balance(ctx):
+      user = ctx.author
+      user_url = ctx.author.avatar_url
+      with open('mainbank.json','r') as f:
+        users = json.load(f)
+      await open_account(users, ctx.author)
+
+   
+      wallet_amt = users[str(ctx.author.id)]['wallet']
+      with open('mainbank.json','w') as f:
+        json.dump(users, f)
+
+      
+      balancestring = f"**{ctx.author}'s balance:** {wallet_amt} points"
+      
+      await ctx.send(balancestring)
+
+async def open_account(users, user):
+  
+  if str(user.id) not in users:
+    users[str(user.id)] = {}
+    users[str(user.id)]['wallet'] = 0
+
+@client.command()
+@commands.cooldown(1,60,commands.BucketType.user)
+async def minutely(ctx):
+        with open('mainbank.json','r') as f:
+            users = json.load(f)
+        numbegAmount = random.randint(15,70)
+        await add_money(users, ctx.author,numbegAmount)
+        with open('mainbank.json','w') as f:
+            json.dump(users, f)
+        await ctx.send('Mendeleev hands you {} points! Lucky duck.'.format(numbegAmount))
+async def add_money(users, user, dollars):
+  users[str(user.id)]['wallet'] += dollars
+
+@client.command()
+@commands.cooldown(1,3600,commands.BucketType.user)
+async def hourly(ctx):
+        with open('mainbank.json','r') as f:
+            users = json.load(f)
+        numbegAmount = random.randint(200,500)
+        await add_money(users, ctx.author,numbegAmount)
+        with open('mainbank.json','w') as f:
+            json.dump(users, f)
+        await ctx.send('Mendeleev hands you {} points! Lucky duck.'.format(numbegAmount))
+async def add_money(users, user, dollars):
+  users[str(user.id)]['wallet'] += dollars
+
+@client.command()
+@commands.cooldown(1,86400,commands.BucketType.user)
+async def daily(ctx):
+        with open('mainbank.json','r') as f:
+            users = json.load(f)
+        numbegAmount = random.randint(4000,9876)
+        await add_money(users, ctx.author,numbegAmount)
+        with open('mainbank.json','w') as f:
+            json.dump(users, f)
+        await ctx.send('Mendeleev hands you {} points! Lucky duck.'.format(numbegAmount))
+async def add_money(users, user, dollars):
+  users[str(user.id)]['wallet'] += dollars
+
+@client.command()
+@commands.cooldown(1,2592000,commands.BucketType.user)
+async def monthly(ctx):
+        with open('mainbank.json','r') as f:
+            users = json.load(f)
+        numbegAmount = random.randint(15000,50000)
+        await add_money(users, ctx.author,numbegAmount)
+        with open('mainbank.json','w') as f:
+            json.dump(users, f)
+        await ctx.send('Mendeleev hands you {} points! Good thing there is no robbing command lol'.format(numbegAmount))
+async def add_money(users, user, dollars):
+  users[str(user.id)]['wallet'] += dollars
+
+@client.command()
+@commands.cooldown(1,31536000,commands.BucketType.user)
+async def yearly(ctx):
+        with open('mainbank.json','r') as f:
+            users = json.load(f)
+        numbegAmount = random.randint(88888,111111)
+        await add_money(users, ctx.author,numbegAmount)
+        with open('mainbank.json','w') as f:
+            json.dump(users, f)
+        await ctx.send('Mendeleev hands you {} points! Now fuck off. Come back in a year.'.format(numbegAmount))
+async def add_money(users, user, dollars):
+  users[str(user.id)]['wallet'] += dollars
+
+mainshop = [{"name":"Carbon Coin","price":2525,"description":"Cool coin! Mendeleev will be happy."}, {"name":"Sulfur Souvenir","price":9999,"description":"It smells, but hey - at least it's cooler than the coin! "}, {"name":"Mendelev's Medal","price":34567,"description":"Mendelev will be more happy!!!!"}, {"name":"Titanium Trophy","price":88888,"description":"Keep this in your room. You deserved it."}, {"name":"Silver Statue","price":123456,"description":"WHO FUCKING ARE YOU"}]
+
+@client.command()
+async def parlor(ctx):
+  em = discord.Embed(title = "__Periodiccia's Point Parlor__")
+
+  for item in mainshop:
+    name = item["name"]
+    price = item["price"]
+    description = item["description"]
+    em.add_field(name = name, value = f"**{price}** points | {description}")
+  
+  await ctx.send(embed = em)
+
 keep_alive.keep_alive()
-client.run("my key lol")
+client.run("token")
