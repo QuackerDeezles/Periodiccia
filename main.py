@@ -2,7 +2,7 @@ import discord
 import keep_alive
 import os
 import random
-import json
+
 from discord.ext import commands, tasks
 from itertools import cycle
 
@@ -23,8 +23,7 @@ async def help(ctx):
   embed.add_field(name='To look up information about a specific element, type its symbol after the prefix.', value='For example, `p H` = Hydrogen, among its other information.', inline=False)
   embed.add_field(name='If you want to look at the list of Elements in the Periodic Table, type in `p list`.', value='**This is a built-in reference for most of the commands related to the elements here.**', inline=False)
   embed.add_field(name='`p mendeleev`', value='This command tells you a bit about who Mendeleev is, and some helpful resources to learn about him.', inline=False)
-  embed.add_field(name='`p socials`', value='Use this command to see the social accounts of the developer!', inline=False)
-  emb
+  embed.add_field(name='`p socials` = Use this command to see the social accounts of the developer!', value='`p botsite` = Periodiccia website, just made!', inline=False)
   embed.add_field(name='It would be very appreciated if you could invite my bot to your server! :slight_smile:', value='https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot', inline=False)
   embed.add_field(name='There are some hidden commands in this bot. If you find a specific one, it will give you all the other ones! :smirk:', value='Hope you find them!', inline=False)
   embed.add_field(name='Made by QuackerDeezlesYT#3393', value='If you have any questions, feel free to DM him!', inline=False)
@@ -678,5 +677,10 @@ async def socials(ctx):
   em = discord.Embed(title = '**Developer socials**',description = '**Discord Server**: https://discord.gg/Xt8UQj2neY\n**Youtube Channel**: https://www.youtube.com/channel/UC6PKOburRMFSjwTCQcL4wbQ?view_as=subscriber', color = discord.Color.orange())
   await ctx.send(embed = em)
 
+@client.command()
+async def botsite(ctx):
+  em = discord.Embed(title = '**PERIODICCIA WEBSITE**', description ='https://sites.google.com/view/periodiccia/home', color = discord.Color.orange())
+  await ctx.send(embed = em)
+
 keep_alive.keep_alive()
-client.run(key")
+client.run("token")
