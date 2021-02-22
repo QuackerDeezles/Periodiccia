@@ -2,41 +2,12 @@ import discord
 import keep_alive
 import os
 import random
-
 from discord.ext import commands, tasks
 from itertools import cycle
 
 client = commands.Bot(command_prefix = 'p ')
-status = cycle([f'p help = Help Command', 'https://bit.ly/39O9N7t'])
+status = cycle([f'p help - Help Command', 'Invite: bit.ly/39O9N7t'])
 client.remove_command('help')
-
-helpMenuDesc = """
-`p help` - Shows this!
-`p <element_symbol>` - Gives information about an element
-`p list <page_number>` - Reference to symbols to use for the element commands **There are 12 pages btw**
-`p table` - Shows the whole periodic table
-`p mendeleev` -  This command tells you a bit about who Mendeleev is, and some helpful resources to learn about him.
-`p socials` - Use this command to see the social accounts of the developer!
-`p devbio` - Use this command to learn about QuackerDeezlesYT, the developer of me! **There are 3 pages btw**
-`p botsite` - Periodiccia website, just made!
-`p vote` - Please vote Periodiccia on top.gg and Discord Bot List!
-
-**Join our official server!** https://bit.ly/3b4JbPd or `p server`.
-
-**It would be very appreciated if you could invite my bot to your server! :slight_smile:**
-https://bit.ly/39O9N7t
-
-**There are some hidden commands in this bot. If you find a specific one, it will give you all the other ones! :smirk:**
-Hope you find them!
-
-**Made by QuackerDeezlesYT#3393**
-If you have any questions, feel free to DM him!
-"""
-@client.command(aliases=['huh', 'what'])
-async def help(ctx):
-  em = discord.Embed(title = 'Welcome to Periodiccia!', description = helpMenuDesc, color = discord.Color.purple())
-  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
-  await ctx.send(embed = em)
 
 @client.event
 async def on_ready():
@@ -46,6 +17,32 @@ async def on_ready():
 @tasks.loop(seconds=10)
 async def change_status():
   await client.change_presence(activity=discord.Game(next(status)))
+
+helpMenuDesc = """
+:information_source: `p help` - Shows this!
+:atom: `p <element_symbol>` - Gives information about an element
+:scroll: `p list <page_number>` - Reference to symbols to use for the element commands. **12 pages**
+:abcd: `p table` - Shows the whole periodic table
+:man: `p mendeleev` -  This command tells you a bit about who Mendeleev is, and some helpful resources to learn more about him.
+:scroll: `p devbio` - Use this to learn about the developer, QuackerDeezlesYT! (**3 Pages**) You can find his socials by entering `p socials`.
+:computer: `p botsite` - My Website! Check me out! 
+:man_raising_hand: `p vote` - Please vote me on top.gg and Discord Bot List!
+:ok_hand: `p tips` - Tips and videos to learn how to easily use me.
+
+:grinning: **Join our official server!** https://bit.ly/3b4JbPd or `p server`.
+
+:pleading_face: **It would be very appreciated if you could invite my bot to your server!** https://bit.ly/39O9N7t
+
+:smirk: **There are some hidden commands in this bot. If you find a specific one, it will give you all the other ones!**
+
+SERVER MILESTONE: 75 WHAT THE FUCK :tada: LET'S GET TO 100 ILL BE SO HAPPY POGGGG
+"""
+@client.command(aliases=['huh', 'what', '?'])
+async def help(ctx):
+  em = discord.Embed(title = 'Welcome to Periodiccia!', description = helpMenuDesc, color = discord.Color.purple())
+  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+  await ctx.send(embed = em)
+
 
 @client.command(aliases=['elements'])
 async def list(ctx, page = 1):
@@ -109,6 +106,12 @@ async def list(ctx, page = 1):
     em = discord.Embed(title = 'List of the Elements', description = 'Roentgenium (`Rg`)\nCopernicium (`Cn`)\nNihonium (`Nh`)\nFlerovium (`Fl`)\nMoscovium (`Mc`)\nLivermorium (`Lv`)\nTennessine (`Ts`)\nOganesson (`Og`)', color = discord.Color.orange())
     em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
     await ctx.send(embed = em)
+
+@client.command()
+async def tips(ctx):
+  em = discord.Embed(title = '**Tips and Tricks + Help Videos**', description = '**1. Introduction** - https://www.youtube.com/watch?v=yaaj5PkE290 ', color = discord.Color.purple())
+  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+  await ctx.send(embed = em)
 
 @client.command()
 async def Ve(ctx):
@@ -828,13 +831,7 @@ async def Og(ctx):
 #hidden command
 @client.command()
 async def dm(ctx):
-  await ctx.author.send(':rage: aw shit you found me :rage:\nI guess you want to know the secret commands right?\nFine.\n`clear` would clear messages and is **not** a moderation command. For example, `p clear 3` would clear 3 messages.\nWho doesn not want free hugs? Do `p freehugs` for free hugs. This was a fanmade command!\n`p gif` = Science gif\n`p billnye` is a randomized gif with the one and only Bill Nye!\n`p rsl` gives the entire script of the Raid Shadow Legends! This command was also fanmade :slight_smile:\n`p quack`  - Quack someone by typing either `p quack <username>` or `p quack @<username>`.\n\nYou happy now? Also do not tell about this command to anyone - not even your best friend. Developer would be :face_with_symbols_over_mouth: lmao')
-
-#hidden command
-@client.command(aliases = ['delete'])
-async def clear(ctx, amount=0):
-    await ctx.message.delete()
-    await ctx.channel.purge(limit=amount)
+  await ctx.author.send(':rage: aw shit you found me :rage:\nI guess you want to know the secret commands right?\nFine.\nWho does not not want free hugs? Do `p freehugs` for free hugs! This was a fanmade command!\n`p gif` = Science gif\n`p billnye` is a randomized gif with the one and only Bill Nye!\n`p rsl` gives the entire script of the Raid Shadow Legends! This command was also fanmade :slight_smile:\n`p quack`  - Quack someone by typing either `p quack <username>` or `p quack @<username>`.\n`p nggyu` - ??? (fanmade)\n\nIf you have ideas, DM the dev or ping him in the official server.')
 
 #hidden command
 @client.command(aliases = ['raid', 'shadow', 'legends'])
@@ -845,6 +842,11 @@ async def rsl(ctx):
 @client.command(aliases = ['hug', 'hugs'])
 async def freehugs(ctx):
   await ctx.author.send("https://tenor.com/view/running-hug-embrace-imiss-you-good-to-see-you-again-gif-15965620")
+
+#hidden command
+@client.command(aliases = ['rickroll', 'rick', 'astley'])
+async def nggyu(ctx, *, member : discord.Member):
+  await member.send('https://tenor.com/view/dance-moves-dancing-singer-groovy-gif-17029825')
 
 #hidden command
 @client.command()
@@ -899,6 +901,15 @@ async def server(ctx):
 async def table(ctx):
   await ctx.send(file = discord.File("periodictable2.jpg"))
 
+@client.command()
+async def say(ctx, *, msg):
+    await ctx.message.delete()
+    await ctx.send(msg)
+
+@client.command()
+async def like(ctx):
+  await ctx.send('Juan., :heart: :rose:')
+
 @client.command(aliases = ['bio', 'dev'])
 async def devbio(ctx, page = 1):
   if page == 1:
@@ -914,9 +925,9 @@ async def devbio(ctx, page = 1):
 
   elif page == 3:
     
-    em = discord.Embed(title = 'This is QuackerDeezlesYT', description = '**Page 3 of 3 - Recommended Servers**\n\nhttps://discord.gg/Xt8UQj2neY\n\n**__60hz Gang__** is the ultimate Geometry Dash Server. We are a fun, inclusive community who loves all things Geometry Dash. Geometry Dash is a entertaining, stimulating, geometrical, rhythm and music based game. The community that we hold is very friendly and loves to help people make levels, complete levels, collaborate with others, and to be there for any help. We have very friendly and active members/staff. We would love you to join - and so would you!\n\nhttps://discord.com/invite/hDghRHmpnQ\n\nWelcome to **__Gumball Nation__**! A gaming, community server designed to have fun and no other reason. We also encourage Dank Memers to join to meet other Dank Memers!\n\nhttps://discord.gg/yQ2N6AxSGM\n\nWe are __**idks**__, a friendly gaming server that would do huge giveaways once they reach 1000 members lol', color = discord.Color.purple())
+    em = discord.Embed(title = 'This is QuackerDeezlesYT', description = '**Page 3 of 3 - Recommended Servers**\n\nhttps://discord.gg/Xt8UQj2neY - 200 MEMBERS\n\n**__60hz Gang__** is the ultimate Geometry Dash Server. We are a fun, inclusive community who loves all things Geometry Dash. Geometry Dash is a entertaining, stimulating, geometrical, rhythm and music based game. The community that we hold is very friendly and loves to help people make levels, complete levels, collaborate with others, and to be there for any help. We have very friendly and active members/staff. We would love you to join - and so would you!\n\nhttps://discord.com/invite/hDghRHmpnQ - 260 MEMBERS\n\nWelcome to **__Gumball Nation__**! A gaming, community server designed to have fun and no other reason. We also encourage Dank Memers to join to meet other Dank Memers!\n\nhttps://discord.gg/yQ2N6AxSGM - 120 MEMBERS\n\nWe are __**idks**__, a friendly gaming server that would do huge giveaways once they reach 1000 members lol', color = discord.Color.purple())
     em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/808451191779622972.png?v=1')
     await ctx.send(embed = em)
 
 keep_alive.keep_alive()
-client.run("my token")
+client.run("NzY3MTkwNzIxNTM0MzYxNjMx.X4uUCQ.2yBPUVMJeqxu6fXrqbFFgMTrTkE")
