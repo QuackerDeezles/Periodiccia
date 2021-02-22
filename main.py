@@ -930,4 +930,4 @@ async def devbio(ctx, page = 1):
     await ctx.send(embed = em)
 
 keep_alive.keep_alive()
-client.run("NzY3MTkwNzIxNTM0MzYxNjMx.X4uUCQ.2yBPUVMJeqxu6fXrqbFFgMTrTkE")
+client.run("token")
