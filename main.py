@@ -6,7 +6,7 @@ from discord.ext import commands, tasks
 from itertools import cycle
 
 client = commands.Bot(command_prefix = 'p ')
-status = cycle([f'p help - Help Command', 'Invite: bit.ly/39O9N7t'])
+status = cycle([f'My favorite two-digit number is 69.'])
 client.remove_command('help')
 
 @client.event
@@ -18,31 +18,20 @@ async def on_ready():
 async def change_status():
   await client.change_presence(activity=discord.Game(next(status)))
 
-helpMenuDesc = """
-:information_source: `p help` - Shows this!
-:atom: `p <element_symbol>` - Gives information about an element
-:scroll: `p list <page_number>` - Reference to symbols to use for the element commands. **12 pages**
-:abcd: `p table` - Shows the whole periodic table
-:man: `p mendeleev` -  This command tells you a bit about who Mendeleev is, and some helpful resources to learn more about him.
-:scroll: `p devbio` - Use this to learn about the developer, QuackerDeezlesYT! (**3 Pages**) You can find his socials by entering `p socials`.
-:computer: `p botsite` - My Website! Check me out! 
-:man_raising_hand: `p vote` - Please vote me on top.gg and Discord Bot List!
-:ok_hand: `p tips` - Tips and videos to learn how to easily use me.
+@client.command(aliases=['huh', 'what'])
+async def help(ctx, page = 1):
+  if page == 1:
 
-:grinning: **Join our official server!** https://bit.ly/3b4JbPd or `p server`.
-
-:pleading_face: **It would be very appreciated if you could invite my bot to your server!** https://bit.ly/39O9N7t
-
-:smirk: **There are some hidden commands in this bot. If you find a specific one, it will give you all the other ones!**
-
-SERVER MILESTONE: 75 WHAT THE FUCK :tada: LET'S GET TO 100 ILL BE SO HAPPY POGGGG
-"""
-@client.command(aliases=['huh', 'what', '?'])
-async def help(ctx):
-  em = discord.Embed(title = 'Welcome to Periodiccia!', description = helpMenuDesc, color = discord.Color.purple())
-  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
-  await ctx.send(embed = em)
-
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', description = '`p help` - Shows this!\n\n**__Element Commands__**\n\n:atom: `p <element_symbol>` - Gives information about an element\n\n:scroll: `p list <page_number>` - Reference to symbols to use for the element commands. **12 pages**\n\n:abcd: `p table` - Shows the whole periodic table\n\n:man: `p mendeleev` -  This command tells you a bit about who Mendeleev is, and some helpful resources to learn more about him.\n\n**__Info Commands__**\n\n:scroll: `p devbio` - Use this to learn about the dev, QuackerDeezlesYT! (**2 Pages**) You can find his socials by entering `p socials`.\n\n:computer: `p botsite` - My Website! Check me out! \n\n:man_raising_hand: `p vote` - Please vote me on top.gg and Discord Bot List!\n\n:ok_hand: `p tips` - Tips and videos to learn how to easily use me.\n\n:grinning: **Join our official server!** https://bit.ly/3b4JbPd or `p server`.\n\n:pleading_face: **It would be very appreciated if you could invite my bot to your server!** https://bit.ly/39O9N7t or `p invite`', color = discord.Color.purple())
+    em.set_footer(text="Help Page 1 of 2 - Element and Info")
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+    await ctx.send(embed = em)
+  elif page == 2:
+    
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', description = '**__Fun and Meme Commands__**\n\n:people_hugging: `p freehugs` - Free Hugs! Fanmade\n\n:video_camera: `p gif` = Science gif\n\n:magnet: `p billnye` - Randomized Bill Nye gif\n\n:scroll: `p rsl` gives the entire script of the Raid Shadow Legends! Fanmade\n\n:duck: `p quack @<username>` - Quack! Fanmade\n\n:man_facepalming: `p rickroll @<username>` - I am guessing that you know what that is.\n\n:speaking_head: `p say {text}` The bot will say whatever you want!', color = discord.Color.purple())
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+    em.set_footer(text="Help Page 2 of 2 - Fun/Meme")
+    await ctx.send(embed = em)
 
 @client.command(aliases=['elements'])
 async def list(ctx, page = 1):
@@ -133,7 +122,7 @@ async def He(ctx):
 
 @client.command()
 async def Li(ctx):
-  em = discord.Embed(title = '**Lithium**', description = '3rd Element ,Mass of 6.94, **Alkali Metal**', color = discord.Color.blue())
+  em = discord.Embed(title = '**Lithium**', description = '3rd Element, Mass of 6.94, **Alkali Metal**', color = discord.Color.blue())
   em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806567984415768678.png?v=1')
   await ctx.send(embed = em)
 
@@ -828,39 +817,38 @@ async def Og(ctx):
   em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/807319288561008711.png?v=1')
   await ctx.send(embed = em)
 
-#hidden command
 @client.command()
 async def dm(ctx):
-  await ctx.author.send(':rage: aw shit you found me :rage:\nI guess you want to know the secret commands right?\nFine.\nWho does not not want free hugs? Do `p freehugs` for free hugs! This was a fanmade command!\n`p gif` = Science gif\n`p billnye` is a randomized gif with the one and only Bill Nye!\n`p rsl` gives the entire script of the Raid Shadow Legends! This command was also fanmade :slight_smile:\n`p quack`  - Quack someone by typing either `p quack <username>` or `p quack @<username>`.\n`p nggyu` - ??? (fanmade)\n\nIf you have ideas, DM the dev or ping him in the official server.')
+  await ctx.author.send(':rage: aw shit you found me :rage:\nI guess you want to know the secret commands right?\nFine.\nWho does not not want free hugs? Do `p freehugs` for free hugs! This was a fanmade command!\n`p gif` = Science gif\n`p billnye` is a randomized gif with the one and only Bill Nye!\n`p rsl` gives the entire script of the Raid Shadow Legends! This command was also fanmade :slight_smile:\n`p quack`  - Quack someone by typing either `p quack <username>` or `p quack @<username>`.\n`p nggyu <username>` or `p nggyu @<username>` - ??? (fanmade)\n`p pp` - See how big your pp is!\n\nIf you have ideas, DM the dev or ping him in the official server.')
 
-#hidden command
 @client.command(aliases = ['raid', 'shadow', 'legends'])
 async def rsl(ctx):
   await ctx.author.send('**This message is sponsored by Raid Shadow Legends, one of the biggest mobile role-playing games of 2021 and it is totally free! Currently almost 10 million users have joined Raid over the last six months, and it is one of the most impressive games in its class with detailed models, environments and smooth 60 frames per second animations! All the champions in the game can be customized with unique gear that changes your strategic buffs and abilities! The dungeon bosses have some ridiculous skills of their own and figuring out the perfect party and strategy to overtake them is a lot of fun! Currently with over 300,000 reviews, Raid has almost a perfect score on the Play Store! The community is growing fast and the highly anticipated new faction wars feature is now live, you might even find my squad out there in the arena! It is easier to start now than ever with rates program for new players you get a new daily login reward for the first 90 days that you play in the game! So what are you waiting for? Go to the video description, click on the special links and you will get 50,000 silver and a free epic champion as part of the new player program to start your journey! Good luck and I will see you there!**')
-  
-#hidden command
+
 @client.command(aliases = ['hug', 'hugs'])
 async def freehugs(ctx):
   await ctx.author.send("https://tenor.com/view/running-hug-embrace-imiss-you-good-to-see-you-again-gif-15965620")
 
-#hidden command
 @client.command(aliases = ['rickroll', 'rick', 'astley'])
 async def nggyu(ctx, *, member : discord.Member):
   await member.send('https://tenor.com/view/dance-moves-dancing-singer-groovy-gif-17029825')
 
-#hidden command
 @client.command()
 async def gif(ctx):
   gifs = ['https://tenor.com/view/carbon-is-highly-reactive-with-other-elements-sensitive-responsive-active-neil-degrasse-tyson-gif-15827677', 'https://tenor.com/view/massiveunregulatednitrogendioxide-gif-19415452', 'https://tenor.com/view/drinks-margarita-liquid-nitrogen-dry-ice-gif-3384966', 'https://tenor.com/view/mundschutz-mask-breathe-gif-17200590','https://tenor.com/view/gold-rich-daffy-duck-money-gif-10195329',]
   await ctx.send(f'For the love of science and elements {random.choice(gifs)}')
 
-#hidden command
 @client.command(aliases = ['bill', 'nye'])
 async def billnye(ctx):
-  billnye_gifs = ['https://tenor.com/view/bill-nye-billnye-sciencerules-science-gif-5866727',  'https://tenor.com/view/bill-nye-party-horn-confetti-sarcastic-like-child-gif-5499505', 'https://tenor.com/view/bill-nye-head-explode-mindblown-gif-4903176', 'https://tenor.com/view/tongue-out-crazy-gif-11927272', 'https://tenor.com/view/memes-bill-nye-the-science-gif-5930649', 'https://tenor.com/view/mic-drop-drop-the-mic-serious-boss-bill-nye-gif-8166361', 'https://tenor.com/view/bill-nye-bill-nye-the-science-guy-scienceguy-consider-gif-7391226', 'https://tenor.com/view/dance-bill-nye-bill-nye-the-science-guy-bill-nye-dance-dancing-gif-5603636']
+  billnye_gifs = ['https://tenor.com/view/bill-nye-billnye-sciencerules-science-gif-5866727',  'https://tenor.com/view/bill-nye-party-horn-confetti-sarcastic-like-child-gif-5499505', 'https://tenor.com/view/bill-nye-head-explode-mindblown-gif-4903176', 'https://tenor.com/view/tongue-out-crazy-gif-11927272', 'https://tenor.com/view/memes-bill-nye-the-science-gif-5930649', 'https://tenor.com/view/mic-drop-drop-the-mic-serious-boss-bill-nye-gif-8166361', 'https://tenor.com/view/bill-nye-bill-nye-the-science-guy-scienceguy-consider-gif-7391226', 'https://tenor.com/view/dance-bill-nye-bill-nye-the-science-guy-bill-nye-dance-dancing-gif-5603636', 'https://tenor.com/view/bill-nye-science-fuck-yeah-balloon-suggestive-gif-5410510', 'https://tenor.com/view/bill-nye-science-science-guy-gif-5410511', 'https://tenor.com/view/nonsense-bill-nye-wtf-gif-8493714', 'https://tenor.com/view/bill-nye-science-guy-safety-glasses-off-gif-15789510', 'https://tenor.com/view/bill-nye-bill-nye-the-science-guy-science-slut-wink-gif-7731218']
   await ctx.send(f'You cannot have enough Bill Nye {random.choice(billnye_gifs)}')
 
-#hidden command
+@client.command(aliases = ['vote'])
+async def upvote(ctx):
+  em = discord.Embed(title = '**UPVOTE ME PLEASE :pleading_face:**',description = '**top.gg**\nhttps://top.gg/bot/767190721534361631/vote\n**Discord Bot List**\nhttps://discordbotlist.com/bots/quacc-ducc/upvote', color = discord.Color.orange())
+  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/808451191779622972.png?v=1')
+  await ctx.send(embed = em)
+
 @client.command()
 async def quack(ctx, *, member : discord.Member):
 
@@ -872,6 +860,10 @@ async def mendeleev(ctx):
   em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806396194196029460.png?v=1')
   await ctx.send(embed = em)
 
+@client.command()
+async def invite(ctx):
+  ctx.send('https://bit.ly/39O9N7t HOPING TO REACH 100 SERVERS :pray:')
+
 @client.command(aliases = ['soc'])
 async def socials(ctx):
   em = discord.Embed(title = '**QuackerDeezlesYT Socials**',description = '**YouTube Channel**\nhttps://www.youtube.com/channel/UC6PKOburRMFSjwTCQcL4wbQ?view_as=subscriber', color = discord.Color.orange())
@@ -880,16 +872,10 @@ async def socials(ctx):
 
 @client.command(aliases = ['site', 'website'])
 async def botsite(ctx):
-  em = discord.Embed(title = '**PERIODICCIA WEBSITE**', description ='https://sites.google.com/view/periodiccia/home', color = discord.Color.green())
+  em = discord.Embed(title = '**PERIODICCIA WEBSITE**', description ='https://periodiccia.squarespace.com - Password: periodiccia', color = discord.Color.green())
   em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
   await ctx.send(embed = em)
 
-@client.command()
-async def vote(ctx):
-  em = discord.Embed(title = '**UPVOTE ME PLEASE :pleading_face:**', description ='**DiscordBotList**\nhttps://discordbotlist.com/bots/quacc-ducc/upvote\n**Top.gg**\nhttps://top.gg/bot/767190721534361631/vote', color = discord.Color.purple())
-  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806252058851803136.png?v=1')
-  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806252169765584976.png?v=1')
-  await ctx.send(embed = em)
 
 @client.command(aliases = ['serv', 'guild'])
 async def server(ctx):
@@ -901,14 +887,15 @@ async def server(ctx):
 async def table(ctx):
   await ctx.send(file = discord.File("periodictable2.jpg"))
 
-@client.command()
+@client.command(aliases = ['speak', 'talk', 'message'])
 async def say(ctx, *, msg):
     await ctx.message.delete()
     await ctx.send(msg)
 
+
 @client.command()
 async def like(ctx):
-  await ctx.send('Juan., :heart: :rose:')
+  await ctx.send('Juan or Rhino...')
 
 @client.command(aliases = ['bio', 'dev'])
 async def devbio(ctx, page = 1):
@@ -919,13 +906,13 @@ async def devbio(ctx, page = 1):
     await ctx.send(embed = em)
   elif page == 2:
     
-    em = discord.Embed(title = 'This is QuackerDeezlesYT', description = '**Page 2 of 3 - Discord Experience**\n\n**Why did I decide to make this bot?**\n\nTo be honest, I never liked programming. For who I want to be, writing random abbreviations was at the bottom of my priority list. A few months after I made a Discord account, I planned on making a Discord Bot. It felt fun seeing people type commands and in an instant my bot will respond, so why not try it out?\n\nIf you go to the URL of DiscordBotLists vote page (not top.gg) you will see quacc-ducc and not periodiccia. Quacc Ducc was 1.0, a bot with literally no purpose. It was not going well and was offline most of the time. I decided to take a stand. One of the commands of Quacc Ducc was `elem`, which would give out information about the Elements, similar to what Periodiccia is doing right now. I got a thought - why not make a bot just on this? I worked super hard on it, and it is paying off, with people constantly using it. I am realizing that me not trying out programming could have blocked a door that I have myself opened.\n\n**Moderation**\n\nI am an admin of 3 servers with member counts of 160, 250, and 110. Those servers are the ones I advertised on the third page of this bio, you can find them by typing `p devbio 3`. In addition to this, I am a Stream Moderator of 2 streamers with follower counts 200 and 350.\n\nI will be very happy if you make me a staff member in your server! Would be truly appreciated :grinning:', color = discord.Color.purple())
+    em = discord.Embed(title = 'This is QuackerDeezlesYT', description = '**Page 2 of 3 - Discord Experience**\n\n**Why did I decide to build Periodiccia?**\n\nTo be honest, I never liked programming. For who I want to be, writing random abbreviations was at the bottom of my priority list. A few months after I made a Discord account, I planned on making a Discord Bot. It felt fun seeing people type commands and in an instant my bot will respond, so why not try it out?\n\nIf you go to the URL of DiscordBotLists vote page (not top.gg) you will see quacc-ducc and not periodiccia. Quacc Ducc was 1.0, a bot with literally no purpose. It was not going well and was offline most of the time. I decided to take a stand. One of the commands of Quacc Ducc was `elem`, which would give out information about the Elements, similar to what Periodiccia is doing right now. I got a thought - why not make a bot just on this? I worked super hard on it, and it is paying off, with people constantly using it. I am realizing that me not trying out programming could have blocked a door that I have myself opened.\n\n**Moderation**\n\nI am an admin of 3 servers with member counts of 200, 260, 110, 70, and 40. Those servers are the ones I advertised on the third page of this bio, you can find them by typing `p devbio 3`. In addition to this, I am a Stream Moderator of 2 streamers with follower counts 200 and 350.\n\nI will be very happy if you make me a staff member in your server! Would be truly appreciated :grinning:', color = discord.Color.purple())
     em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/808451191779622972.png?v=1')
     await ctx.send(embed = em)
 
   elif page == 3:
     
-    em = discord.Embed(title = 'This is QuackerDeezlesYT', description = '**Page 3 of 3 - Recommended Servers**\n\nhttps://discord.gg/Xt8UQj2neY - 200 MEMBERS\n\n**__60hz Gang__** is the ultimate Geometry Dash Server. We are a fun, inclusive community who loves all things Geometry Dash. Geometry Dash is a entertaining, stimulating, geometrical, rhythm and music based game. The community that we hold is very friendly and loves to help people make levels, complete levels, collaborate with others, and to be there for any help. We have very friendly and active members/staff. We would love you to join - and so would you!\n\nhttps://discord.com/invite/hDghRHmpnQ - 260 MEMBERS\n\nWelcome to **__Gumball Nation__**! A gaming, community server designed to have fun and no other reason. We also encourage Dank Memers to join to meet other Dank Memers!\n\nhttps://discord.gg/yQ2N6AxSGM - 120 MEMBERS\n\nWe are __**idks**__, a friendly gaming server that would do huge giveaways once they reach 1000 members lol', color = discord.Color.purple())
+    em = discord.Embed(title = 'This is QuackerDeezlesYT', description = '**Page 3 of 3 - Recommended Servers**\n\nhttps://discord.gg/Xt8UQj2neY - 200 MEMBERS\n\n**__60hz Gang__** is a fun, inclusive community who loves all things Geometry Dash, a rhythm and music based game. The community that we hold is very friendly and loves to help people make levels, complete levels, collaborate with others, and to be there for any help. We would love you to join - and so would you!\n\nhttps://discord.com/invite/hDghRHmpnQ - 260 MEMBERS\n\nWelcome to **__Gumball Nation__**! A gaming, community server designed to have fun and no other reason. We also encourage Dank Memers to join to meet other Dank Memers!\n\nhttps://discord.gg/edQYThXvBt - 70 MEMBERS\n\nWe are __**TAL9988s Lounge**__, a server by the streamer and youtuber TAL9988.\n\nhttps://discord.gg/KwdnHrxBZf - 40 MEMBERS\n\nWe are __**Good Boi Kingdom**__, a Dank Memer and chill Server, brothers with Gumball Nation!', color = discord.Color.purple())
     em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/808451191779622972.png?v=1')
     await ctx.send(embed = em)
 
