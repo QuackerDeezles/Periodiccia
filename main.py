@@ -1,129 +1,188 @@
 import discord
 import keep_alive
 import os
+import asyncio
+import datetime
+import json
 import random
 from discord.ext import commands, tasks
 from itertools import cycle
 
-client = commands.Bot(command_prefix = 'p ')
+client = commands.Bot(command_prefix="p ", case_insensitive=True)
 client.remove_command('help')
-
-
-@client.event
-async def on_ready():
-  print("The bot is ready!")
 
 @client.event
 async def on_ready():
     print("The bot is ready!")
-    await client.change_presence(
-        status=discord.Status.online,
-        activity=discord.Activity(
-            type=discord.ActivityType.watching,
-            name=f"My Developer code Me"))
+    await client.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.playing, name=f"with your heart lmao"))
+    for x in client.guilds:
+      print(x.name)
+      print(x.member_count)
+
+@client.event
+async def on_guild_join(guild):
+	try:
+
+		if guild.system_channel:
+			await guild.system_channel.send(
+			    f'Hey! My name i**s** P**e**riodiccia! I am a Periodic Table of Elements discord bot. `p help` ope**n**s up the goate**d** help page, and all informatio**n** and commands will be listed. I hope I can be a cool addition to yo**u**r server! :sunglasses:\nMade by Quacker**D**e**e**zle**s**YT#6969'
+			)
+	except:
+		pass
+	print("Guild joined")
 
 @client.command(aliases = ['huh', 'what'])
 async def help(ctx, args = None):
  if not args:
-  em = discord.Embed(title = '__Welcome to Periodiccia!__', description = '**Here are the commands for Periodiccia.**\n\n:1234: **Element Command List** `p help elements`\n\n:information_source: **Info Command List** `p help info`\n\n:smile: **Fun Command List** `p help fun`\n\n:grinning: **Join our official server!** https://bit.ly/3b4JbPd or `p server`.\n\n:pleading_face: **It would be very appreciated if you could invite my bot to your server!** https://bit.ly/39O9N7t\n\n:pleading_face: Please vote me on top.gg! https://top.gg/bot/767190721534361631/vote or `p vote`\n\n:question: DM QuackerDeezlesYT#3393 (the developer) if you have any help!\n\nBtw my pronouns are she/her', color = discord.Color.purple())
-  em.set_footer(text = 'You are now viewing the help page.')
-  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+  em = discord.Embed(title = 'Welcome to Periodiccia! :D', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**Here are the commands for Periodiccia.**\n\n:question: `p help` (aliases = `huh`, `what`) - **Shows this!**\n\n:1234: **Element Command List** `p help elements`\n\n<:settings:585767366743293952> **Info Command List** `p help info`\n\n:smile: **Fun Command List** `p help fun`\n\n **Join our official server!** https://bit.ly/3b4JbPd or `p server`.\n\n<:invite:658538493949116428> **It would be very appreciated if you could invite my bot to your server!** https://bit.ly/39O9N7t or `p invite`\n\n<:news:658522693058166804> Please vote me on top.gg! https://top.gg/bot/767190721534361631/vote or `p vote`\n\n<a:cursor:404001393360502805> DM QuackerDeezlesYT#6969 (the developer) if you have any help!\n\n<:role:808826577785716756> Btw my pronouns are she/her', color = discord.Color.purple())
+  em.set_footer(text = 'You are now viewing the help page. What else should I have said here?')
+  em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
   await ctx.send(embed = em)
  else:
   if args == 'elements':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', description = '**:1234: __Element Commands__**\n\n:atom: `p <element_symbol>` - Gives information about an element\n\n:scroll: `p elements <page_number>` - Reference to symbols to use for the element commands. **12 pages**\n\n:atom: `p ions` - Gives some pretty common polyatomic ions that you will have to memorize in your chemistry class. \n\n:man: `p mendeleev` -  This command tells you a bit about who Mendeleev is, and some helpful resources to learn more about him.', color = discord.Color.purple())
-    em.set_footer(text="You are now viewing the help elements page.")
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:1234: __Element Commands__**\n\n:atom: `p <element_symbol>` - Gives information about an element\n\n<:rules:781581022059692043> `p elements <page_number>` - Reference to symbols to use for the element commands. **12 pages**\n\n:atom: `p bonds` - Explains the four types of bonds between molecules.\n\n:red_circle: `p valence` (aliases = `val`, `electron`) - Explains what valence electrons are.\n\n:notepad_spiral: `p elemgroup <page_number>` - Gives information about the groups of elements found in the Periodic Table (example: Transition Metal)!\n\n:man: `p mendeleev` (aliases = `dmitri`) - This command tells you a bit about who Mendeleev is, and some helpful resources to learn more about him.', color = discord.Color.purple())
+    em.set_footer(text="You are now viewing the help elements page. Cool?")
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818952523783733259/elements-1.gif')
     await ctx.send(embed = em)
   elif args == 'info':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', description = ':information_source: **__Info Commands__**\n\n:scroll: `p devbio` - Use this to learn about the dev, QuackerDeezlesYT! (**3 Pages**) You can find his socials by entering `p socials`.\n\n:computer: `p botsite` - My Website! Check me out! \n\n:man_raising_hand: `p vote` - Please vote me on top.gg and Discord Bot List!\n\n:ok_hand: `p tips` - Tips and videos to learn how to easily use me.', color = discord.Color.purple())
-    em.set_footer(text="You are now viewing the help info page.")
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = ':information_source: **__Info Commands__**\n\n<:VerifiedBotDev:820021399807590440> `p devbio` (aliases = `dev`, `bio`) - Use this to learn about the dev, QuackerDeezlesYT! (**3 Pages**)\n\n<:youtube:314349922885566475> `p socials` (aliases = `p quacker`) - His YouTube!\n\n<:invite:658538493949116428> `p invite` - My invite link! Road to 80 servers :D\n\n:page_with_curl: `p servcount` - Find how many servers I am in!\n\n<:news:658522693058166804> `p vote` - Please vote me on top.gg and Discord Bot List!\n\n<:invite:658538493949116428> `p server` (aliases = `serv`, `guild`) - My Official Server! :D\n\n<:pin_unread:658538492548218890> A Helpful Video made by my Dev: https://www.youtube.com/watch?v=yaaj5PkE290', color = discord.Color.purple())
+    em.set_footer(text="You are now viewing the help info page. I hope.")
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818953530278281276/info.gif')
     await ctx.send(embed = em)
   elif args == 'fun':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', description = '**:smile: __Fun and Meme Commands__**\n\n:people_hugging: `p freehugs` - Free Hugs! Fanmade\n\n:video_camera: `p gif` - Science gif\n\n:magnet: `p billnye` - Randomized Bill Nye gif\n\n:scroll: `p rsl` gives the entire script of the Raid Shadow Legends! Fanmade\n\n:duck: `p quack @<username>` - Quack! Fanmade\n\n:lipstick: `p pp` - See how big your pp is!\n\n:sweat_drops: `p squirt` A generator to see how wet you are.\n\n:tv: `p waifu` - See a randomized selection of waifus!\n\n:man_facepalming: `p bruh @<username>` - Get a random annoying gif sent into your DMs.\n\n:speaking_head: `p say {text}` The bot will say whatever you want!', color = discord.Color.purple())
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
-    em.set_footer(text="You are now viewing the help fun page.")
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:smile: __Fun and Meme Commands__**\n\n:people_hugging: `p freehugs` (aliases = `hug`, `hugs`) - Free Hugs! Fanmade\n\n:video_camera: `p gif` - Science gif\n\n:magnet: `p billnye` (aliases = `bill`, `nye`) - Randomized Bill Nye gif\n\n:scroll: `p rsl` (aliases = `raid`, `shadow`, `legends`) gives the entire script of the Raid Shadow Legends! Fanmade\n\n:duck: `p quack @<username>` - Quack! Fanmade\n\n:lipstick: `p pp` (aliases = `penis`, `dick`) - See how big your pp is!\n\n:sweat_drops: `p squirt` (aliases = `pussy`, `vagina`) - A generator to see how wet you are.\n\n:tv: `p waifu` (aliases = `weeb`, `anime`) - See a randomized selection of waifus!\n\n:speaking_head: `p msg` {text} (aliases = `message`, `directmessage`) - The bot will DM what you want to say!', color = discord.Color.purple())
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818954274364588053/fun.gif')
+    em.set_footer(text="You are now viewing the help fun page. Fun!")
     await ctx.send(embed = em)
   else:
     pass
+
 
 @client.command()
 async def elements(ctx, page = 1):
   if page == 1:
 
-    em = discord.Embed(title = 'List of the Elements 1', description = 'Hydrogen (`H`)\nHelium (`He`)\nLithium (`Li`)\nBeryllium (`Be`)\nBoron (`B`)\nCarbon (`C`)\nNitrogen (`N`)\nOxygen (`O`)\nFlourine (`F`)\nNeon (`Ne`)', color = discord.Color.orange())
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+    em = discord.Embed(title = 'List of the Elements 1', description = 'Hydrogen (`H`)\nHelium (`He`)\nLithium (`Li`)\nBeryllium (`Be`)\nBoron (`B`)\nCarbon (`C`)\nNitrogen (`N`)\nOxygen (`O`)\nFlourine (`F`)\nNeon (`Ne`)')
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
   elif page == 2:
     
-    em = discord.Embed(title = 'List of the Elements 2', description = 'Sodium (`Na`)\nMagnesium (`Mg`)\nAluminum (`Al`)\nSilicon (`Si`)\nPhosphorus (`P`)\nSulfur (`S`)\nChlorine (`Cl`)\nArgon (`Ar`)\nPotassium (`K`)\nCalcium (`Ca`)', color = discord.Color.orange())
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+    em = discord.Embed(title = 'List of the Elements 2', description = 'Sodium (`Na`)\nMagnesium (`Mg`)\nAluminum (`Al`)\nSilicon (`Si`)\nPhosphorus (`P`)\nSulfur (`S`)\nChlorine (`Cl`)\nArgon (`Ar`)\nPotassium (`K`)\nCalcium (`Ca`)')
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
   elif page == 3:
     
-    em = discord.Embed(title = 'List of the Elements 3', description = 'Scandium (`Sc`)\nTitanium (`Ti`)\nVanadium (`V`)\nChromium (`Cr`)\nManganese (`Mn`)\nIron (`Fe`)\nCobalt (`Co`)\nNickel (`Ni`)\nCopper (`Cu`)\nZinc (`Zn`)', color = discord.Color.orange())
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+    em = discord.Embed(title = 'List of the Elements 3', description = 'Scandium (`Sc`)\nTitanium (`Ti`)\nVanadium (`V`)\nChromium (`Cr`)\nManganese (`Mn`)\nIron (`Fe`)\nCobalt (`Co`)\nNickel (`Ni`)\nCopper (`Cu`)\nZinc (`Zn`)')
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
   elif page == 4:
     
-    em = discord.Embed(title = 'List of the Elements 4', description = 'Gallium (`Ga`)\nGermanium (`Ge`)\nArsenic (`As`)\nSelenium (`Se`)\nBromine (`Br`)\nKyrpton (`Kr`)\nRibidium (`Rb`)\nStrontium (`Sr`)\nYttrium (`Y`)\nZirconium (`Zr`)', color = discord.Color.orange())
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+    em = discord.Embed(title = 'List of the Elements 4', description = 'Gallium (`Ga`)\nGermanium (`Ge`)\nArsenic (`As`)\nSelenium (`Se`)\nBromine (`Br`)\nKyrpton (`Kr`)\nRibidium (`Rb`)\nStrontium (`Sr`)\nYttrium (`Y`)\nZirconium (`Zr`)')
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
   elif page == 5:
     
-    em = discord.Embed(title = 'List of the Elements 5', description = 'Niobium (`Nb`)\nMolybdenum (`Mo`)\nTechnetium (`Tc`)\nRuthenium (`Ru`)\nRhodium (`Rh`)\nPalladium (`Pd`)\nSilver (`Ag`)\nCandium (`Cd`)\nIndium (`In`)\nTin (`Sn`)', color = discord.Color.orange())
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+    em = discord.Embed(title = 'List of the Elements 5', description = 'Niobium (`Nb`)\nMolybdenum (`Mo`)\nTechnetium (`Tc`)\nRuthenium (`Ru`)\nRhodium (`Rh`)\nPalladium (`Pd`)\nSilver (`Ag`)\nCandium (`Cd`)\nIndium (`In`)\nTin (`Sn`)')
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     em.set_footer(text="Do people still like cat videos?")
     await ctx.send(embed = em)
   elif page == 6:
     
-    em = discord.Embed(title = 'List of the Elements 6', description = 'Antimony (`Sb`)\nTellurium (`Te`)\nIodine (`I`)\nXenon (`Xe`)\nCaesium (`Cs`)\nBarium (`Ba`)\nLanthanum (`La`)\nCerium (`Ce`)\nPraseodymium (`Pr`)\nNeondymium (`Nd`)', color = discord.Color.orange())
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+    em = discord.Embed(title = 'List of the Elements 6', description = 'Antimony (`Sb`)\nTellurium (`Te`)\nIodine (`I`)\nXenon (`Xe`)\nCaesium (`Cs`)\nBarium (`Ba`)\nLanthanum (`La`)\nCerium (`Ce`)\nPraseodymium (`Pr`)\nNeondymium (`Nd`)')
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
   elif page == 7:
     
-    em = discord.Embed(title = 'List of the Elements 7', description = 'Prothemium (`Pm`)\nSamarium (`Sm`)\nEuropium (`Eu`)\nGadolinium (`Gd`)\nTerbium (`Tb`)\nDysprosium (`Dy`)\nHolmium (`Ho`)\nErbium (`Er`)\nThulium (`Tm`)\nYtterbium (`Yb`)', color = discord.Color.orange())
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+    em = discord.Embed(title = 'List of the Elements 7', description = 'Prothemium (`Pm`)\nSamarium (`Sm`)\nEuropium (`Eu`)\nGadolinium (`Gd`)\nTerbium (`Tb`)\nDysprosium (`Dy`)\nHolmium (`Ho`)\nErbium (`Er`)\nThulium (`Tm`)\nYtterbium (`Yb`)')
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
   elif page == 8:
     
-    em = discord.Embed(title = 'List of the Elements 8', description = 'Lutetium (`Lu`)\nHafnium (`Hf`)\nTantalum (`Ta`)\nTungsten (`W`)\nRhenium (`Re`)\nOsmium (`Os`)\nIridium (`Ir`)\nPlatinum (`Pt`)\nGold (`Au`)\nMercury (`Hg`)', color = discord.Color.orange())
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+    em = discord.Embed(title = 'List of the Elements 8', description = 'Lutetium (`Lu`)\nHafnium (`Hf`)\nTantalum (`Ta`)\nTungsten (`W`)\nRhenium (`Re`)\nOsmium (`Os`)\nIridium (`Ir`)\nPlatinum (`Pt`)\nGold (`Au`)\nMercury (`Hg`)')
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
   elif page == 9:
     
-    em = discord.Embed(title = 'List of the Elements 9', description = 'Thallium (`Tl`)\nLead (`Pb`)\nBismuth (`Bi`)\nPolonium (`Po`)\nAstatine (`At`)\nRadon (`Rn`)\nFrancium (`Fr`)\nRadium (`Ra`)\nActinium (`Ac`)\nThorium (`Th`)', color = discord.Color.orange())
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+    em = discord.Embed(title = 'List of the Elements 9', description = 'Thallium (`Tl`)\nLead (`Pb`)\nBismuth (`Bi`)\nPolonium (`Po`)\nAstatine (`At`)\nRadon (`Rn`)\nFrancium (`Fr`)\nRadium (`Ra`)\nActinium (`Ac`)\nThorium (`Th`)')
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
   elif page == 10:
     
-    em = discord.Embed(title = 'List of the Elements 10', description = 'Protactinium (`Pa`)\nUranium (`U`)\nNeptunium (`Np`)\nPlutonium (`Pu`)\nAmericium (`Am`)\nCurium (`Cm`)\nBerkelium (`Bk`)\nCalifornium (`Cf`)\nEinsteinium (`Es`)\nFermium (`Fm`)', color = discord.Color.orange())
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+    em = discord.Embed(title = 'List of the Elements 10', description = 'Protactinium (`Pa`)\nUranium (`U`)\nNeptunium (`Np`)\nPlutonium (`Pu`)\nAmericium (`Am`)\nCurium (`Cm`)\nBerkelium (`Bk`)\nCalifornium (`Cf`)\nEinsteinium (`Es`)\nFermium (`Fm`)')
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
   elif page == 11:
     
-    em = discord.Embed(title = 'List of the Elements 11', description = 'Mendelevium (`Md`)\nNobelium (`No`)\nLawrencium (`Lr`)\nRutherfordium (`Rf`)\nDubnium (`Db`)\nSeaborgium (`Sg`)\nBohrium (`Bh`)\nHassium (`Hs`)\nMeitnerium (`Mt`)\nDarmstadtium (`Ds`)', color = discord.Color.orange())
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+    em = discord.Embed(title = 'List of the Elements 11', description = 'Mendelevium (`Md`)\nNobelium (`No`)\nLawrencium (`Lr`)\nRutherfordium (`Rf`)\nDubnium (`Db`)\nSeaborgium (`Sg`)\nBohrium (`Bh`)\nHassium (`Hs`)\nMeitnerium (`Mt`)\nDarmstadtium (`Ds`)')
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
   elif page == 12:
 
-    em = discord.Embed(title = 'List of the Elements 12', description = 'Roentgenium (`Rg`)\nCopernicium (`Cn`)\nNihonium (`Nh`)\nFlerovium (`Fl`)\nMoscovium (`Mc`)\nLivermorium (`Lv`)\nTennessine (`Ts`)\nOganesson (`Og`)', color = discord.Color.orange())
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
+    em = discord.Embed(title = 'List of the Elements 12', description = 'Roentgenium (`Rg`)\nCopernicium (`Cn`)\nNihonium (`Nh`)\nFlerovium (`Fl`)\nMoscovium (`Mc`)\nLivermorium (`Lv`)\nTennessine (`Ts`)\nOganesson (`Og`)')
+    em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
+  elif page >= 12:
+				return await ctx.send("There are only 12 list sectors you idiot lmao")
 
 @client.command()
-async def ions(ctx):
-  em = discord.Embed(title = 'Common Polyatomic Ions', description = 'NH4+    -    **Ammonium**\nCH3COO-    -    **Acetate**\nCN-    -    **Cyanide**\nOH-    -    **Hydroxide**\nMno4-    -    **Permanganate**\nNO3-    -    **Nitrate**\nNO2-    -    **Nitrite**\nClO4-    -    **Perchlorate**\nCl03-    -    **Chlorate**\nCl02-    -    **Chlorite**\nClO-    -    **Hypochlorite**\nHSO4-    -    **Hydrogen Sulfate**\nHCO3-  -  **Hydrogen Carbonate**\nH2PO4-  -  **Dihydrogen Phosphate**', color = discord.Color.orange())
-  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
-  em.set_footer(text="A cool memorization tool")
+async def elemgroup(ctx, *, page: int = None):
+		groupname = ''
+		groupdesc = ''
+		yeetus = 'Use `p elemgroup <number>` to find the group you want.\n\n**1.**  Alkali Metals\n**2.** Alkaline Earth Metals\n**3.** Transition Metals\n**4.** Non-Metals\n**5.** Noble Gases\n**6.** Halogens\n**7.** Metalloids\n**8.** Lanthanoids'
+		if not page:
+				em = discord.Embed(title='Groups of the Periodic Table of Elements',
+													description=yeetus)
+				await ctx.send(embed=em)
+		else:
+			if page == 1:
+						groupname = 'Alkali Metals'
+						groupdesc = 'All alkali metals have their outermost electron in an s-orbital (hence are group 1): this shared electron configuration results in their having very similar characteristic properties. Tthe alkali metals provide the best example of group trends in properties in the periodic table, with elements exhibiting well-characterised homologous behaviour. Upon reacting with oxygen, alkali metals form oxides, peroxides, superoxides and suboxides.'
+			elif page == 2:
+						groupname = 'Alkaline Earth Metals'
+						groupdesc = 'The alkaline earth metals are six chemical elements in group 2 of the periodic table. The elements have very similar properties: they are all shiny, silvery-white, somewhat reactive metals at standard temperature and pressure.'
+			elif page == 3:
+						groupname = 'Transition Metals'
+						groupdesc = 'Most scientists describe a "transition metal" as any element in the d-block of the periodic table, which includes groups 3 to 12 on the periodic table. The word transition was first used to describe the elements now known as the d-block by the English chemist Charles Bury in 1921, who referred to a transition series of elements during the change of an inner layer of electrons from a stable group of 8 to one of 18, or from 18 to 32.'
+			elif page == 4:
+						groupname = 'Non-Metals'
+						groupdesc = 'In chemistry, a nonmetal (or non-metal) is a chemical element that mostly lacks the characteristics of a metal. Physically, a nonmetal tends to have a relatively low melting point, boiling point, and density. A nonmetal is typically brittle when solid and usually has poor thermal conductivity and electrical conductivity. Chemically, nonmetals tend to have relatively high ionization energy, electron affinity, and electronegativity. They gain or share electrons when they react with other elements and chemical compounds.'
+			elif page == 5:
+						groupname = 'Noble Gases'
+						groupdesc = 'The noble gases (historically also the inert gases; sometimes referred to as aerogens) make up a class of chemical elements with similar properties; under standard conditions, they are all odorless, colorless, monatomic gases with very low chemical reactivity.'
+			elif page == 6:
+						groupname = 'Halogens'
+						groupdesc = 'The halogens are a group in the periodic table consisting of five chemically related elements: fluorine (F), chlorine (Cl), bromine (Br), iodine (I), and astatine (At). When halogens react with metals, they produce a wide range of salts, including calcium fluoride, sodium chloride (common table salt), silver bromide and potassium iodide. All of the halogens form acids when bonded to hydrogen. Most halogens are typically produced from minerals or salts.'
+			elif page == 7:
+						groupname = 'Metalloids'
+						groupdesc = 'Metalloids are a small group of elements founds in the periodic table of elements along the zigzag line that distinguishes metals from non-metals and is drawn from between boron and aluminium to the border polonium and astatine.'
+			elif page == 8:
+						groupname = 'Lanthanoids'
+						groupdesc = 'The lanthanide or lanthanoid series of chemical elements comprises the 15 metallic chemical elements with atomic numbers 57–71, from lanthanum through lutetium. These elements, along with the chemically similar elements scandium and yttrium, are often collectively known as the rare earth elements.'
+			elif page >= 8:
+					return await ctx.send("There are only 8 sections you dumbass.")
+				
+			em = discord.Embed(title=f'Page {page} | {groupname}', description = f'{groupdesc}')
+			await ctx.send(embed=em)
+
+@client.command()
+async def bonds(ctx):
+  em = discord.Embed(title = 'Types of Bonds', description = '**Ionic Bond**\nIonic bonding involves a transfer of an electron, so one atom gains an electron while one atom loses an electron. One of the resulting ions carries a negative charge (anion), and the other ion carries a positive charge (cation). Because opposite charges attract, the atoms bond together to form a molecule.\n\n**Covalent Bond**\nThe most common bond in organic molecules, a covalent bond involves the sharing of electrons between two atoms. The pair of shared electrons forms a new orbit that extends around the nuclei of both atoms, producing a molecule. There are two secondary types of covalent bonds that are relevant to biology — polar bonds and hydrogen bonds.\n\n**Polar Bond**\nTwo atoms connected by a covalent bond may exert different attractions for the electrons in the bond, producing an unevenly distributed charge. The result is known as a polar bond, an intermediate case between ionic and covalent bonding, with one end of the molecule slightly negatively charged and the other end slightly positively charged.\n\n**Hydrogen Bond**\nBecause they’re polarized, two adjacent H2O (water) molecules can form a linkage known as a hydrogen bond, where the (electronegative) hydrogen atom of one H2O molecule is electrostatically attracted to the (electropositive) oxygen atom of an adjacent water molecule.')
+  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/820446491683455006.png?v=1')
+  em.set_footer(text="Quacker learned bonds thru Khan Academy but was too lazy to use his notes so he copied from dummies.com lmao")
+  await ctx.send(embed = em)
+  
+@client.command(aliases = ['val', 'electron'])
+async def valence(ctx):
+  em = discord.Embed(title = 'What are valence electrons?', description = 'The electrons in the outermost shell are the valence electrons--the electrons on an atom that can be gained or lost in a chemical reaction. Since filled d or f subshells are seldom disturbed in a chemical reaction, we can define valence electrons as follows: The electrons on an atom that are not present in the previous rare gas, ignoring filled d or f subshells.\n\nGallium has the following electron configuration: **Ga: [Ar] 4s2 3d10 4p1**\n\nThe 4s and 4p electrons can be lost in a chemical reaction, but not the electrons in the filled 3d subshell. Gallium therefore has three valence electrons.')
+  em.set_thumbnail(url ='https://cdn.discordapp.com/emojis/825941003281760306.png?v=1')
+  em.set_footer(text="Info from chemed.chem.purdue.edu")
   await ctx.send(embed = em)
 
-@client.command()
-async def tips(ctx):
-  em = discord.Embed(title = '**Tips and Tricks + Help Videos**', description = '**1. Introduction** - https://www.youtube.com/watch?v=yaaj5PkE290 ', color = discord.Color.purple())
-  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
-  em.set_footer(text="Please subscribe to QuackerDeezles, he spends a good amount of his time making videos about me!")
+@client.command(aliases = ['dmitri'])
+async def mendeleev(ctx):
+  em = discord.Embed(title = '**Who is Mendeleev?**', description = 'Dmitri Ivanovich Mendeleev was a Russian chemist and inventor. He is best remembered for formulating the Periodic Law and creating a farsighted version of the periodic table of elements.', url = 'https://www.biography.com/scientist/dmitri-mendeleyev')
+  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806396194196029460.png?v=1')
+  em.set_footer(text="That is one of the best beards I have seen no doubt")
   await ctx.send(embed = em)
 
 @client.command()
@@ -856,6 +915,110 @@ async def Og(ctx):
   em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/807319288561008711.png?v=1')
   await ctx.send(embed = em)
 
+@client.command()
+async def Acro(ctx):
+  em = discord.Embed(title = '**Adobe Acrobat**', description = 'Adobe Acrobat is a family of application software and Web services developed by Adobe Inc. to view, create, manipulate, print and manage files in Portable Document Format (PDF).', color = discord.Color.blue())
+  await ctx.send(embed = em)
+
+@client.command()
+async def DCloud(ctx):
+  em = discord.Embed(title = '**Adobe Document Cloud**', description = 'Adobe Document Cloud is a free service from Adobe to store and share PDF files in the cloud and to access them on the go. The services also allows integration with Adobe tools to fill and sign forms electronically. The service offers 2GB of free storage.', color = discord.Color.blue())
+  await ctx.send(embed = em)
+
+@client.command()
+async def Sign(ctx):
+  em = discord.Embed(title = '**Adobe Sign**', description = 'Adobe Sign (formerly EchoSign) is a cloud-based e-signature service that allows the user to send, sign, track, and manage signature processes using a browser or mobile device.[4] It is part of the Adobe Document Cloud suite of services.', color = discord.Color.blue())
+  await ctx.send(embed = em)
+
+@client.command()
+async def An(ctx):
+  em = discord.Embed(title = '**Adobe Analytics**', description = 'Adobe Analytics is the next generation interface that allows you to create a complete and distinguished view of your business by focusing on key character components.', color = discord.Color.blue())
+  await ctx.send(embed = em)
+
+@client.command()
+async def Auman(ctx):
+  em = discord.Embed(title = '**Adobe Audience Manager**', description = 'A data management platform that helps you build unique audience profiles so you can identify your most valuable segments and use them across any digital channel.', color = discord.Color.blue())
+  em.set_footer(text = "Creeper Au Man")
+  await ctx.send(embed = em)
+
+@client.command()
+async def Expman(ctx):
+  em = discord.Embed(title = '**Adobe Experience Manager**', description = 'AEM is a web-based client-server system for building, managing and deploying commercial websites and related services. It combines a number of infrastructure-level and application-level functions into a single integrated package.', color = discord.Color.blue())
+  await ctx.send(embed = em)
+
+@client.command()
+async def Camp(ctx):
+  em = discord.Embed(title = '**Adobe Campaign**', description = 'With Adobe Campaign, you can use rich customer data to create, coordinate, and deliver dynamic campaigns that customers actually want — through email, mobile, offline channels, and more.', color = discord.Color.blue())
+  await ctx.send(embed = em)
+
+
+
+@client.command(aliases = ['pp', 'penis'])
+async def dick(ctx):
+  dick = ['8D', '8==D', '8====D', '8======D', '8========D', '8==========D', '8=============D', '8===============D', '8=================D', '8===================D', '8=====================D', '8=======================D', '8=========================D', '8===========================D', '8=============================D', '8===============================D', '8=================================D', '8===================================D', '8=====================================D', '8=======================================D', '8=========================================D']
+  footerss = ['Oh god.', 'Nice dick!', 'Jerk off!', 'Dont tell me your about to cu-']
+  em = discord.Embed(title = '**PP Size Generator**', description = f'**Your dick lol**\n{random.choice(dick)}', color = discord.Color.green())
+  em.set_footer(text = f'{random.choice(footerss)}')
+  await ctx.send(embed = em)
+
+
+@client.command(aliases = ['vagina', 'pussy'])
+async def squirt(ctx):
+  squirt = [':sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:',':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:']
+  footers = ['Whoa.', 'Nice squirt!', 'That must have hurt.']
+  em = discord.Embed(title = '**Squirt Generator**', description = f'**How much did you ejaculate?**\n{random.choice(squirt)}', color = discord.Color.green())
+  em.set_footer(text=f'{random.choice(footers)}')
+  await ctx.send(embed = em)
+
+@client.command(aliases = ['vote'])
+async def upvote(ctx):
+  em = discord.Embed(title = '**UPVOTE ME PLEASE :pleading_face:**', url = 'https://top.gg/bot/767190721534361631/vote', description = 'Greatly appreciated :D', color = discord.Color.red())
+  em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
+  em.set_footer(text="I know you want to lol")
+  await ctx.send(embed = em)
+
+@client.command(aliases = ['quacker'])
+async def socials(ctx):
+  em = discord.Embed(title = '**QuackerDeezlesYT\'s Socials**',description = '**Just a YouTube lol**', url = 'https://www.youtube.com/channel/UC6PKOburRMFSjwTCQcL4wbQ', color = discord.Color.red())
+  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/808451191779622972.png?v=1')
+  em.set_footer(text="Like and subscribe!")
+  await ctx.send(embed = em)
+
+@client.command(aliases = ['serv', 'guild'])
+async def server(ctx):
+  em = discord.Embed(title = '**Official Periodiccia Server**', description ='https://discord.gg/W6JHRPWvJd **STILL UNDER CONSTRUCTION**', color = discord.Color.red())
+  em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
+  em.set_footer(text="JOIN JOIN JOIN")
+  await ctx.send(embed = em)
+
+@client.command()
+async def servcount(ctx):
+  em = discord.Embed(title = '**Server Count**', description = f'I am stalking {len(client.guilds)} servers!', color = discord.Color.red())
+  em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
+  await ctx.send(embed = em)
+
+@client.command(aliases = ['bio', 'dev'])
+async def devbio(ctx, *, page = 1):
+  if page == 1:
+      em = discord.Embed(title = 'This is QuackerDeezlesYT', description = '**Page 1 of 3 - About Me**\n\n**I am a math fanatic, hardcore music lover, Geometry Dash and Fall Guys gamer, and puzzle enthusiast.**\n\n**More on the Music Aspect**\n\nI do everything; make music, listen to music, and learn music! My favorite music to listen is EDM (which covers Dubstep, Drum and Bass, and Trap) as well as Hiphop/R&B. I play the piano (for 10.5 years and counting) and percussion (for 4 years and counting). I make sure that with playing music and listening music, I keep learning more and more music theory. I also just started composing my own EDM music, and posting them on SoundCloud and YouTube.\n\n**More on the Video Games Aspect**\n\nI have been playing **Geometry Dash** for the past 6-7 years. I have actually spent 8 dollars on that game without in-app purchases; First few years on an iPad, then a year on my phone, and currently I play the game on my PC for the past 2 months and counting. My hardest level I have ever completed is 11 Demon EA, a hard demon. The game is so amazing, which is why I have played it for such a long time!\n\n**Fall Guys** is one, amazing feel-good game. I got the game right when I got my PC, and I have been playing it ever since. It is super fun, just hoping that there would be constant updates. Otherwise, 10/10.\n\nIf you have any good video game recommendations, DM Me!', color = discord.Color.red())
+      em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/782651321899679774/826278320412426240/quackeranimated_2.gif')
+      await ctx.send(embed=em)
+  elif page == 2:
+      em = discord.Embed(title = 'This is QuackerDeezlesYT', description = '**Page 2 of 3 - Discord Experience**\n\n**Why did I decide to build Periodiccia?**\n\nTo be honest, I never liked programming. For who I want to be, writing random abbreviations was at the bottom of my priority list. A few months after I made a Discord account, I planned on making a Discord Bot. It felt fun seeing people type commands and in an instant my bot will respond, so why not try it out?\n\nIf you go to the URL of DiscordBotLists vote page (not top.gg) you will see quacc-ducc and not periodiccia. Quacc Ducc was 1.0, a bot with literally no purpose. It was not going well and was offline most of the time. I decided to take a stand. One of the commands of Quacc Ducc was `elem`, which would give out information about the Elements, similar to what Periodiccia is doing right now. I got a thought - why not make a bot just on this? I worked super hard on it, and it is paying off, with people constantly using it. I am realizing that me not trying out programming could have blocked a door that I have myself opened.\n\n**Moderation**\n\nI am a moderator/admin in servers with membercounts 800, 280, 210, 140, and 90. Those servers are the ones I advertised on the third page of this bio, you can find them by typing `p devbio 3`. In addition to this, I am a Stream Moderator of 2 streamers with follower counts 280 and 350.\n\nI will be very happy if you make me a staff member in your server! Would be truly appreciated :grinning:', color = discord.Color.red())
+      em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/782651321899679774/826278320412426240/quackeranimated_2.gif')
+      await ctx.send(embed=em)
+  elif page == 3:
+        em = discord.Embed(title = 'This is QuackerDeezlesYT', description = '**Page 3 of 3 - Recommended Servers**\n\nhttps://discord.gg/Xt8UQj2neY - 210   MEMBERS\n\n**__60hz Gang__** is a fun, inclusive community who loves all things Geometry Dash, a rhythm and music based game. The community that we hold is very friendly and loves to help people make levels, collaborate with others, and to be there for any help.\n\nhttps://discord.com/invite/hDghRHmpnQ - 280 MEMBERS\n\nWelcome to **__Gumball Nation__**! A gaming, community server designed to have fun and no other reason. We also encourage Dank Memers to join to meet other Dank Memers!\n\nhttps://discord.gg/McFG3arjgK - 90 MEMBERS\n\nWe are __**TAL9988\'s Lounge**__, a server by the streamer TAL9988.\n\nhttps://discord.gg/3RxwxDPun6 - 800 MEMBERS\n\n__**Blade Bot List**__ is an epic bot list and developer community!\n\nhttps://discord.gg/sa4ZPhNKqZ - 140 MEMBERS\n\nJoin __**D\'DANKERS**__, another casual Dank Memer server that hosts daily DM giveaways.', color = discord.Color.red())
+        em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/782651321899679774/826278320412426240/quackeranimated_2.gif')
+        await ctx.send(embed=em)
+  elif page >= 3:
+				return await ctx.send("There are only 3 sections, what the fuck were you thinking?!?!")
+
+@client.command()
+async def gif(ctx):
+  gifs = ['https://tenor.com/view/carbon-is-highly-reactive-with-other-elements-sensitive-responsive-active-neil-degrasse-tyson-gif-15827677', 'https://tenor.com/view/massiveunregulatednitrogendioxide-gif-19415452', 'https://tenor.com/view/drinks-margarita-liquid-nitrogen-dry-ice-gif-3384966', 'https://tenor.com/view/mundschutz-mask-breathe-gif-17200590','https://tenor.com/view/gold-rich-daffy-duck-money-gif-10195329',]
+  await ctx.send(f'For the love of science and elements {random.choice(gifs)}')
+
 @client.command(aliases = ['raid', 'shadow', 'legends'])
 async def rsl(ctx):
   await ctx.author.send('**This message is sponsored by Raid Shadow Legends, one of the biggest mobile role-playing games of 2021 and it is totally free! Currently almost 10 million users have joined Raid over the last six months, and it is one of the most impressive games in its class with detailed models, environments and smooth 60 frames per second animations! All the champions in the game can be customized with unique gear that changes your strategic buffs and abilities! The dungeon bosses have some ridiculous skills of their own and figuring out the perfect party and strategy to overtake them is a lot of fun! Currently with over 300,000 reviews, Raid has almost a perfect score on the Play Store! The community is growing fast and the highly anticipated new faction wars feature is now live, you might even find my squad out there in the arena! It is easier to start now than ever with rates program for new players you get a new daily login reward for the first 90 days that you play in the game! So what are you waiting for? Go to the video description, click on the special links and you will get 50,000 silver and a free epic champion as part of the new player program to start your journey! Good luck and I will see you there!**')
@@ -865,101 +1028,40 @@ async def freehugs(ctx):
   await ctx.author.send("https://tenor.com/view/running-hug-embrace-imiss-you-good-to-see-you-again-gif-15965620")
 
 @client.command()
-async def bruh(ctx, *, member : discord.Member):
-  bruh = ['https://tenor.com/view/dance-moves-dancing-singer-groovy-gif-17029825', 'https://tenor.com/view/get-stick-bugged-lol-gif-18023988', 'https://tenor.com/view/distraction-henry-stickman-gif-18396154']
-  await member.send(f'{random.choice(bruh)}')
+async def quack(ctx, *, member : discord.Member):
 
-@client.command()
-async def gif(ctx):
-  gifs = ['https://tenor.com/view/carbon-is-highly-reactive-with-other-elements-sensitive-responsive-active-neil-degrasse-tyson-gif-15827677', 'https://tenor.com/view/massiveunregulatednitrogendioxide-gif-19415452', 'https://tenor.com/view/drinks-margarita-liquid-nitrogen-dry-ice-gif-3384966', 'https://tenor.com/view/mundschutz-mask-breathe-gif-17200590','https://tenor.com/view/gold-rich-daffy-duck-money-gif-10195329',]
-  await ctx.send(f'For the love of science and elements {random.choice(gifs)}')
+    await member.send(":duck: :duck: **I think you just got quacked ohhhh** :duck: :duck:")
 
 @client.command(aliases = ['bill', 'nye'])
 async def billnye(ctx):
   billnye_gifs = ['https://tenor.com/view/bill-nye-billnye-sciencerules-science-gif-5866727',  'https://tenor.com/view/bill-nye-party-horn-confetti-sarcastic-like-child-gif-5499505', 'https://tenor.com/view/bill-nye-head-explode-mindblown-gif-4903176', 'https://tenor.com/view/tongue-out-crazy-gif-11927272', 'https://tenor.com/view/memes-bill-nye-the-science-gif-5930649', 'https://tenor.com/view/mic-drop-drop-the-mic-serious-boss-bill-nye-gif-8166361', 'https://tenor.com/view/bill-nye-bill-nye-the-science-guy-scienceguy-consider-gif-7391226', 'https://tenor.com/view/dance-bill-nye-bill-nye-the-science-guy-bill-nye-dance-dancing-gif-5603636', 'https://tenor.com/view/bill-nye-science-fuck-yeah-balloon-suggestive-gif-5410510', 'https://tenor.com/view/bill-nye-science-science-guy-gif-5410511', 'https://tenor.com/view/nonsense-bill-nye-wtf-gif-8493714', 'https://tenor.com/view/bill-nye-science-guy-safety-glasses-off-gif-15789510', 'https://tenor.com/view/bill-nye-bill-nye-the-science-guy-science-slut-wink-gif-7731218']
   await ctx.send(f'You cannot have enough Bill Nye {random.choice(billnye_gifs)}')
 
-@client.command(aliases = ['vote'])
-async def upvote(ctx):
-  em = discord.Embed(title = '**UPVOTE ME PLEASE :pleading_face:**',description = '**top.gg**\nhttps://top.gg/bot/767190721534361631/vote\n**Discord Bot List**\nhttps://discordbotlist.com/bots/quacc-ducc/upvote', color = discord.Color.orange())
-  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/808451191779622972.png?v=1')
-  em.set_footer(text="Upvote me for 69 years of good luck!")
-  await ctx.send(embed = em)
-
-
-
-@client.command()
-async def quack(ctx, *, member : discord.Member):
-
-    await member.send(":duck: :duck: **I think you just got quacked ohhhh** :duck: :duck:")
-
-@client.command(aliases = ['dmitri'])
-async def mendeleev(ctx):
-  em = discord.Embed(title = '**Dmitri Ivanovich Mendeleev was a Russian chemist and inventor. He is best remembered for formulating the Periodic Law and creating a farsighted version of the periodic table of elements.**', description = 'http://en.wikipedia.org/wiki/Dmitri_Mendeleev\nhttps://www.britannica.com/biography/Dmitri-Mendeleev\nhttps://www.biography.com/scientist/dmitri-mendeleyev', color = discord.Color.red())
-  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806396194196029460.png?v=1')
-  em.set_footer(text="That is one of the best beards I have seen no doubt")
-  await ctx.send(embed = em)
+@client.command(aliases = ['weeb', 'anime'])
+async def waifu(ctx):
+  waifus = ["waifu2.jpg", "waifu3.jpg", "waifu6.jpg", "waifu8.jpg", "waifu11.jpg", "waifu12.jpg", "waifu14.jpg", "waifu15.jpg", "waifu16.jpg", "waifu18.jpg", "waifu19.jpg", "waifu20.jpg", "waifu21.jpg", "waifu27.jpg", "waifu28.jpg", "waifu29.jpg", "waifu30.jpg", "waifu32.jpg", "waifu33.jpg", "waifu34.jpg", "waifu37.jpg", "waifu38.jpg", "waifu39.jpg", "waifu40.jpg", "waifu41.jpg", "waifu42.jpg", "waifu44.jpg", "waifu45.jpg", "waifu46.jpg", "waifu47.jpg", "waifu48.jpg", "waifu50.jpg", "waifu51.jpg", "waifu52.jpg", "waifu53.jpg", "waifu54.jpg", "waifu56.jpg", "waifu58.jpg"]
+  sendtome = ["Count: **38**", "You can submit waifus by DMing QuackerDeezlesYT#6969 (My Senpai)."]
+  await ctx.send(file = discord.File(f'{random.choice(waifus)}'))
+  await ctx.send(f'{random.choice(sendtome)}')
 
 @client.command()
 async def invite(ctx):
-  ctx.send('https://bit.ly/39O9N7t HOPING TO REACH 100 SERVERS :pray:')
-
-@client.command(aliases = ['soc'])
-async def socials(ctx):
-  em = discord.Embed(title = '**QuackerDeezlesYT Socials**',description = '**YouTube Channel**\nhttps://www.youtube.com/channel/UC6PKOburRMFSjwTCQcL4wbQ?view_as=subscriber', color = discord.Color.orange())
-  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/808451191779622972.png?v=1')
-  em.set_footer(text="Like and subscribe!")
-  await ctx.send(embed = em)
-
-@client.command(aliases = ['site', 'website'])
-async def botsite(ctx):
-  em = discord.Embed(title = '**PERIODICCIA WEBSITE**', description ='https://periodiccia.squarespace.com - Password: periodiccia', color = discord.Color.green())
-  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
-  em.set_footer(text="This video is sponsored by SquareSpace.")
-  await ctx.send(embed = em)
-
-@client.command(aliases = ['serv', 'guild'])
-async def server(ctx):
-  em = discord.Embed(title = '**Official Periodiccia Server**', description ='https://discord.gg/W6JHRPWvJd **STILL UNDER CONSTRUCTION**', color = discord.Color.purple())
-  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806306254460420127.png?v=1')
-  em.set_footer(text="JOIN JOIN JOIN")
+  em = discord.Embed(title = 'INVITE PLEASE ROAD TO 100 SERVERS :pleading_face:', description = 'https://bit.ly/39O9N7t <- My invite link', color = discord.Color.red())
+  em.set_thumbnail(url ='https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
+  em.set_footer(text="PWEASE")
   await ctx.send(embed = em)
 
 @client.command(aliases = ['periodictable', 'periodic'])
 async def table(ctx):
-  await ctx.send(file = discord.File("periodictable2.jpg"))
+  await ctx.send(file = discord.File("table.jpg"))
 
-@client.command(aliases = ['speak', 'talk', 'message'])
-async def say(ctx, *, msg):
-    await ctx.message.delete()
-    await ctx.send(msg)
+@client.command(aliases = ['message', 'directmessage'])
+async def msg(ctx, *, msg=''):
+  if msg == '':
+      await ctx.send("If you want me to DM you, you got to put some text lmao (syntax is `p msg <the_message_you_want_me_to_say>` btw)")
 
-@client.command()
-async def like(ctx):
-  await ctx.send('Juan or Rhino...')
-
-@client.command(aliases = ['bio', 'dev'])
-async def devbio(ctx, page = 1):
-  if page == 1:
-
-    em = discord.Embed(title = 'This is QuackerDeezlesYT', description = '**Page 1 of 3 - About Me**\n\n**I am a math fanatic, hardcore music lover, Geometry Dash and Fall Guys gamer, and puzzle enthusiast.**\n\n**More on the Music Aspect**\n\nI do everything; make music, listen to music, and learn music! My favorite music to listen is EDM (which covers Dubstep, Drum and Bass, and Trap) as well as Hiphop/R&B. I play the piano (for 10.5 years and counting) and percussion (for 4 years and counting). I make sure that with playing music and listening music, I keep learning more and more music theory. I also just started composing my own EDM music, and posting them on SoundCloud and YouTube.\n\n**More on the Video Games Aspect**\n\nI have been playing **Geometry Dash** for the past 6-7 years. I have actually spent 8 dollars on that game without in-app purchases; First few years on an iPad, then a year on my phone, and currently I play the game on my PC for the past 2 months and counting. My hardest level I have ever completed is 11 Demon EA, a hard demon. The game is so amazing, which is why I have played it for such a long time!\n\n**Fall Guys** is one, amazing feel-good game. I got the game right when I got my PC, and I have been playing it ever since. It is super fun, just hoping that there would be constant updates. Otherwise, 10/10.\n\nIf you have any good video game recommendations, DM Me!', color = discord.Color.purple())
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/808451191779622972.png?v=1')
-    em.set_footer(text="This is as long as an essay")
-    await ctx.send(embed = em)
-  elif page == 2:
-    
-    em = discord.Embed(title = 'This is QuackerDeezlesYT', description = '**Page 2 of 3 - Discord Experience**\n\n**Why did I decide to build Periodiccia?**\n\nTo be honest, I never liked programming. For who I want to be, writing random abbreviations was at the bottom of my priority list. A few months after I made a Discord account, I planned on making a Discord Bot. It felt fun seeing people type commands and in an instant my bot will respond, so why not try it out?\n\nIf you go to the URL of DiscordBotLists vote page (not top.gg) you will see quacc-ducc and not periodiccia. Quacc Ducc was 1.0, a bot with literally no purpose. It was not going well and was offline most of the time. I decided to take a stand. One of the commands of Quacc Ducc was `elem`, which would give out information about the Elements, similar to what Periodiccia is doing right now. I got a thought - why not make a bot just on this? I worked super hard on it, and it is paying off, with people constantly using it. I am realizing that me not trying out programming could have blocked a door that I have myself opened.\n\n**Moderation**\n\nI am an admin of 3 servers with member counts of 200, 260, 110, 70, and 40. Those servers are the ones I advertised on the third page of this bio, you can find them by typing `p devbio 3`. In addition to this, I am a Stream Moderator of 2 streamers with follower counts 200 and 350.\n\nI will be very happy if you make me a staff member in your server! Would be truly appreciated :grinning:', color = discord.Color.purple())
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/808451191779622972.png?v=1')
-    em.set_footer(text="I approve. He is a good moderator and yes, I was Quacc Ducc. Quacc Ducc will be remembered.")
-    await ctx.send(embed = em)
-
-  elif page == 3:
-    
-    em = discord.Embed(title = 'This is QuackerDeezlesYT', description = '**Page 3 of 3 - Recommended Servers**\n\nhttps://discord.gg/Xt8UQj2neY - 200 MEMBERS\n\n**__60hz Gang__** is a fun, inclusive community who loves all things Geometry Dash, a rhythm and music based game. The community that we hold is very friendly and loves to help people make levels, complete levels, collaborate with others, and to be there for any help. We would love you to join - and so would you!\n\nhttps://discord.com/invite/hDghRHmpnQ - 260 MEMBERS\n\nWelcome to **__Gumball Nation__**! A gaming, community server designed to have fun and no other reason. We also encourage Dank Memers to join to meet other Dank Memers!\n\nhttps://discord.gg/edQYThXvBt - 70 MEMBERS\n\nWe are __**TAL9988s Lounge**__, a server by the streamer and youtuber TAL9988.\n\nhttps://discord.gg/KwdnHrxBZf - 40 MEMBERS\n\nWe are __**Good Boi Kingdom**__, a Dank Memer and chill Server, brothers with Gumball Nation!', color = discord.Color.purple())
-    em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/808451191779622972.png?v=1')
-    em.set_footer(text="JOIN JOIN JOIN V2")
-    await ctx.send(embed = em)
-
+  else:
+    await ctx.author.send(msg)
 
 keep_alive.keep_alive()
 token = os.environ.get("Token")
