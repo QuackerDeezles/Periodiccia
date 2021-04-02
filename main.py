@@ -1,9 +1,6 @@
 import discord
 import keep_alive
 import os
-import asyncio
-import datetime
-import json
 import random
 from discord.ext import commands, tasks
 from itertools import cycle
@@ -14,7 +11,7 @@ client.remove_command('help')
 @client.event
 async def on_ready():
     print("The bot is ready!")
-    await client.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.playing, name=f"with your heart lmao"))
+    await client.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.playing, name=f"p help | Chemistry Bot | dsc.gg/perio"))
     for x in client.guilds:
       print(x.name)
       print(x.member_count)
@@ -22,7 +19,6 @@ async def on_ready():
 @client.event
 async def on_guild_join(guild):
 	try:
-
 		if guild.system_channel:
 			await guild.system_channel.send(
 			    f'Hey! My name i**s** P**e**riodiccia! I am a Periodic Table of Elements discord bot. `p help` ope**n**s up the goate**d** help page, and all informatio**n** and commands will be listed. I hope I can be a cool addition to yo**u**r server! :sunglasses:\nMade by Quacker**D**e**e**zle**s**YT#6969'
@@ -45,7 +41,7 @@ async def help(ctx, args = None):
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818952523783733259/elements-1.gif')
     await ctx.send(embed = em)
   elif args == 'info':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = ':information_source: **__Info Commands__**\n\n<:VerifiedBotDev:820021399807590440> `p devbio` (aliases = `dev`, `bio`) - Use this to learn about the dev, QuackerDeezlesYT! (**3 Pages**)\n\n<:youtube:314349922885566475> `p yt` (aliases = `p quacker`) - His YouTube!\n\n<:invite:658538493949116428> `p invite` - My invite link! Road to 80 servers :D\n\n:page_with_curl: `p servcount` - Find how many servers I am in!\n\n<:news:658522693058166804> `p vote` - Please vote me on top.gg and Discord Bot List!\n\n<:invite:658538493949116428> `p server` (aliases = `serv`, `guild`) - My Official Server! :D\n\n<:pin_unread:658538492548218890> A Helpful Video made by my Dev: https://www.youtube.com/watch?v=yaaj5PkE290', color = discord.Color.purple())
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = ':information_source: **__Info Commands__**\n\n:question: `p about` - See who I am!\n\n<:VerifiedBotDev:820021399807590440> `p devbio` (aliases = `dev`, `bio`) - Use this to learn about the dev, QuackerDeezlesYT! (**3 Pages**)\n\n<:youtube:314349922885566475> `p yt` (aliases = `p quacker`) - His YouTube!\n\n<:invite:658538493949116428> `p invite` - My invite link! Road to 80 servers :D\n\n:page_with_curl: `p servcount` - Find how many servers I am in!\n\n<:news:658522693058166804> `p vote` - Please vote me on top.gg and Discord Bot List!\n\n<:invite:658538493949116428> `p server` (aliases = `serv`, `guild`) - My Official Server! :D\n\n<:pin_unread:658538492548218890> A Helpful Video made by my Dev: https://www.youtube.com/watch?v=yaaj5PkE290', color = discord.Color.purple())
     em.set_footer(text="You are now viewing the help info page. I hope.")
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818953530278281276/info.gif')
     await ctx.send(embed = em)
@@ -56,67 +52,59 @@ async def help(ctx, args = None):
     await ctx.send(embed = em)
   else:
     pass
+  
+@client.command()
+async def about(ctx):
+  await ctx.send(f'Hey! I am **Periodiccia**, a Discord bot designed to provide information about Chemistry and the Periodic Table of Elements. I house the basic element commands (hydrogen, tungsten, astatine, etc.), a helpful element list, an element group definition finder, and much more. Just type in `p help elements` to view all the element commands. Developed by **QuackerDeezlesYT#6969**\n\nLines of code: **1041**\n\nI am currently operating in **72** servers. If you want to invite me to your server, use the following authorization hyperlink: https://dsc.gg/perio All of my code can be viewed on GitHub. To view the repository, click here: https://github.com/QuackerDeezles/Periodiccia\n\nIf you have a suggestion, want to report a bug, or anything else, join my official server! https://discord.gg/W6JHRPWvJd\n\n')
 
 @client.command()
 async def elements(ctx, page = 1):
   if page == 1:
-
     em = discord.Embed(title = 'List of the Elements 1', description = 'Hydrogen (`H`)\nHelium (`He`)\nLithium (`Li`)\nBeryllium (`Be`)\nBoron (`B`)\nCarbon (`C`)\nNitrogen (`N`)\nOxygen (`O`)\nFlourine (`F`)\nNeon (`Ne`)')
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
   elif page == 2:
-    
     em = discord.Embed(title = 'List of the Elements 2', description = 'Sodium (`Na`)\nMagnesium (`Mg`)\nAluminum (`Al`)\nSilicon (`Si`)\nPhosphorus (`P`)\nSulfur (`S`)\nChlorine (`Cl`)\nArgon (`Ar`)\nPotassium (`K`)\nCalcium (`Ca`)')
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
   elif page == 3:
-    
     em = discord.Embed(title = 'List of the Elements 3', description = 'Scandium (`Sc`)\nTitanium (`Ti`)\nVanadium (`V`)\nChromium (`Cr`)\nManganese (`Mn`)\nIron (`Fe`)\nCobalt (`Co`)\nNickel (`Ni`)\nCopper (`Cu`)\nZinc (`Zn`)')
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
   elif page == 4:
-    
     em = discord.Embed(title = 'List of the Elements 4', description = 'Gallium (`Ga`)\nGermanium (`Ge`)\nArsenic (`As`)\nSelenium (`Se`)\nBromine (`Br`)\nKyrpton (`Kr`)\nRibidium (`Rb`)\nStrontium (`Sr`)\nYttrium (`Y`)\nZirconium (`Zr`)')
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
   elif page == 5:
-    
     em = discord.Embed(title = 'List of the Elements 5', description = 'Niobium (`Nb`)\nMolybdenum (`Mo`)\nTechnetium (`Tc`)\nRuthenium (`Ru`)\nRhodium (`Rh`)\nPalladium (`Pd`)\nSilver (`Ag`)\nCandium (`Cd`)\nIndium (`In`)\nTin (`Sn`)')
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     em.set_footer(text="Do people still like cat videos?")
     await ctx.send(embed = em)
   elif page == 6:
-    
     em = discord.Embed(title = 'List of the Elements 6', description = 'Antimony (`Sb`)\nTellurium (`Te`)\nIodine (`I`)\nXenon (`Xe`)\nCaesium (`Cs`)\nBarium (`Ba`)\nLanthanum (`La`)\nCerium (`Ce`)\nPraseodymium (`Pr`)\nNeondymium (`Nd`)')
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
-  elif page == 7:
-    
+  elif page == 7:   
     em = discord.Embed(title = 'List of the Elements 7', description = 'Prothemium (`Pm`)\nSamarium (`Sm`)\nEuropium (`Eu`)\nGadolinium (`Gd`)\nTerbium (`Tb`)\nDysprosium (`Dy`)\nHolmium (`Ho`)\nErbium (`Er`)\nThulium (`Tm`)\nYtterbium (`Yb`)')
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
-  elif page == 8:
-    
+  elif page == 8:   
     em = discord.Embed(title = 'List of the Elements 8', description = 'Lutetium (`Lu`)\nHafnium (`Hf`)\nTantalum (`Ta`)\nTungsten (`W`)\nRhenium (`Re`)\nOsmium (`Os`)\nIridium (`Ir`)\nPlatinum (`Pt`)\nGold (`Au`)\nMercury (`Hg`)')
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
-  elif page == 9:
-    
+  elif page == 9:  
     em = discord.Embed(title = 'List of the Elements 9', description = 'Thallium (`Tl`)\nLead (`Pb`)\nBismuth (`Bi`)\nPolonium (`Po`)\nAstatine (`At`)\nRadon (`Rn`)\nFrancium (`Fr`)\nRadium (`Ra`)\nActinium (`Ac`)\nThorium (`Th`)')
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
-  elif page == 10:
-    
+  elif page == 10:  
     em = discord.Embed(title = 'List of the Elements 10', description = 'Protactinium (`Pa`)\nUranium (`U`)\nNeptunium (`Np`)\nPlutonium (`Pu`)\nAmericium (`Am`)\nCurium (`Cm`)\nBerkelium (`Bk`)\nCalifornium (`Cf`)\nEinsteinium (`Es`)\nFermium (`Fm`)')
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
-  elif page == 11:
-    
+  elif page == 11:   
     em = discord.Embed(title = 'List of the Elements 11', description = 'Mendelevium (`Md`)\nNobelium (`No`)\nLawrencium (`Lr`)\nRutherfordium (`Rf`)\nDubnium (`Db`)\nSeaborgium (`Sg`)\nBohrium (`Bh`)\nHassium (`Hs`)\nMeitnerium (`Mt`)\nDarmstadtium (`Ds`)')
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
   elif page == 12:
-
     em = discord.Embed(title = 'List of the Elements 12', description = 'Roentgenium (`Rg`)\nCopernicium (`Cn`)\nNihonium (`Nh`)\nFlerovium (`Fl`)\nMoscovium (`Mc`)\nLivermorium (`Lv`)\nTennessine (`Ts`)\nOganesson (`Og`)')
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
     await ctx.send(embed = em)
@@ -129,8 +117,7 @@ async def elemgroup(ctx, *, page: int = None):
 		groupdesc = ''
 		yeetus = 'Use `p elemgroup <number>` to find the group you want.\n\n**1.**  Alkali Metals\n**2.** Alkaline Earth Metals\n**3.** Transition Metals\n**4.** Non-Metals\n**5.** Noble Gases\n**6.** Halogens\n**7.** Metalloids\n**8.** Lanthanoids'
 		if not page:
-				em = discord.Embed(title='Groups of the Periodic Table of Elements',
-													description=yeetus)
+				em = discord.Embed(title='Groups of the Periodic Table of Elements', description=yeetus)
 				await ctx.send(embed=em)
 		else:
 			if page == 1:
@@ -158,8 +145,7 @@ async def elemgroup(ctx, *, page: int = None):
 						groupname = 'Lanthanoids'
 						groupdesc = 'The lanthanide or lanthanoid series of chemical elements comprises the 15 metallic chemical elements with atomic numbers 57–71, from lanthanum through lutetium. These elements, along with the chemically similar elements scandium and yttrium, are often collectively known as the rare earth elements.'
 			elif page >= 8:
-					return await ctx.send("There are only 8 sections you dumbass.")
-				
+					return await ctx.send("There are only 8 sections you dumbass.")			
 			em = discord.Embed(title=f'Page {page} | {groupname}', description = f'{groupdesc}')
 			await ctx.send(embed=em)
     
@@ -922,6 +908,8 @@ async def Og(ctx):
   em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/807319288561008711.png?v=1')
   await ctx.send(embed = em)
 
+#adobe periodic table below
+
 @client.command()
 async def Acro(ctx):
   em = discord.Embed(title = '**Adobe Acrobat**', description = 'Adobe Acrobat is a family of application software and Web services developed by Adobe Inc. to view, create, manipulate, print and manage files in Portable Document Format (PDF).', color = discord.Color.blue())
@@ -958,8 +946,6 @@ async def Camp(ctx):
   em = discord.Embed(title = '**Adobe Campaign**', description = 'With Adobe Campaign, you can use rich customer data to create, coordinate, and deliver dynamic campaigns that customers actually want — through email, mobile, offline channels, and more.', color = discord.Color.blue())
   await ctx.send(embed = em)
 
-
-
 @client.command(aliases = ['pp', 'penis'])
 async def dick(ctx):
   dick = ['8D', '8==D', '8====D', '8======D', '8========D', '8==========D', '8=============D', '8===============D', '8=================D', '8===================D', '8=====================D', '8=======================D', '8=========================D', '8===========================D', '8=============================D', '8===============================D', '8=================================D', '8===================================D', '8=====================================D', '8=======================================D', '8=========================================D']
@@ -988,10 +974,7 @@ async def yt(ctx):
 
 @client.command(aliases = ['serv', 'guild'])
 async def server(ctx):
-  em = discord.Embed(title = '**Official Periodiccia Server**', description ='https://discord.gg/W6JHRPWvJd **STILL UNDER CONSTRUCTION**', color = discord.Color.red())
-  em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
-  em.set_footer(text="JOIN JOIN JOIN")
-  await ctx.send(embed = em)
+  await ctx.send(f'https://discord.gg/W6JHRPWvJd')
 
 @client.command()
 async def servcount(ctx):
@@ -1031,7 +1014,6 @@ async def freehugs(ctx):
 
 @client.command()
 async def quack(ctx, *, member : discord.Member):
-
     await member.send(":duck: :duck: **I think you just got quacked ohhhh** :duck: :duck:")
 
 @client.command(aliases = ['bill', 'nye'])
@@ -1048,10 +1030,7 @@ async def waifu(ctx):
 
 @client.command()
 async def invite(ctx):
-  em = discord.Embed(title = 'INVITE PLEASE ROAD TO 100 SERVERS :pleading_face:', description = 'https://bit.ly/39O9N7t <- My invite link', color = discord.Color.red())
-  em.set_thumbnail(url ='https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
-  em.set_footer(text="PWEASE")
-  await ctx.send(embed = em)
+  await ctx.send(f'https://dsc.gg/perio')
 
 @client.command(aliases = ['periodictable', 'periodic'])
 async def table(ctx):
