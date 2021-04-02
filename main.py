@@ -40,23 +40,22 @@ async def help(ctx, args = None):
   await ctx.send(embed = em)
  else:
   if args == 'elements':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:1234: __Element Commands__**\n\n:atom: `p <element_symbol>` - Gives information about an element\n\n<:rules:781581022059692043> `p elements <page_number>` - Reference to symbols to use for the element commands. **12 pages**\n\n:atom: `p bonds` - Explains the four types of bonds between molecules.\n\n:red_circle: `p valence` (aliases = `val`, `electron`) - Explains what valence electrons are.\n\n:notepad_spiral: `p elemgroup <page_number>` - Gives information about the groups of elements found in the Periodic Table (example: Transition Metal)!\n\n:man: `p mendeleev` (aliases = `dmitri`) - This command tells you a bit about who Mendeleev is, and some helpful resources to learn more about him.', color = discord.Color.purple())
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:1234: __Element Commands__**\n\n:atom: `p <element_symbol>` - Gives information about an element\n\n<:rules:781581022059692043> `p elements <page_number>` - Reference to symbols to use for the element commands. **12 pages**\n\n:atom: `p bonds` - Explains the four types of bonds between molecules.\n\n:red_circle: `p valence` (aliases = `val`, `electron`) - Explains what valence electrons are.\n\n:notepad_spiral: `p elemgroup <page_number>` - Gives information about the groups of elements found in the Periodic Table (example: Transition Metal)!\n\n:man: `p mendeleev` (aliases = `dmitri`) - This command tells you a bit about who Mendeleev is, and some helpful resources to learn more about him.\n\n:cloud_lightning:  `p lightningmyth` - A random lightning myth and a fact to go along with it.', color = discord.Color.purple())
     em.set_footer(text="You are now viewing the help elements page. Cool?")
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818952523783733259/elements-1.gif')
     await ctx.send(embed = em)
   elif args == 'info':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = ':information_source: **__Info Commands__**\n\n<:VerifiedBotDev:820021399807590440> `p devbio` (aliases = `dev`, `bio`) - Use this to learn about the dev, QuackerDeezlesYT! (**3 Pages**)\n\n<:youtube:314349922885566475> `p socials` (aliases = `p quacker`) - His YouTube!\n\n<:invite:658538493949116428> `p invite` - My invite link! Road to 80 servers :D\n\n:page_with_curl: `p servcount` - Find how many servers I am in!\n\n<:news:658522693058166804> `p vote` - Please vote me on top.gg and Discord Bot List!\n\n<:invite:658538493949116428> `p server` (aliases = `serv`, `guild`) - My Official Server! :D\n\n<:pin_unread:658538492548218890> A Helpful Video made by my Dev: https://www.youtube.com/watch?v=yaaj5PkE290', color = discord.Color.purple())
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = ':information_source: **__Info Commands__**\n\n<:VerifiedBotDev:820021399807590440> `p devbio` (aliases = `dev`, `bio`) - Use this to learn about the dev, QuackerDeezlesYT! (**3 Pages**)\n\n<:youtube:314349922885566475> `p yt` (aliases = `p quacker`) - His YouTube!\n\n<:invite:658538493949116428> `p invite` - My invite link! Road to 80 servers :D\n\n:page_with_curl: `p servcount` - Find how many servers I am in!\n\n<:news:658522693058166804> `p vote` - Please vote me on top.gg and Discord Bot List!\n\n<:invite:658538493949116428> `p server` (aliases = `serv`, `guild`) - My Official Server! :D\n\n<:pin_unread:658538492548218890> A Helpful Video made by my Dev: https://www.youtube.com/watch?v=yaaj5PkE290', color = discord.Color.purple())
     em.set_footer(text="You are now viewing the help info page. I hope.")
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818953530278281276/info.gif')
     await ctx.send(embed = em)
   elif args == 'fun':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:smile: __Fun and Meme Commands__**\n\n:people_hugging: `p freehugs` (aliases = `hug`, `hugs`) - Free Hugs! Fanmade\n\n:video_camera: `p gif` - Science gif\n\n:magnet: `p billnye` (aliases = `bill`, `nye`) - Randomized Bill Nye gif\n\n:scroll: `p rsl` (aliases = `raid`, `shadow`, `legends`) gives the entire script of the Raid Shadow Legends! Fanmade\n\n:duck: `p quack @<username>` - Quack! Fanmade\n\n:lipstick: `p pp` (aliases = `penis`, `dick`) - See how big your pp is!\n\n:sweat_drops: `p squirt` (aliases = `pussy`, `vagina`) - A generator to see how wet you are.\n\n:tv: `p waifu` (aliases = `weeb`, `anime`) - See a randomized selection of waifus!\n\n:speaking_head: `p msg` {text} (aliases = `message`, `directmessage`) - The bot will DM what you want to say!', color = discord.Color.purple())
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:smile: __Fun and Meme Commands__**\n\n:people_hugging: `p freehugs` (aliases = `hug`, `hugs`) - Free Hugs! Fanmade\n\n:video_camera: `p gif` - Science gif\n\n:magnet: `p billnye` (aliases = `bill`, `nye`) - Randomized Bill Nye gif\n\n:scroll: `p rsl` (aliases = `raid`, `shadow`, `legends`) gives the entire script of the Raid Shadow Legends! Fanmade\n\n:duck: `p quack @<username>` - Quack! Fanmade\n\n:lipstick: `p pp` (aliases = `penis`, `dick`) - See how big your pp is!\n\n:sweat_drops: `p squirt` (aliases = `pussy`, `vagina`) - A generator to see how wet you are.\n\n:tv: `p waifu` (aliases = `weeb`, `anime`) - See a randomized selection of waifus!', color = discord.Color.purple())
     em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818954274364588053/fun.gif')
     em.set_footer(text="You are now viewing the help fun page. Fun!")
     await ctx.send(embed = em)
   else:
     pass
-
 
 @client.command()
 async def elements(ctx, page = 1):
@@ -163,6 +162,14 @@ async def elemgroup(ctx, *, page: int = None):
 				
 			em = discord.Embed(title=f'Page {page} | {groupname}', description = f'{groupdesc}')
 			await ctx.send(embed=em)
+    
+@client.command()
+async def lightningmyth(ctx, *, page: int = None):
+  lightningmyths = 'Lightning never strikes twice in the same place.\n\nFact: Lightning often strikes the same place repeatedly, especially if it’s a tall, pointy, isolated object. The Empire State Building was once used as a lightning laboratory because it is hit nearly 25 times per year, and has been known to have been hit up to a dozen times during a single storm.', 'Lightning only strikes the tallest objects.\n\nFact: Lightning is indiscriminate and it can find you anywhere. Lightning may hit the ground instead of a tree, cars instead of nearby telephone poles, and parking lots instead of buildings.', 'If you are stuck in a thunderstorm, being under a tree is better than no shelter at all.\n\nFact: Sheltering under a tree is just about the worst thing you can do. If lightning does hit the tree, there is the chance that a “ground charge” will spread out from the tree in all directions. Being underneath a tree is the second leading cause of lightning casualties.', 'If you do not see rain or clouds, you are safe.\n\nFact: Lightning often strikes more than three miles from the thunderstorm, far outside the rain or even the thunderstorm cloud. Though infrequent, “bolts from the blue” have been known to strike areas as distant as 10 miles from their thunderstorm origins, where the skies appear clear.', 'A car\'s rubber tires will protect you from lightning.\n\nFact: True, being in a car will likely protect you. But most vehicles are actually safe because the metal roof and sides divert lightning around you—the rubber tires have little to do with keeping you safe. Convertibles, motorcycles, bikes, open shelled outdoor recreation vehicles and cars with plastic or fiberglass shells offer no lightning protection at all.', 'If you are outside in a storm, lie flat on the ground.\n\nFact: Lying flat on the ground makes you more vulnerable to electrocution, not less. Lightning generates potentially deadly electrical currents along the ground in all directions — by lying down, you are providing more potential points on your body to hit.', 'If you touch a lightning victim, you will be electrocuted.\n\nFact: The human body doesn’t store electricity. It is perfectly safe to touch a lightning victim to give them first aid.', 'Wearing metal on your body attracts lightning.\n\nFact: The presence of metal makes very little difference in determining where lightning will strike. Height, pointy shape and isolation are the dominant factors in whether lightning will strike an object (including you). However, touching or being near metal objects, such as a fence, can be unsafe when thunderstorms are nearby. If lightning does happen to hit one area of the fence—even a long distance away - the metal can conduct the electricity and electrocute you.', 'A house will always keep you safe from lightning.\n\nFact: While a house is the safest place you can be during a storm, just going inside is not enough. You must avoid any conducting path leading outside, such as electrical appliances, wires, TV cables, plumbing, metal doors or metal window frames. Do not stand near a window to watch the lightning. An inside room is generally safe, but a home equipped with a professionally installed lightning protection system is the safest shelter available.', 'Surge suppressors can protect a home against lightning.\n\nFact: Surge arresters and suppressors are important components of a complete lightning protection system, but can do nothing to protect a structure against a direct lightning strike. These items must be installed in conjunction with a lightning protection system to provide whole house protection.'
+  em = discord.Embed(title = 'Lightning Myths', description = f'{random.choice(lightningmyths)}')
+  em.set_thumbnail(url ='https://cdn.discordapp.com/attachments/817876187023015960/827303919612854350/lightning.png')
+  em.set_footer(text="Info from iii.org")
+  await ctx.send(embed = em)
 
 @client.command()
 async def bonds(ctx):
@@ -956,18 +963,13 @@ async def Camp(ctx):
 @client.command(aliases = ['pp', 'penis'])
 async def dick(ctx):
   dick = ['8D', '8==D', '8====D', '8======D', '8========D', '8==========D', '8=============D', '8===============D', '8=================D', '8===================D', '8=====================D', '8=======================D', '8=========================D', '8===========================D', '8=============================D', '8===============================D', '8=================================D', '8===================================D', '8=====================================D', '8=======================================D', '8=========================================D']
-  footerss = ['Oh god.', 'Nice dick!', 'Jerk off!', 'Dont tell me your about to cu-']
   em = discord.Embed(title = '**PP Size Generator**', description = f'**Your dick lol**\n{random.choice(dick)}', color = discord.Color.green())
-  em.set_footer(text = f'{random.choice(footerss)}')
   await ctx.send(embed = em)
-
 
 @client.command(aliases = ['vagina', 'pussy'])
 async def squirt(ctx):
   squirt = [':sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:',':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:', ':sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops::sweat_drops:']
-  footers = ['Whoa.', 'Nice squirt!', 'That must have hurt.']
   em = discord.Embed(title = '**Squirt Generator**', description = f'**How much did you ejaculate?**\n{random.choice(squirt)}', color = discord.Color.green())
-  em.set_footer(text=f'{random.choice(footers)}')
   await ctx.send(embed = em)
 
 @client.command(aliases = ['vote'])
@@ -978,7 +980,7 @@ async def upvote(ctx):
   await ctx.send(embed = em)
 
 @client.command(aliases = ['quacker'])
-async def socials(ctx):
+async def yt(ctx):
   em = discord.Embed(title = '**QuackerDeezlesYT\'s Socials**',description = '**Just a YouTube lol**', url = 'https://www.youtube.com/channel/UC6PKOburRMFSjwTCQcL4wbQ', color = discord.Color.red())
   em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/808451191779622972.png?v=1')
   em.set_footer(text="Like and subscribe!")
@@ -1054,14 +1056,6 @@ async def invite(ctx):
 @client.command(aliases = ['periodictable', 'periodic'])
 async def table(ctx):
   await ctx.send(file = discord.File("table.jpg"))
-
-@client.command(aliases = ['message', 'directmessage'])
-async def msg(ctx, *, msg=''):
-  if msg == '':
-      await ctx.send("If you want me to DM you, you got to put some text lmao (syntax is `p msg <the_message_you_want_me_to_say>` btw)")
-
-  else:
-    await ctx.author.send(msg)
 
 keep_alive.keep_alive()
 token = os.environ.get("Token")
