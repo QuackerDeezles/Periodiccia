@@ -47,7 +47,7 @@ async def help(ctx, args = None):
     em.set_image(url="https://cdn.discordapp.com/attachments/831783191198957613/833831137809006663/periodiccia-High-Quality.jpg")
     await ctx.send(embed = em)
   elif args == 'utility':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '<:settings:585767366743293952> **__Utility Commands__**\n\n - `p about` - See who I am!\n - `p devbio` (aliases = `dev`, `bio`) - Use this to learn about the dev, QuackerDeezlesYT! (**3 Pages**)\n - `p yt` (aliases = `p quacker`) - His YouTube!\n - `p ping` - Check out the latency!\n - `p invite` - My invite link!\n - `p servcount` - Find how many servers I am in!\n - `p logo` - View the logo as a png\n - gitrepo - View my official GitHub Repository\n - `p vote` - Please vote me on top.gg and Discord Bot List!\n - `p server` (aliases = `serv`, `guild`) - My Official Server! :D\n\n<:pin_unread:658538492548218890> A Helpful Video made by my Dev: https://www.youtube.com/watch?v=yaaj5PkE290', color = discord.Color.purple())
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '<:settings:585767366743293952> **__Utility Commands__**\n\n - `p about` - See who I am!\n - `p devbio` (aliases = `dev`, `bio`) - Use this to learn about the dev, QuackerDeezlesYT! (**3 Pages**)\n - `p yt` (aliases = `p quacker`) - His YouTube!\n - `p ping` - Check out the latency!\n - `p invite` - My invite link!\n - `p servcount` - Find how many servers I am in!\n - `p logo` - View the logo as a png\n - `p gitrepo` - View my official GitHub Repository\n - `p vote` - Please vote me on top.gg and Discord Bot List!\n - `p server` (aliases = `serv`, `guild`) - My Official Server! :D\n\n<:pin_unread:658538492548218890> A Helpful Video made by my Dev: https://www.youtube.com/watch?v=yaaj5PkE290', color = discord.Color.purple())
     em.set_footer(text="You are now viewing the help utility page. I hope.")
     em.set_image(url="https://cdn.discordapp.com/attachments/831783191198957613/833831123431849994/periodiccia-High-Quality_1.jpg")
     await ctx.send(embed = em)
@@ -928,7 +928,7 @@ async def ping(ctx):
 
 @client.command(aliases = ['quacker'])
 async def yt(ctx):
-  await ctx.send(f'https://www.youtube.com/channel/UC6PKOburRMFSjwTCQcL4wbQ https://www.youtube.com/watch?v=1QfnqDn1H88 69 Subscribers when?')
+  await ctx.send(f'https://www.youtube.com/channel/UC6PKOburRMFSjwTCQcL4wbQ https://www.youtube.com/watch?v=eOJONIkB6iI 69 Subscribers when?')
 
 @client.command()
 async def logo(ctx):
