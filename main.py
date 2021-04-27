@@ -10,7 +10,7 @@ client.remove_command('help')
 @client.event
 async def on_ready():
     print("The bot is ready!")
-    await client.change_presence(status=discord.Status.idle, activity=discord.Game("p help | Chemistry Bot | dsc.gg/perio"))
+    await client.change_presence(status=discord.Status.idle, activity=discord.Game("p help | Chemistry Bot | dsc.gg/perio  Made by QuackerDeezlesYT#6969"))
     for x in client.guilds:
       print(x.name)
       print(x.member_count)
@@ -19,9 +19,7 @@ async def on_ready():
 async def on_guild_join(guild):
 	try:
 		if guild.system_channel:
-			await guild.system_channel.send(
-			    f'Hey! My name i**s** P**e**riodiccia! I am a Periodic Table of Elements discord bot. `p help` ope**n**s up the goate**d** help page, and all informatio**n** and commands will be listed. I hope I can be a cool addition to yo**u**r server! :sunglasses:\nMade by Quacker**D**e**e**zle**s**YT#6969'
-			)
+			await guild.system_channel.send(f'Hey! My name i**s** P**e**riodiccia! I am a Periodic Table of Elements discord bot. `p help` ope**n**s up the goate**d** help page, and all informatio**n** and commands will be listed. I hope I can be a cool addition to yo**u**r server! :sunglasses:\nMade by Quacker**D**e**e**zle**s**YT#6969')
 	except:
 		pass
 	print("Guild joined")
@@ -37,31 +35,29 @@ async def help(ctx, args = None):
   em.add_field(name = 'Join my official server!', value = '[Click here or p server](https://bit.ly/3b4JbPd)', inline = False)
   em.add_field(name = 'Invite me!', value = '[Click here or p invite](https://bit.ly/39O9N7t)', inline = False)
   em.add_field(name = 'Vote me on top.gg!', value = '[Click here or p vote](https://top.gg/bot/767190721534361631/vote)', inline = False)
-  em.set_footer(text = 'You are now viewing the help page. What else should I have said here?')
+  em.add_field(name = 'Fun Fact:', value = 'My pronouns are she/her :D', inline = False)
+  em.set_footer(text = 'None of the links are rickrolls.')
   em.set_image(url="https://cdn.discordapp.com/attachments/831783191198957613/833829754867286026/Untitled_design-High-Quality.jpg")
   await ctx.send(embed = em)
  else:
   if args == 'chem':
     em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:microscope: __Chemistry Commands__**\n\n - `p <element_symbol>` - Gives information about an element\n - `p elements <page_number>` - Reference to symbols to use for the element commands. **12 pages**\n - `p bonds` - Explains the four types of bonds between molecules.\n - `p valence` (aliases = `val`, `electron`) - Explains what valence electrons are.\n - `p elemgroup` - Gives information about the groups of elements found in the Periodic Table (example: Transition Metal)!\n - `p mendeleev` (aliases = `dmitri`) - This command tells you a bit about who Mendeleev is, and some helpful resources to learn more about him.\n - `p lightningmyth` - A random lightning myth and a fact to go along with it.', color = discord.Color.purple())
-    em.set_footer(text="You are now viewing the help chemistry page. Cool?")
     em.set_image(url="https://cdn.discordapp.com/attachments/831783191198957613/833831137809006663/periodiccia-High-Quality.jpg")
     await ctx.send(embed = em)
   elif args == 'utility':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '<:settings:585767366743293952> **__Utility Commands__**\n\n - `p about` - See who I am!\n - `p devbio` (aliases = `dev`, `bio`) - Use this to learn about the dev, QuackerDeezlesYT! (**3 Pages**)\n - `p yt` (aliases = `p quacker`) - His YouTube!\n - `p ping` - Check out the latency!\n - `p invite` - My invite link!\n - `p servcount` - Find how many servers I am in!\n - `p logo` - View the logo as a png\n - `p gitrepo` - View my official GitHub Repository\n - `p vote` - Please vote me on top.gg and Discord Bot List!\n - `p server` (aliases = `serv`, `guild`) - My Official Server! :D\n\n<:pin_unread:658538492548218890> A Helpful Video made by my Dev: https://www.youtube.com/watch?v=yaaj5PkE290', color = discord.Color.purple())
-    em.set_footer(text="You are now viewing the help utility page. I hope.")
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '<:settings:585767366743293952> **__Utility Commands__**\n\n - `p about` - See who I am!\n - `p devbio` (aliases = `dev`, `bio`) - Use this to learn about the dev, QuackerDeezlesYT! (**3 Pages**)\n - `p yt` (aliases = `p quacker`) - His YouTube!\n - `p ping` - Check out the latency!\n - `p invite` - My invite link!\n - `p servcount` - Find how many servers I am in!\n - `p logo` - View the logo as a png\n - `p gitrepo` - View my official GitHub Repository\n - `p urbandict` - Find me on Urban Dictionary (idk why quack did this) !\n - `p vote` - Please vote me on top.gg!\n - `p server` (aliases = `serv`, `guild`) - My Official Server! :D\n\n<:pin_unread:658538492548218890> A Helpful Video made by my Dev: https://www.youtube.com/watch?v=yaaj5PkE290', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/831783191198957613/833831123431849994/periodiccia-High-Quality_1.jpg")
     await ctx.send(embed = em)
   elif args == 'rand':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:game_die: __Random (and some fun) Commands__**\n\n - `p pp` (aliases = `penis`, `dick`) - Big or smol?\n - `p simprate` (aliases = `simp`) - Rate how much of a simp are you\n - `p waifurate` (aliases = `waifu`) - Rate how much of a waifu are you\n - `p progamer` (aliases = `gamer`, `gamerrate`, `progamerrate`) - Rate how much of a gamer are you\n - `p randyt` (aliases = `youtube`, `randomyoutube`) - Gives a random popular YouTube\'s channel link for you to check out', color = discord.Color.purple())
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:game_die: __Random Commands__**\n\n - `p pp` (aliases = `penis`, `dick`) - Big or smol?\n - `p simprate` (aliases = `simp`) - Rate how much of a simp are you\n - `p waifurate` (aliases = `waifu`) - Rate how much of a waifu are you\n - `p progamer` (aliases = `gamer`, `gamerrate`, `progamerrate`) - Rate how much of a gamer are you\n - `p randyt` (aliases = `youtube`, `randomyoutube`) - Gives a random popular YouTube\'s channel link for you to check out\n\n - `p coinflip` (aliases = `coin`, `flip`) - What side?\n - `p die4` (aliases = `four`, `4`) - RNG from 1 to 4\n - `p die6` (aliases = `six`, `die`, `6`) - RNG from 1 to 6\n - `p die10` (aliases = `ten`, `10`) - RNG from 1 to 10\n - `p die25` (aliases = `twentyfive`, `tf`, `25`) - RNG from 1 to 25\n - `p die69` (aliases = `sexroll`, `69`) - RNG from 1 to 69\n - `p die100` (aliases = `hundred`, `100`) - RNG from 1 to 100', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/778322617211289653/834870820294885396/periodiccia-High-Quality_3.jpg")
-    em.set_footer(text="You are now viewing the help random page. Fun!")
     await ctx.send(embed = em)
   else:
     pass
   
 @client.command()
 async def about(ctx):
-  await ctx.send(f'Hey! I am **Periodiccia**, a Discord bot designed to provide information about Chemistry and the Periodic Table of Elements. I house the basic element commands (hydrogen, tungsten, astatine, etc.), a helpful element list, an element group definition finder, and much more. Just type in `p help elements` to view all the element commands. Developed by **QuackerDeezlesYT#6969**\n\nIf you want to invite me to your server, use the following authorization hyperlink: https://dsc.gg/perio All of my code can be viewed on GitHub. To view the repository, click here: https://github.com/QuackerDeezles/Periodiccia\n\nIf you have a suggestion, want to report a bug, or anything else, join my official server! https://discord.gg/W6JHRPWvJd\n\n')
+  await ctx.send(f'Hey! I am **Periodiccia**, a Discord bot designed to provide information about Chemistry and the Periodic Table of Elements. I house the basic element commands (hydrogen, tungsten, astatine, etc.), a helpful element list, an element group definition finder, and much more. Just type in `p help elements` to view all the element commands. Developed by **QuackerDeezlesYT#6969** \n\nIf you want to invite me to your server, use the following authorization hyperlink: https://dsc.gg/perio All of my code can be viewed on GitHub. To view the repository, click here: https://github.com/QuackerDeezles/Periodiccia\n\nIf you have a suggestion, want to report a bug, or anything else, join my official server! https://discord.gg/W6JHRPWvJd\n\n')
 
 @client.command()
 async def Ve(ctx):
@@ -967,6 +963,10 @@ async def invite(ctx):
 async def gitrepo(ctx):
   await ctx.send(f'https://github.com/QuackerDeezles/Periodiccia')
 
+@client.command()
+async def urbandict(ctx):
+  await ctx.send(f'https://www.urbandictionary.com/define.php?term=periodiccia')
+
 @client.command(aliases = ['periodictable', 'periodic'])
 async def table(ctx):
   await ctx.send(file = discord.File("table.jpg"))
@@ -997,9 +997,44 @@ async def progamer(ctx):
   em.set_footer(text = "Number one victory royale")
   await ctx.send(embed = em)
 
+@client.command(aliases = ['coin', 'flip'])
+async def coinflip(ctx):
+  coin = ['Heads', 'Tails']
+  await ctx.send(f'The coin flipped {random.choice(coin)}.')
+
+@client.command(aliases = ['four', '4'])
+async def die4(ctx):
+  four = ['1', '2', '3', '4']
+  await ctx.send(f'You rolled a {random.choice(four)} out of 4 possibilities!')
+
+@client.command(aliases = ['six', 'die', '6'])
+async def die6(ctx):
+  six = ['1', '2', '3', '4', '5', '6']
+  await ctx.send(f'You rolled a {random.choice(six)} out of 6 possibilities!')
+
+@client.command(aliases = ['ten', '10'])
+async def die10(ctx):
+  ten = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+  await ctx.send(f'You rolled a {random.choice(ten)} out of 10 possibilities!')
+
+@client.command(aliases = ['twentyfive', 'tf', '25'])
+async def die25(ctx):
+  mega = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25']
+  await ctx.send(f'You rolled a {random.choice(mega)} out of 25 possibilities!')
+
+@client.command(aliases = ['sexroll', '69'])
+async def die69(ctx):
+  sixtynine = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68', '69']
+  await ctx.send(f'You rolled a {random.choice(sixtynine)} out of 69 possibilities!')
+
+@client.command(aliases = ['hundred', '100'])
+async def die100(ctx):
+  century = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '71', '72', '73', '74', '75', '76', '77', '78', '79', '80', '81', '82', '83', '84', '85', '86', '87', '88', '89', '90', '91', '92', '93', '94', '95', '96', '97', '98', '99', '100']
+  await ctx.send(f'You rolled a {random.choice(century)} out of 100 possibilities!')
+
 @client.command(aliases = ['youtube', 'randomyoutube'])
 async def randyt(ctx):
-  yt = ['James Charles https://www.youtube.com/channel/UCucot-Zp428OwkyRm2I7v2Q', 'MrBeast https://www.youtube.com/user/MrBeast6000', 'Karl https://www.youtube.com/channel/UCrYrcFGGs_nke1MggS8Jvqg', 'npesta https://www.youtube.com/channel/UC9cqZITak5v02ciYEP1Lj-w', 'Marques Brownlee https://www.youtube.com/c/mkbhd', 'ImranSAVAGE https://www.youtube.com/channel/UCQlVUVsJrEK9BPZlGNob3Yw', 'Mark Rober https://www.youtube.com/c/MarkRober', 'Lessons In Meme Culture https://www.youtube.com/c/LessonsinMemeCulture', 'Nathan Doan Comedy https://www.youtube.com/channel/UCdyMFblTjr-C2N-T5TGftQQ', 'Steven He https://www.youtube.com/channel/UCP0_k4INXrwPS6HhIyYqsTg', 'Dude Perfect https://www.youtube.com/user/corycotton', 'MindYourDecisions https://www.youtube.com/user/MindYourDecisions', 'Sheet Music Boss https://www.youtube.com/channel/UCzTR9iSH-TFC4-ocDS_ll4A', 'https://tenor.com/view/rickroll-dance-funny-you-music-gif-7755460 ha', 'Timeworks https://www.youtube.com/c/Timeworks', 'Technoblade https://www.youtube.com/user/technothepig', 'Colin and Samir https://www.youtube.com/channel/UCamLstJyCa-t5gfZegxsFMw', 'EricVanWilderman https://www.youtube.com/user/EricVanWilderman', 'orangepeanut https://www.youtube.com/channel/UC4UnIP8UhglLQZgGrR1zv-w', 'Tom Scott https://www.youtube.com/c/TomScottGo', 'Kurzgesagt https://www.youtube.com/user/Kurzgesagt', 'Veritasium https://www.youtube.com/c/veritasium', 'Vox https://www.youtube.com/user/voxdotcom', 'GeorgeNotFound https://www.youtube.com/user/GeorgeeeHDPlays', 'fnm04 https://www.youtube.com/channel/UCw00BI5Nm1nXxxbTsXHNaLg', 'Karl Jobst https://www.youtube.com/user/karljobst', 'Milad Mirg https://www.youtube.com/channel/UCWLu3q9FEmPPYKcUAxKZb2A', 'Bosh https://www.youtube.com/user/SuperMore101', 'Flamingo https://www.youtube.com/channel/UCm-X6o81nRsXQTmqpyArkBQ', 'Sechi https://www.youtube.com/channel/UCEBN79bwwYNfRWcYYUzrkcw']
+  yt = ['James Charles https://www.youtube.com/channel/UCucot-Zp428OwkyRm2I7v2Q', 'MrBeast https://www.youtube.com/user/MrBeast6000', 'Karl https://www.youtube.com/channel/UCrYrcFGGs_nke1MggS8Jvqg', 'npesta https://www.youtube.com/channel/UC9cqZITak5v02ciYEP1Lj-w', 'Marques Brownlee https://www.youtube.com/c/mkbhd', 'ImranSAVAGE https://www.youtube.com/channel/UCQlVUVsJrEK9BPZlGNob3Yw', 'Mark Rober https://www.youtube.com/c/MarkRober', 'Lessons In Meme Culture https://www.youtube.com/c/LessonsinMemeCulture', 'Nathan Doan Comedy https://www.youtube.com/channel/UCdyMFblTjr-C2N-T5TGftQQ', 'Steven He https://www.youtube.com/channel/UCP0_k4INXrwPS6HhIyYqsTg', 'Dude Perfect https://www.youtube.com/user/corycotton', 'MindYourDecisions https://www.youtube.com/user/MindYourDecisions', 'Sheet Music Boss https://www.youtube.com/channel/UCzTR9iSH-TFC4-ocDS_ll4A', 'https://tenor.com/view/rickroll-dance-funny-you-music-gif-7755460 ha', 'Timeworks https://www.youtube.com/c/Timeworks', 'Technoblade https://www.youtube.com/user/technothepig', 'Colin and Samir https://www.youtube.com/channel/UCamLstJyCa-t5gfZegxsFMw', 'EricVanWilderman https://www.youtube.com/user/EricVanWilderman', 'orangepeanut https://www.youtube.com/channel/UC4UnIP8UhglLQZgGrR1zv-w', 'Tom Scott https://www.youtube.com/c/TomScottGo', 'Kurzgesagt https://www.youtube.com/user/Kurzgesagt', 'Veritasium https://www.youtube.com/c/veritasium', 'Vox https://www.youtube.com/user/voxdotcom', 'GeorgeNotFound https://www.youtube.com/user/GeorgeeeHDPlays', 'fnm04 https://www.youtube.com/channel/UCw00BI5Nm1nXxxbTsXHNaLg', 'Karl Jobst https://www.youtube.com/user/karljobst', 'Milad Mirg https://www.youtube.com/channel/UCWLu3q9FEmPPYKcUAxKZb2A', 'Bosh https://www.youtube.com/user/SuperMore101', 'Flamingo https://www.youtube.com/channel/UCm-X6o81nRsXQTmqpyArkBQ', 'Sechi https://www.youtube.com/channel/UCEBN79bwwYNfRWcYYUzrkcw', 'Exyl https://www.youtube.com/channel/UCNgchdiFrWvmjXKOKX5Vfsg', 'RØB https://www.youtube.com/user/RobertEntertains', 'Daylight Gaming https://www.youtube.com/channel/UCjoJJnvfTQ2AM5qbEDEqY6A', 'LazarBeam https://www.youtube.com/channel/UCw1SQ6QRRtfAhrN_cjkrOgA', 'ian kung https://www.youtube.com/c/IanKung', 'jacksfilms https://www.youtube.com/user/jacksfilms', 'Sapnap https://www.youtube.com/channel/UCqynl7rdtktKMQESdSBmE-g', 'OmicronGaming https://www.youtube.com/channel/UCryKACitFpPVPiqvYH6pQBQ', 'Parashockx https://www.youtube.com/channel/UCKUnB5P0cdfnufPCKkGecqQ', 'DGR https://www.youtube.com/channel/UCzg5UMJ62uoKHTkq5bgkp5g', '- LeKukie - https://www.youtube.com/channel/UCG0J5pTtRZtGk_45nOAebfA', 'Niftski https://www.youtube.com/channel/UCWdQCuLMf45n-_PHWu4sJNw', 'bill wurtz https://www.youtube.com/user/billwurtz', 'BadBoyHalo https://www.youtube.com/user/thesaintsofgames', 'ProZD https://www.youtube.com/user/ProZD', 'SethEverman https://www.youtube.com/user/SethEverman', 'Davie504 https://www.youtube.com/user/Davie504', 'PangaeaPanga https://www.youtube.com/user/PangaTAS', 'Summoning Salt https://www.youtube.com/channel/UCtUbO6rBht0daVIOGML3c8w']
   await ctx.send(f'You should watch {random.choice(yt)}')
 
 @client.command()
