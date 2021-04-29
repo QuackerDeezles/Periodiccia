@@ -27,7 +27,7 @@ async def on_guild_join(guild):
 @client.command(aliases = ['huh', 'what'])
 async def help(ctx, args = None):
  if not args:
-  em = discord.Embed(title = 'Welcome to Periodiccia! :D', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**Here are the commands for Periodiccia.**', color = discord.Color.purple())
+  em = discord.Embed(title = 'Welcome to Periodiccia! :D', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**Here are my modules (chem, utility, rand).**',  color = discord.Color.purple())
   em.add_field(name = ':microscope: Chemistry Command List', value = '`p help chem`', inline = False)
   em.add_field(name = '<:settings:585767366743293952> Utility Command List', value = '`p help utility`', inline = False)
   em.add_field(name = ':game_die: Random Command List', value = '`p help rand`', inline = False)
@@ -49,7 +49,7 @@ async def help(ctx, args = None):
     em.set_image(url="https://cdn.discordapp.com/attachments/831783191198957613/833831123431849994/periodiccia-High-Quality_1.jpg")
     await ctx.send(embed = em)
   elif args == 'rand':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:game_die: __Random Commands__**\n\n - `p pp` (aliases = `penis`, `dick`) - Big or smol?\n - `p simprate` (aliases = `simp`) - Rate how much of a simp are you\n - `p waifurate` (aliases = `waifu`) - Rate how much of a waifu are you\n - `p progamer` (aliases = `gamer`, `gamerrate`, `progamerrate`) - Rate how much of a gamer are you\n - `p randyt` (aliases = `youtube`, `randomyoutube`) - Gives a random popular YouTube\'s channel link for you to check out\n\n - `p coinflip` (aliases = `coin`, `flip`) - What side?\n - `p die4` (aliases = `four`, `4`) - RNG from 1 to 4\n - `p die6` (aliases = `six`, `die`, `6`) - RNG from 1 to 6\n - `p die10` (aliases = `ten`, `10`) - RNG from 1 to 10\n - `p die25` (aliases = `twentyfive`, `tf`, `25`) - RNG from 1 to 25\n - `p die69` (aliases = `sexroll`, `69`) - RNG from 1 to 69\n - `p die100` (aliases = `hundred`, `100`) - RNG from 1 to 100', color = discord.Color.purple())
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:game_die: __Random Commands__**\n\n - `p pp` (aliases = `penis`, `dick`) - Big or smol?\n - `p simprate` (aliases = `simp`) - Rate how much of a simp are you\n - `p waifurate` (aliases = `waifu`) - Rate how much of a waifu are you\n - `p progamer` (aliases = `gamer`, `gamerrate`, `progamerrate`) - Rate how much of a gamer are you\n - `p randyt` (aliases = `youtube`, `randomyoutube`) - Gives a random popular YouTuber\'s channel link for you to check out\n - `p randtwitch` (aliases = `twitch`, `randomtwitch`) - Gives a random popular Twitch streamer\'s channel for you to check out\n\n - `p coinflip` (aliases = `coin`, `flip`) - What side?\n - `p die4` (aliases = `four`, `4`) - RNG from 1 to 4\n - `p die6` (aliases = `six`, `die`, `6`) - RNG from 1 to 6\n - `p die10` (aliases = `ten`, `10`) - RNG from 1 to 10\n - `p die25` (aliases = `twentyfive`, `tf`, `25`) - RNG from 1 to 25\n - `p die69` (aliases = `sexroll`, `69`) - RNG from 1 to 69\n - `p die100` (aliases = `hundred`, `100`) - RNG from 1 to 100', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/778322617211289653/834870820294885396/periodiccia-High-Quality_3.jpg")
     await ctx.send(embed = em)
   else:
@@ -57,7 +57,7 @@ async def help(ctx, args = None):
   
 @client.command()
 async def about(ctx):
-  await ctx.send(f'Hey! I am **Periodiccia**, a Discord bot designed to provide information about Chemistry and the Periodic Table of Elements. I house the basic element commands (hydrogen, tungsten, astatine, etc.), a helpful element list, an element group definition finder, and much more. Just type in `p help elements` to view all the element commands. Developed by **QuackerDeezlesYT#6969** \n\nIf you want to invite me to your server, use the following authorization hyperlink: https://dsc.gg/perio All of my code can be viewed on GitHub. To view the repository, click here: https://github.com/QuackerDeezles/Periodiccia\n\nIf you have a suggestion, want to report a bug, or anything else, join my official server! https://discord.gg/W6JHRPWvJd\n\n')
+  await ctx.send(f'Hey! I am **Periodiccia**, a Discord bot designed to provide information about Chemistry and the Periodic Table of Elements. I house the basic element commands (hydrogen, tungsten, etc.), a helpful element list, an element group definition finder, and much more. Just type in `p help elements` to view the element commands, and `p help` to view the other modules and information. Developed by **QuackerDeezlesYT#6969** \n\nIf you want to invite me to your server, use the following authorization hyperlink: https://dsc.gg/perio -  All of my code can be viewed on GitHub. To view the repository, type `p gitrepo`.\n\nIf you have a suggestion, want to report a bug, or anything else, join my official server! https://discord.gg/W6JHRPWvJd\n\n')
 
 @client.command()
 async def Ve(ctx):
@@ -903,7 +903,7 @@ async def lightningmyth(ctx, *, page: int = None):
 @client.command(aliases = ['val', 'electron'])
 async def valence(ctx):
   em = discord.Embed(title = 'What are valence electrons?', description = 'The electrons in the outermost shell are the valence electrons--the electrons on an atom that can be gained or lost in a chemical reaction. Since filled d or f subshells are seldom disturbed in a chemical reaction, we can define valence electrons as follows: The electrons on an atom that are not present in the previous rare gas, ignoring filled d or f subshells.\n\nGallium has the following electron configuration: **Ga: [Ar] 4s2 3d10 4p1**\n\nThe 4s and 4p electrons can be lost in a chemical reaction, but not the electrons in the filled 3d subshell. Gallium therefore has three valence electrons.')
-  em.set_thumbnail(url ='https://cdn.discordapp.com/emojis/825941003281760306.png?v=1')
+  em.set_image(url ='https://cdn.discordapp.com/emojis/825941003281760306.png?v=1')
   em.set_footer(text="Info from chemed.chem.purdue.edu")
   await ctx.send(embed = em)
 
@@ -912,6 +912,12 @@ async def mendeleev(ctx):
   em = discord.Embed(title = '**Who is Mendeleev?**', description = 'Dmitri Ivanovich Mendeleev was a Russian chemist and inventor. He is best remembered for formulating the Periodic Law and creating a farsighted version of the periodic table of elements.', url = 'https://www.biography.com/scientist/dmitri-mendeleyev')
   em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/806396194196029460.png?v=1')
   em.set_footer(text="That is one of the best beards I have seen no doubt")
+  await ctx.send(embed = em)
+
+@client.command()
+async def credits(ctx):
+  em = discord.Embed(title = '**Credits**', description = 'QuackerDeezlesYT#6969 - the main developer, a goddess\n\nMendeleev for created the Periodic Table of Elements in the first place\nALwin#6481 - Moral support, great developer and friend\nsunset sandstorm#0892 - Dude who gave a big fucking list of YouTubers for the youtube command', color = discord.Color.blue())
+  em.set_footer(text="Thanks! We appreciate it :3")
   await ctx.send(embed = em)
 
 @client.command(aliases = ['vote'])
@@ -958,6 +964,9 @@ async def devbio(ctx, *, page = 1):
 @client.command()
 async def invite(ctx):
   await ctx.send(f'https://dsc.gg/perio')
+
+
+
 
 @client.command()
 async def gitrepo(ctx):
@@ -1034,11 +1043,16 @@ async def die100(ctx):
 
 @client.command(aliases = ['youtube', 'randomyoutube'])
 async def randyt(ctx):
-  yt = ['James Charles https://www.youtube.com/channel/UCucot-Zp428OwkyRm2I7v2Q', 'MrBeast https://www.youtube.com/user/MrBeast6000', 'Karl https://www.youtube.com/channel/UCrYrcFGGs_nke1MggS8Jvqg', 'npesta https://www.youtube.com/channel/UC9cqZITak5v02ciYEP1Lj-w', 'Marques Brownlee https://www.youtube.com/c/mkbhd', 'ImranSAVAGE https://www.youtube.com/channel/UCQlVUVsJrEK9BPZlGNob3Yw', 'Mark Rober https://www.youtube.com/c/MarkRober', 'Lessons In Meme Culture https://www.youtube.com/c/LessonsinMemeCulture', 'Nathan Doan Comedy https://www.youtube.com/channel/UCdyMFblTjr-C2N-T5TGftQQ', 'Steven He https://www.youtube.com/channel/UCP0_k4INXrwPS6HhIyYqsTg', 'Dude Perfect https://www.youtube.com/user/corycotton', 'MindYourDecisions https://www.youtube.com/user/MindYourDecisions', 'Sheet Music Boss https://www.youtube.com/channel/UCzTR9iSH-TFC4-ocDS_ll4A', 'https://tenor.com/view/rickroll-dance-funny-you-music-gif-7755460 ha', 'Timeworks https://www.youtube.com/c/Timeworks', 'Technoblade https://www.youtube.com/user/technothepig', 'Colin and Samir https://www.youtube.com/channel/UCamLstJyCa-t5gfZegxsFMw', 'EricVanWilderman https://www.youtube.com/user/EricVanWilderman', 'orangepeanut https://www.youtube.com/channel/UC4UnIP8UhglLQZgGrR1zv-w', 'Tom Scott https://www.youtube.com/c/TomScottGo', 'Kurzgesagt https://www.youtube.com/user/Kurzgesagt', 'Veritasium https://www.youtube.com/c/veritasium', 'Vox https://www.youtube.com/user/voxdotcom', 'GeorgeNotFound https://www.youtube.com/user/GeorgeeeHDPlays', 'fnm04 https://www.youtube.com/channel/UCw00BI5Nm1nXxxbTsXHNaLg', 'Karl Jobst https://www.youtube.com/user/karljobst', 'Milad Mirg https://www.youtube.com/channel/UCWLu3q9FEmPPYKcUAxKZb2A', 'Bosh https://www.youtube.com/user/SuperMore101', 'Flamingo https://www.youtube.com/channel/UCm-X6o81nRsXQTmqpyArkBQ', 'Sechi https://www.youtube.com/channel/UCEBN79bwwYNfRWcYYUzrkcw', 'Exyl https://www.youtube.com/channel/UCNgchdiFrWvmjXKOKX5Vfsg', 'RØB https://www.youtube.com/user/RobertEntertains', 'Daylight Gaming https://www.youtube.com/channel/UCjoJJnvfTQ2AM5qbEDEqY6A', 'LazarBeam https://www.youtube.com/channel/UCw1SQ6QRRtfAhrN_cjkrOgA', 'ian kung https://www.youtube.com/c/IanKung', 'jacksfilms https://www.youtube.com/user/jacksfilms', 'Sapnap https://www.youtube.com/channel/UCqynl7rdtktKMQESdSBmE-g', 'OmicronGaming https://www.youtube.com/channel/UCryKACitFpPVPiqvYH6pQBQ', 'Parashockx https://www.youtube.com/channel/UCKUnB5P0cdfnufPCKkGecqQ', 'DGR https://www.youtube.com/channel/UCzg5UMJ62uoKHTkq5bgkp5g', '- LeKukie - https://www.youtube.com/channel/UCG0J5pTtRZtGk_45nOAebfA', 'Niftski https://www.youtube.com/channel/UCWdQCuLMf45n-_PHWu4sJNw', 'bill wurtz https://www.youtube.com/user/billwurtz', 'BadBoyHalo https://www.youtube.com/user/thesaintsofgames', 'ProZD https://www.youtube.com/user/ProZD', 'SethEverman https://www.youtube.com/user/SethEverman', 'Davie504 https://www.youtube.com/user/Davie504', 'PangaeaPanga https://www.youtube.com/user/PangaTAS', 'Summoning Salt https://www.youtube.com/channel/UCtUbO6rBht0daVIOGML3c8w']
+  yt = ['James Charles https://www.youtube.com/channel/UCucot-Zp428OwkyRm2I7v2Q', 'MrBeast https://www.youtube.com/user/MrBeast6000', 'Karl https://www.youtube.com/channel/UCrYrcFGGs_nke1MggS8Jvqg', 'npesta https://www.youtube.com/channel/UC9cqZITak5v02ciYEP1Lj-w', 'Marques Brownlee https://www.youtube.com/c/mkbhd', 'ImranSAVAGE https://www.youtube.com/channel/UCQlVUVsJrEK9BPZlGNob3Yw', 'Mark Rober https://www.youtube.com/c/MarkRober', 'Lessons In Meme Culture https://www.youtube.com/c/LessonsinMemeCulture', 'Nathan Doan Comedy https://www.youtube.com/channel/UCdyMFblTjr-C2N-T5TGftQQ', 'Steven He https://www.youtube.com/channel/UCP0_k4INXrwPS6HhIyYqsTg', 'Dude Perfect https://www.youtube.com/user/corycotton', 'MindYourDecisions https://www.youtube.com/user/MindYourDecisions', 'Sheet Music Boss https://www.youtube.com/channel/UCzTR9iSH-TFC4-ocDS_ll4A', 'https://tenor.com/view/rickroll-dance-funny-you-music-gif-7755460 ha', 'Timeworks https://www.youtube.com/c/Timeworks', 'Technoblade https://www.youtube.com/user/technothepig', 'Colin and Samir https://www.youtube.com/channel/UCamLstJyCa-t5gfZegxsFMw', 'EricVanWilderman https://www.youtube.com/user/EricVanWilderman', 'orangepeanut https://www.youtube.com/channel/UC4UnIP8UhglLQZgGrR1zv-w', 'Tom Scott https://www.youtube.com/c/TomScottGo', 'Kurzgesagt https://www.youtube.com/user/Kurzgesagt', 'Veritasium https://www.youtube.com/c/veritasium', 'Vox https://www.youtube.com/user/voxdotcom', 'GeorgeNotFound https://www.youtube.com/user/GeorgeeeHDPlays', 'fnm04 https://www.youtube.com/channel/UCw00BI5Nm1nXxxbTsXHNaLg', 'Karl Jobst https://www.youtube.com/user/karljobst', 'Milad Mirg https://www.youtube.com/channel/UCWLu3q9FEmPPYKcUAxKZb2A', 'Bosh https://www.youtube.com/user/SuperMore101', 'Flamingo https://www.youtube.com/channel/UCm-X6o81nRsXQTmqpyArkBQ', 'Sechi https://www.youtube.com/channel/UCEBN79bwwYNfRWcYYUzrkcw', 'Exyl https://www.youtube.com/channel/UCNgchdiFrWvmjXKOKX5Vfsg', 'RØB https://www.youtube.com/user/RobertEntertains', 'Daylight Gaming https://www.youtube.com/channel/UCjoJJnvfTQ2AM5qbEDEqY6A', 'LazarBeam https://www.youtube.com/channel/UCw1SQ6QRRtfAhrN_cjkrOgA', 'ian kung https://www.youtube.com/c/IanKung', 'jacksfilms https://www.youtube.com/user/jacksfilms', 'Sapnap https://www.youtube.com/channel/UCqynl7rdtktKMQESdSBmE-g', 'OmicronGaming https://www.youtube.com/channel/UCryKACitFpPVPiqvYH6pQBQ', 'Parashockx https://www.youtube.com/channel/UCKUnB5P0cdfnufPCKkGecqQ', 'DGR https://www.youtube.com/channel/UCzg5UMJ62uoKHTkq5bgkp5g', '- LeKukie - https://www.youtube.com/channel/UCG0J5pTtRZtGk_45nOAebfA', 'Niftski https://www.youtube.com/channel/UCWdQCuLMf45n-_PHWu4sJNw', 'bill wurtz https://www.youtube.com/user/billwurtz', 'BadBoyHalo https://www.youtube.com/user/thesaintsofgames', 'ProZD https://www.youtube.com/user/ProZD', 'SethEverman https://www.youtube.com/user/SethEverman', 'Davie504 https://www.youtube.com/user/Davie504', 'PangaeaPanga https://www.youtube.com/user/PangaTAS', 'Summoning Salt https://www.youtube.com/channel/UCtUbO6rBht0daVIOGML3c8w', 'NoThisIsJohn https://www.youtube.com/channel/UC2xw-F0lBbPX0MV2Ezp833A', 'Ben Awad https://www.youtube.com/user/99baddawg']
   await ctx.send(f'You should watch {random.choice(yt)}')
 
+@client.command(aliases = ['twitch', 'randomtwitch'])
+async def randtwitch(ctx):
+  twit = ['Im_Dontai https://www.twitch.tv/im_dontai', 'actingliketommy https://www.twitch.tv/actingliketommy', 'Sommerset https://www.twitch.tv/sommerset', 'Clix https://www.twitch.tv/clix', 'BagBagBagBagBagBagBagBag https://www.twitch.tv/bagbagbagbagbagbagbagbag', 'DudePerfectGaming https://www.twitch.tv/dudeperfectgaming', 'pokimane https://www.twitch.tv/pokimane', 'TheFatRatTV https://www.twitch.tv/thefatrattv', 'NoThisIsJohn https://www.twitch.tv/nothisisjohn', 'Quackity https://www.twitch.tv/quackity', 'WilburSoot https://www.twitch.tv/wilbursoot', 'karljacobs https://www.twitch.tv/karljacobs', ' Sykkuno https://www.twitch.tv/sykkuno', 'strawbys_ https://www.twitch.tv/strawbys_', 'Kaydop https://www.twitch.tv/kaydop', 'SypherPK https://www.twitch.tv/sypherpk', 'xQcOW https://www.twitch.tv/xqcow', 'tommyinnit https://www.twitch.tv/tommyinnit', 'CaptainPuffy https://www.twitch.tv/captainpuffy', 'Tubbo https://twitch.tv/tubbo', 'Alixxa https://www.twitch.tv/alixxa']
+  await ctx.send(f'You should watch {random.choice(twit)}')
+
 @client.command()
-async def say(ctx, *, msg):
+async def shit(ctx, *, msg):
   await ctx.message.delete()
   await ctx.send(msg)
 
