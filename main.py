@@ -46,7 +46,7 @@ async def help(ctx, args = None):
     em.set_image(url="https://cdn.discordapp.com/attachments/831783191198957613/833831137809006663/periodiccia-High-Quality.jpg")
     await ctx.send(embed = em)
   elif args == 'utility':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '<:settings:585767366743293952> **__Utility Commands__**\n\n - `p about` - See who I am!\n - `p devbio` (aliases = `dev`, `bio`) - Use this to learn about the dev, QuackerDeezlesYT! (**3 Pages**)\n - `p yt` (aliases = `p quacker`) - His YouTube!\n - `p ping` - Check out the latency!\n - `p invite` - My invite link!\n - `p servcount` - Find how many servers I am in!\n - `p logo` - View the logo as a png\n - `p gitrepo` (aliases = `github`, `repo`, `repository`) - View my official GitHub Repository\n - `p vote` - Please vote me on top.gg!\n - `p server` (aliases = `serv`, `guild`) - My Official Server! :D\n\n<:pin_unread:658538492548218890> A Helpful Video made by my Dev: https://www.youtube.com/watch?v=yaaj5PkE290', color = discord.Color.purple())
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '<:settings:585767366743293952> **__Utility Commands__**\n\n - `p about` - See who I am!\n - `p yt` (aliases = `p quacker`) - His YouTube!\n - `p ping` - Check out the latency!\n - `p invite` - My invite link!\n - `p servcount` - Find how many servers I am in!\n - `p logo` - View the logo as a png\n - `p gitrepo` (aliases = `repo`, `repository`) - View my official GitHub Repository\n - `p vote` - Please vote me on top.gg!\n - `p server` (aliases = `serv`, `guild`) - My Official Server! :D\n\n<:pin_unread:658538492548218890> A Helpful Video made by my Dev: https://www.youtube.com/watch?v=yaaj5PkE290', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/831783191198957613/833831123431849994/periodiccia-High-Quality_1.jpg")
     await ctx.send(embed = em)
   elif args == 'rand':
@@ -54,8 +54,14 @@ async def help(ctx, args = None):
     em.set_image(url="https://cdn.discordapp.com/attachments/778322617211289653/837876280707383346/periodiccia-High-Quality_4.jpg")
     await ctx.send(embed = em)
   elif args == 'websearch':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`\n\nPlease do not misuse the commands like searching up something nsfw this is for general purposes and not for your horny needs.', color = discord.Color.purple())
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`\n\nPlease do not misuse the commands like searching up something nsfw this is for general purposes and not for your horny needs.', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/841743778347614249/842990566836666388/periodiccia-High-Quality_5.jpg")
+    em.set_footer(text="If you have any popular websites you want me to feature in this module, let my developer know through DMs or the support server!")
+    await ctx.send(embed = em)
+  elif args == 'web':
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`\n\nPlease do not misuse the commands like searching up something nsfw this is for general purposes and not for your horny needs.', color = discord.Color.purple())
+    em.set_image(url="https://cdn.discordapp.com/attachments/841743778347614249/842990566836666388/periodiccia-High-Quality_5.jpg")
+    em.set_footer(text="If you have any popular websites you want me to feature in this module, let my developer know through DMs or the support server!")
     await ctx.send(embed = em)
   else:
     pass
@@ -63,12 +69,6 @@ async def help(ctx, args = None):
 @client.command()
 async def about(ctx):
   await ctx.send(f'Hey! I am **Periodiccia**, a Discord bot designed to provide information about Chemistry and the Periodic Table of Elements. I house the basic element commands (hydrogen, tungsten, etc.), a helpful element list, an element group definition finder, and much more. Just type in `p help elements` to view the element commands, and `p help` to view the other modules and information. Developed by **QuackerDeezlesYT#6969** \n\nIf you want to invite me to your server, use the following authorization hyperlink: https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot -  All of my code can be viewed on GitHub. To view the repository, type `p gitrepo`.\n\nIf you have a suggestion, want to report a bug, or anything else, join my official server! https://discord.gg/W6JHRPWvJd\n\n')
-
-@client.command()
-async def Ve(ctx):
-  em = discord.Embed(title = '**VERITASIUM**', description = 'Mass of KNOWLEDGE, YouTube Channel =\n https://www.youtube.com/user/1veritasium', color = discord.Color.blue())
-  em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/807399043822518323.png?v=1')
-  await ctx.send(embed = em)
 
 @client.command(aliases = ['1'])
 async def H(ctx):
@@ -943,40 +943,17 @@ async def server(ctx):
 async def servcount(ctx):
   await ctx.send(f'I am currently operating in {len(client.guilds)} servers!')
 
-@client.command(aliases = ['bio', 'dev'])
-async def devbio(ctx, *, page = 1):
-  if page == 1:
-      em = discord.Embed(title = 'This is QuackerDeezlesYT', description = '**Page 1 of 3 - About Me**\n\n**I am a math fanatic, hardcore music lover, Geometry Dash and Fall Guys gamer, and puzzle enthusiast.**\n\n**More on the Music Aspect**\n\nI do everything; make music, listen to music, and learn music! My favorite music to listen is EDM (which covers Dubstep, Drum and Bass, and Trap) as well as Hiphop/R&B. I play the piano (for 10.5 years and counting) and percussion (for 4 years and counting). I make sure that with playing music and listening music, I keep learning more and more music theory.\n\n**More on the Video Games Aspect**\n\nI have been playing **Geometry Dash** for the past 6-7 years. I have actually spent 8 dollars on that game without in-app purchases; First few years on an iPad, then a year on my phone, and currently I play the game on my PC for the past 4 months and counting. The game is so amazing, which is why I have played it for such a long time!\n\n**Fall Guys** is one, amazing feel-good game. I got the game right when I got my PC, and I have been playing it ever since. It is super fun, just hoping that there would be constant updates. Otherwise, 10/10.\n\nIf you have any good video game recommendations, DM Me!', color = discord.Color.red())
-      em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/782651321899679774/826278320412426240/quackeranimated_2.gif')
-      await ctx.send(embed=em)
-  elif page == 2:
-      em = discord.Embed(title = 'This is QuackerDeezlesYT', description = '**Page 2 of 3 - Discord Experience**\n\n**Why did I decide to build Periodiccia?**\n\nTo be honest, I never liked programming. For who I want to be, writing random abbreviations was at the bottom of my priority list. A few months after I made a Discord account, I planned on making a Discord Bot. It felt fun seeing people type commands and in an instant my bot will respond, so why not try it out?\n\nIf you go to the URL of DiscordBotLists vote page (not top.gg) you will see quacc-ducc and not periodiccia. Quacc Ducc was 1.0, a bot with literally no purpose. It was not going well and was offline most of the time. I decided to take a stand. One of the commands of Quacc Ducc was `elem`, which would give out information about the Elements, similar to what Periodiccia is doing right now. I got a thought - why not make a bot just on this? I worked super hard on it, and it is paying off, with people constantly using it. I am realizing that me not trying out programming could have blocked a door that I have myself opened.\n\n**Moderation**\n\nI am a moderator/admin in some servers with triple digit member counts. Those servers are the ones I advertised on the third page of this bio, you can find them by typing `p devbio 3`.\n\nI will be very happy if you make me a staff member in your server! Would be truly appreciated :grinning:', color = discord.Color.red())
-      em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/782651321899679774/826278320412426240/quackeranimated_2.gif')
-      await ctx.send(embed=em)
-  elif page == 3:
-        em = discord.Embed(title = 'This is QuackerDeezlesYT', description = '**Page 3 of 3 - Recommended Servers**\n\nhttps://discord.gg/Xt8UQj2neY\n\n**__60hz Gang__** is a fun, inclusive community who loves all things Geometry Dash, a rhythm and music based game. The community that we hold is very friendly and loves to help people make levels, collaborate with others, and to be there for any help.\n\nhttps://discord.com/invite/hDghRHmpnQ\n\nWelcome to **__Gumball Nation__**! An amazing Dank Memer Community! \n\nhttps://discord.gg/VswpQkpVjZ\n\nWe are __**Kevin\'s Relaxation Server**__, a server by the streamer KevinInfernoo.\n\nhttps://discord.gg/3RxwxDPun6\n\n__**Blade Bot List**__ is an epic bot list and developer community!', color = discord.Color.red())
-        em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/782651321899679774/826278320412426240/quackeranimated_2.gif')
-        await ctx.send(embed=em)
-  elif page >= 3:
-				return await ctx.send("There are only 3 sections, what were you thinking?!?!")
-
 @client.command()
 async def invite(ctx):
   await ctx.send(f'https://dsc.gg/perio I reached max servers so it would not work :( Waiting for Discord to approve my verification')
 
-@client.command(aliases = ['github', 'repo', 'repository'])
+@client.command(aliases = ['repo', 'repository'])
 async def gitrepo(ctx):
   await ctx.send(f'https://github.com/QuackerDeezles/Periodiccia')
 
 @client.command()
 async def table(ctx):
   await ctx.send(file = discord.File("table.jpg"))
-
-@client.command(aliases = ['pp', 'penis'])
-async def dick(ctx):
-  dick = ['8D', '8=D', '8==D', '8===D', '8====D', '8=====D', '8======D', '8=======D', '8========D', '8=========D', '8==========D', '8===========D', '8============D', '8============D', '8=============D', '8==============D', '8===============D' ]
-  em = discord.Embed(title = '**PP Size Generator**', description = f'**Your dick lol**\n{random.choice(dick)}', color = discord.Color.green())
-  await ctx.send(embed = em)
 
 @client.command(aliases = ['simp'])
 async def simprate(ctx):
@@ -1096,6 +1073,51 @@ async def soundcloud(ctx, *args):
 async def amazon(ctx, *args):
   amazon = "Open this to view search results in the website amazon.com: https://www.amazon.com/s?k=" + ("%20".join(args[:])) + "&ref=nb_sb_noss_2"
   await ctx.send(amazon)
+
+@client.command()
+async def wired(ctx, *args):
+  wired = "Open this to view search results in the website wired.com: https://www.wired.com/search/?q=" + ("%20".join(args[:])) + "&page=1&sort=score"
+  await ctx.send(wired)
+
+@client.command()
+async def fortune(ctx, *args):
+  fortune = "Open this to view search results in the website fortune.com: https://fortune.com/advanced-search/?query=" + ("%20".join(args[:]))
+  await ctx.send(fortune)
+
+@client.command()
+async def nytimes(ctx, *args):
+  nytimes = "Open this to view search results in the website nytimes.com: https://www.nytimes.com/search?query=" + ("+".join(args[:]))
+  await ctx.send(nytimes)
+
+@client.command()
+async def espn(ctx, *args):
+  espn = "Open this to view search results in the website espn.com: https://www.espn.com/search/_/q/" + ("%20".join(args[:]))
+  await ctx.send(espn)
+
+@client.command()
+async def msft(ctx, *args):
+  msft = "Open this to view search results in the website microsoft.com: https://www.microsoft.com/en-us/search?q=" + ("+".join(args[:]))
+  await ctx.send(msft)
+
+@client.command()
+async def github(ctx, *args):
+  github = "Open this to view search results in the website microsoft.com: https://github.com/search?q=" + ("+".join(args[:]))
+  await ctx.send(github)
+
+@client.command()
+async def forbes(ctx, *args):
+  forbes = "Open this to view search results in the website forbes.com: https://www.forbes.com/search/?q=" + ("+".join(args[:])) + "&sh=64a56bfa279f"
+  await ctx.send(forbes)
+
+@client.command()
+async def stackoverflow(ctx, *args):
+  stackoverflow = "Open this to view search results in the website stackoverflow.com: https://stackoverflow.com/search?q=" + ("+".join(args[:]))
+  await ctx.send(stackoverflow)
+
+@client.command()
+async def quora(ctx, *args):
+  quora = "Open this to view search results in the website quora.com: https://www.quora.com/search?q=" + ("%20".join(args[:]))
+  await ctx.send(quora)
 
 keep_alive.keep_alive()
 token = os.environ.get("Token")
