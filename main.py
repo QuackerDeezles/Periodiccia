@@ -13,7 +13,6 @@ async def on_ready():
     await client.change_presence(status=discord.Status.idle, activity=discord.Game("p help | I reached max servers, close to being verified"))
     for x in client.guilds:
       print(x.name)
-      print(x.member_count)
 
 @client.event
 async def on_guild_join(guild):
@@ -46,7 +45,7 @@ async def help(ctx, args = None):
     em.set_image(url="https://cdn.discordapp.com/attachments/831783191198957613/833831137809006663/periodiccia-High-Quality.jpg")
     await ctx.send(embed = em)
   elif args == 'utility':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '<:settings:585767366743293952> **__Utility Commands__**\n\n - `p about` - See who I am!\n - `p yt` (aliases = `p quacker`) - His YouTube!\n - `p ping` - Check out the latency!\n - `p invite` - My invite link!\n - `p servcount` - Find how many servers I am in!\n - `p logo` - View the logo as a png\n - `p gitrepo` (aliases = `repo`, `repository`) - View my official GitHub Repository\n - `p vote` - Please vote me on top.gg!\n - `p server` (aliases = `serv`, `guild`) - My Official Server! :D\n\n<:pin_unread:658538492548218890> A Helpful Video made by my Dev: https://www.youtube.com/watch?v=yaaj5PkE290', color = discord.Color.purple())
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '<:settings:585767366743293952> **__Utility Commands__**\n\n - `p about` - See who I am!\n - `p yt` (aliases = `p quacker`) - His YouTube!\n - `p ping` - Check out the latency!\n - `p invite` - My invite link!\n - `p servcount` - Find how many servers I am in!\n - `p readdocs` (aliases = `docs`) - View the Discord documentation of popular programming Discord API languages\n - `p gitrepo` (aliases = `repo`, `repository`) - View my official GitHub Repository\n - `p vote` - Please vote me on top.gg!\n - `p server` (aliases = `serv`, `guild`) - My Official Server! :D\n\n<:pin_unread:658538492548218890> A Helpful Video made by my Dev: https://www.youtube.com/watch?v=yaaj5PkE290', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/831783191198957613/833831123431849994/periodiccia-High-Quality_1.jpg")
     await ctx.send(embed = em)
   elif args == 'rand':
@@ -931,10 +930,6 @@ async def ping(ctx):
 async def yt(ctx):
   await ctx.send(f'https://www.youtube.com/channel/UC6PKOburRMFSjwTCQcL4wbQ https://www.youtube.com/watch?v=eOJONIkB6iI')
 
-@client.command()
-async def logo(ctx):
-  await ctx.send(file = discord.File("periodiccialogo.png"))
-
 @client.command(aliases = ['serv', 'guild'])
 async def server(ctx):
   await ctx.send(f'https://discord.gg/W6JHRPWvJd')
@@ -1119,6 +1114,19 @@ async def quora(ctx, *args):
   quora = "Open this to view search results in the website quora.com: https://www.quora.com/search?q=" + ("%20".join(args[:]))
   await ctx.send(quora)
 
-keep_alive.keep_alive()
+@client.command(aliases = ['pp', 'penis'])
+async def dick(ctx):
+  dick = ['8D', '8=D', '8==D', '8===D', '8====D', '8=====D', '8======D', '8=======D', '8========D', '8=========D', '8==========D', '8===========D', '8============D', '8============D', '8=============D', '8==============D', '8===============D' ]
+  await ctx.send("8==Wait wait..")
+
+@client.command(aliases = ['docs'])
+async def readdocs(ctx):
+  em = discord.Embed(title = 'Popular Discord Wrapper Documentations for Discord Bots!', url = "https://discord.gg/discord-api", description = '**discord.py, discord.js, and discordUnity**')
+  em.add_field(name = 'discord.py documentation', value = '[Click here](https://discordpy.readthedocs.io/en/stable/index.html)', inline = False)
+  em.add_field(name = 'discord.js documentation', value = '[Click here](https://discordjs-fork.readthedocs.io/en/latest/)', inline = False)
+  em.add_field(name = 'discordUnity documentation', value = '[Click here](https://discordunity.readthedocs.io/en/latest/)', inline = False)
+  em.set_footer(text = 'Again, none of the links are rickrolls.')
+  await ctx.send(embed = em)
+
 token = os.environ.get("Token")
 client.run(token)
