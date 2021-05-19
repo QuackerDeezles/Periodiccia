@@ -10,7 +10,7 @@ client.remove_command('help')
 @client.event
 async def on_ready():
     print("The bot is ready!")
-    await client.change_presence(status=discord.Status.idle, activity=discord.Game("p help | I reached max servers, close to being verified"))
+    await client.change_presence(status=discord.Status.idle, activity=discord.Game("p help | I am back up and running"))
     for x in client.guilds:
       print(x.name)
 
@@ -18,24 +18,24 @@ async def on_ready():
 async def on_guild_join(guild):
 	try:
 		if guild.system_channel:
-			await guild.system_channel.send(f'Hey! My name is Periodiccia! I am a Periodic Table of Elements discord bot. `p help` opens up the help page, and I will guide you through the modules I have! :sunglasses:\nMade by QuackerDeezlesYT#6969')
+			await guild.system_channel.send(f'Hey! My name is Periodiccia! I am a Periodic Table of Elements discord bot. `p help` opens up the help page, and I will guide you through the modules I have! :sunglasses:\nMade by <@704506180273438721>')
 	except:
 		pass
-	print("New server being stalked!")
+	print("yo hopped in a new server less go")
 
 @client.command(aliases = ['huh', 'what'])
 async def help(ctx, args = None):
  if not args:
-  em = discord.Embed(title = 'Welcome to Periodiccia! :D', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**Here are my modules (chem, utility, rand).**',  color = discord.Color.purple())
+  em = discord.Embed(title = 'Welcome to Periodiccia! :D', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**Here are my modules (chem, utility, rand, websearch).**',  color = discord.Color.purple())
   em.add_field(name = ':microscope: Chemistry Command List', value = '`p help chem`', inline = False)
   em.add_field(name = '<:settings:585767366743293952> Utility Command List', value = '`p help utility`', inline = False)
   em.add_field(name = ':game_die: Random Command List', value = '`p help rand`', inline = False)
   em.add_field(name = ':globe_with_meridians: Web Search Command List', value = '`p help websearch`', inline = False)
-  em.add_field(name = 'Need help?', value = 'DM the head developer, QuackerDeezlesYT#6969', inline = False)
+  em.add_field(name = 'Need help?', value = 'DM the head developer, <@704506180273438721>', inline = False)
   em.add_field(name = 'Invite me!', value = '[Click here](https://bit.ly/39O9N7t)', inline = False)
   em.add_field(name = 'Join my official server!', value = '[Click here](https://bit.ly/3b4JbPd)', inline = False)
   em.add_field(name = 'Vote me on top.gg!', value = '[Click here](https://top.gg/bot/767190721534361631/vote)', inline = False)
-  em.add_field(name = 'Fun Fact:', value = 'My pronouns are she/her, might choose to be bi tho', inline = False)
+  em.add_field(name = 'Fun Fact:', value = 'My pronouns are she/her!', inline = False)
   em.set_footer(text = 'None of the links are rickrolls.')
   em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
   await ctx.send(embed = em)
@@ -53,21 +53,17 @@ async def help(ctx, args = None):
     em.set_image(url="https://cdn.discordapp.com/attachments/778322617211289653/837876280707383346/periodiccia-High-Quality_4.jpg")
     await ctx.send(embed = em)
   elif args == 'websearch':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`\n\nPlease do not misuse the commands like searching up something nsfw this is for general purposes and not for your horny needs.', color = discord.Color.purple())
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`, `theverge`, `history`, `natgeo`, `mrktwatch`, `reddit`\n\nPlease do not misuse the commands like searching up something nsfw this is for general purposes and not for your horny needs.', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/841743778347614249/842990566836666388/periodiccia-High-Quality_5.jpg")
     em.set_footer(text="If you have any popular websites you want me to feature in this module, let my developer know through DMs or the support server!")
     await ctx.send(embed = em)
   elif args == 'web':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`\n\nPlease do not misuse the commands like searching up something nsfw this is for general purposes and not for your horny needs.', color = discord.Color.purple())
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`, `theverge`, `history`, `natgeo`, `mrktwatch`, `reddit`\n\nPlease do not misuse the commands like searching up something nsfw this is for general purposes and not for your horny needs.', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/841743778347614249/842990566836666388/periodiccia-High-Quality_5.jpg")
     em.set_footer(text="If you have any popular websites you want me to feature in this module, let my developer know through DMs or the support server!")
     await ctx.send(embed = em)
   else:
     pass
-  
-@client.command()
-async def about(ctx):
-  await ctx.send(f'Hey! I am **Periodiccia**, a Discord bot designed to provide information about Chemistry and the Periodic Table of Elements. I house the basic element commands (hydrogen, tungsten, etc.), a helpful element list, an element group definition finder, and much more. Just type in `p help elements` to view the element commands, and `p help` to view the other modules and information. Developed by **QuackerDeezlesYT#6969** \n\nIf you want to invite me to your server, use the following authorization hyperlink: https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot -  All of my code can be viewed on GitHub. To view the repository, type `p gitrepo`.\n\nIf you have a suggestion, want to report a bug, or anything else, join my official server! https://discord.gg/W6JHRPWvJd\n\n')
 
 @client.command(aliases = ['1'])
 async def H(ctx):
@@ -918,6 +914,10 @@ async def mendeleev(ctx):
   em.set_footer(text="That is one of the best beards I have seen no doubt")
   await ctx.send(embed = em)
 
+@client.command()
+async def table(ctx):
+  await ctx.send(file = discord.File("table.jpg"))
+
 @client.command(aliases = ['vote'])
 async def upvote(ctx):
   await ctx.send('https://top.gg/bot/767190721534361631/vote')
@@ -929,6 +929,15 @@ async def ping(ctx):
 @client.command(aliases = ['quacker'])
 async def yt(ctx):
   await ctx.send(f'https://www.youtube.com/channel/UC6PKOburRMFSjwTCQcL4wbQ https://www.youtube.com/watch?v=eOJONIkB6iI')
+
+@client.command(aliases = ['docs'])
+async def readdocs(ctx):
+  em = discord.Embed(title = 'Popular Discord Wrapper Documentations for Discord Bots!', url = "https://discord.gg/discord-api", description = '**discord.py, discord.js, and discordUnity**')
+  em.add_field(name = 'discord.py documentation', value = '[Click here](https://discordpy.readthedocs.io/en/stable/index.html)', inline = False)
+  em.add_field(name = 'discord.js documentation', value = '[Click here](https://discordjs-fork.readthedocs.io/en/latest/)', inline = False)
+  em.add_field(name = 'discordUnity documentation', value = '[Click here](https://discordunity.readthedocs.io/en/latest/)', inline = False)
+  em.set_footer(text = 'Again, none of the links are rickrolls.')
+  await ctx.send(embed = em)
 
 @client.command(aliases = ['serv', 'guild'])
 async def server(ctx):
@@ -945,10 +954,10 @@ async def invite(ctx):
 @client.command(aliases = ['repo', 'repository'])
 async def gitrepo(ctx):
   await ctx.send(f'https://github.com/QuackerDeezles/Periodiccia')
-
+  
 @client.command()
-async def table(ctx):
-  await ctx.send(file = discord.File("table.jpg"))
+async def about(ctx):
+  await ctx.send(f'Hey! I am **Periodiccia**, a Discord bot designed to provide information about Chemistry and the Periodic Table of Elements. I house the basic element commands (hydrogen, tungsten, etc.), a helpful element list, an element group definition finder, and much more. Just type in `p help elements` to view the element commands, and `p help` to view the other modules and information. Developed by <@704506180273438721> \n\nIf you want to invite me to your server, use the following authorization hyperlink: https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot -  All of my code can be viewed on GitHub. To view the repository, type `p gitrepo`.\n\nIf you have a suggestion, want to report a bug, or anything else, join my official server! https://discord.gg/W6JHRPWvJd\n\n')
 
 @client.command(aliases = ['simp'])
 async def simprate(ctx):
@@ -1114,19 +1123,36 @@ async def quora(ctx, *args):
   quora = "Open this to view search results in the website quora.com: https://www.quora.com/search?q=" + ("%20".join(args[:]))
   await ctx.send(quora)
 
-@client.command(aliases = ['pp', 'penis'])
-async def dick(ctx):
-  dick = ['8D', '8=D', '8==D', '8===D', '8====D', '8=====D', '8======D', '8=======D', '8========D', '8=========D', '8==========D', '8===========D', '8============D', '8============D', '8=============D', '8==============D', '8===============D' ]
-  await ctx.send("8==Wait wait..")
+@client.command()
+async def theverge(ctx, *args):
+  theverge = "Open this to view search results in the website theverge.com: https://www.theverge.com/search?q=" + ("+".join(args[:]))
+  await ctx.send(theverge)
 
-@client.command(aliases = ['docs'])
-async def readdocs(ctx):
-  em = discord.Embed(title = 'Popular Discord Wrapper Documentations for Discord Bots!', url = "https://discord.gg/discord-api", description = '**discord.py, discord.js, and discordUnity**')
-  em.add_field(name = 'discord.py documentation', value = '[Click here](https://discordpy.readthedocs.io/en/stable/index.html)', inline = False)
-  em.add_field(name = 'discord.js documentation', value = '[Click here](https://discordjs-fork.readthedocs.io/en/latest/)', inline = False)
-  em.add_field(name = 'discordUnity documentation', value = '[Click here](https://discordunity.readthedocs.io/en/latest/)', inline = False)
-  em.set_footer(text = 'Again, none of the links are rickrolls.')
-  await ctx.send(embed = em)
+@client.command()
+async def history(ctx, *args):
+  history = "Open this to view search results in the website history.com: https://www.history.com/search?q=" + ("%20".join(args[:]))
+  await ctx.send(history)
 
+@client.command()
+async def natgeo(ctx, *args):
+  natgeo = "Open this to view search results in the website nationalgeographic.com: https://www.nationalgeographic.com/search?q=" + ("%20".join(args[:])) + "&location=srp&type=manual"
+  await ctx.send(natgeo)
+
+@client.command()
+async def mrktwatch(ctx, *args):
+  mrktwatch = "Open this to view search results in the website marketwatch.com: https://www.marketwatch.com/tools/quotes/lookup.asp?lookup=" + ("%20".join(args[:]))
+  await ctx.send(mrktwatch)
+
+@client.command()
+async def reddit(ctx, *args):
+  reddit = "Open this to view search results in the website reddit.com: https://www.reddit.com/search/?q=" + ("%20".join(args[:]))
+  await ctx.send(reddit)
+
+keep_alive.keep_alive()
 token = os.environ.get("Token")
 client.run(token)
+
+@client.command()
+async def talk(ctx, *, msg):
+  await ctx.message.delete()
+  await ctx.send(msg)
