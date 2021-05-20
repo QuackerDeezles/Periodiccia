@@ -53,12 +53,12 @@ async def help(ctx, args = None):
     em.set_image(url="https://cdn.discordapp.com/attachments/778322617211289653/837876280707383346/periodiccia-High-Quality_4.jpg")
     await ctx.send(embed = em)
   elif args == 'websearch':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`, `theverge`, `history`, `natgeo`, `mrktwatch`, `reddit`\n\nPlease do not misuse the commands like searching up something nsfw this is for general purposes and not for your horny needs.', color = discord.Color.purple())
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`, `theverge`, `history`, `natgeo`, `mrktwatch`, `reddit`, `medium`\n\nPlease do not misuse the commands!', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/841743778347614249/842990566836666388/periodiccia-High-Quality_5.jpg")
     em.set_footer(text="If you have any popular websites you want me to feature in this module, let my developer know through DMs or the support server!")
     await ctx.send(embed = em)
   elif args == 'web':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`, `theverge`, `history`, `natgeo`, `mrktwatch`, `reddit`\n\nPlease do not misuse the commands like searching up something nsfw this is for general purposes and not for your horny needs.', color = discord.Color.purple())
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`, `theverge`, `history`, `natgeo`, `mrktwatch`, `reddit`, `medium`\n\nPlease do not misuse the commands!', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/841743778347614249/842990566836666388/periodiccia-High-Quality_5.jpg")
     em.set_footer(text="If you have any popular websites you want me to feature in this module, let my developer know through DMs or the support server!")
     await ctx.send(embed = em)
@@ -1147,6 +1147,11 @@ async def mrktwatch(ctx, *args):
 async def reddit(ctx, *args):
   reddit = "Open this to view search results in the website reddit.com: https://www.reddit.com/search/?q=" + ("%20".join(args[:]))
   await ctx.send(reddit)
+
+@client.command()
+async def medium(ctx, *args):
+  medium = "Open this to view search results in the website medium.com: https://medium.com/search?q=" + ("%20".join(args[:]))
+  await ctx.send(medium)
 
 keep_alive.keep_alive()
 token = os.environ.get("Token")
