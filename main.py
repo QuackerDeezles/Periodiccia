@@ -7,6 +7,8 @@ from discord.ext import commands
 client = commands.Bot(commands.when_mentioned_or("p "), case_insensitive=True)
 client.remove_command('help')
 
+BLACKLISTEDWORDS = i dont want github to see lol
+
 @client.event
 async def on_ready():
     print("The bot is ready!")
@@ -18,7 +20,7 @@ async def on_ready():
 async def on_guild_join(guild):
 	try:
 		if guild.system_channel:
-			await guild.system_channel.send(f'Hey! My name is Periodiccia! I am a Periodic Table of Elements discord bot. `p help` opens up the help page, and I will guide you through the modules I have! :sunglasses:\nMade by <@704506180273438721>')
+			await guild.system_channel.send(f'Hey! My name is Periodiccia! I am a Periodic Table of Elements discord bot. `p help` opens up the help page, and I will guide you through the modules I have! :sunglasses:\nMade by QuackerDeezles#6969!')
 	except:
 		pass
 	print("yo hopped in a new server less go")
@@ -53,12 +55,12 @@ async def help(ctx, args = None):
     em.set_image(url="https://cdn.discordapp.com/attachments/778322617211289653/837876280707383346/periodiccia-High-Quality_4.jpg")
     await ctx.send(embed = em)
   elif args == 'websearch':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`, `theverge`, `history`, `natgeo`, `mrktwatch`, `reddit`, `medium`\n\nPlease do not misuse the commands!', color = discord.Color.purple())
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`, `theverge`, `history`, `natgeo`, `mrktwatch`, `reddit`, `medium`\n\n - Blacklisted words are set up for this module. To view them, view the `blacklist` command.\n - When you enter in a blacklisted word, you will recieve a error message from me <:NOOOOOOO:817321315512877116>\n - If you want any blacklisted words to be added, DM <@704506180273438721>', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/841743778347614249/842990566836666388/periodiccia-High-Quality_5.jpg")
     em.set_footer(text="If you have any popular websites you want me to feature in this module, let my developer know through DMs or the support server!")
     await ctx.send(embed = em)
   elif args == 'web':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`, `theverge`, `history`, `natgeo`, `mrktwatch`, `reddit`, `medium`\n\nPlease do not misuse the commands!', color = discord.Color.purple())
+    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`, `theverge`, `history`, `natgeo`, `mrktwatch`, `reddit`, `medium`\n\n - Blacklisted words are set up for this module. To view them, view the `blacklist` command.\n - When you enter in a blacklisted word, you will recieve a error message from me <:NOOOOOOO:817321315512877116>\n - If you want any blacklisted words to be added, DM <@704506180273438721>', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/841743778347614249/842990566836666388/periodiccia-High-Quality_5.jpg")
     em.set_footer(text="If you have any popular websites you want me to feature in this module, let my developer know through DMs or the support server!")
     await ctx.send(embed = em)
@@ -957,7 +959,7 @@ async def gitrepo(ctx):
   
 @client.command()
 async def about(ctx):
-  await ctx.send(f'Hey! I am **Periodiccia**, a Discord bot designed to provide information about Chemistry and the Periodic Table of Elements. I house the basic element commands (hydrogen, tungsten, etc.), a helpful element list, an element group definition finder, and much more. Just type in `p help elements` to view the element commands, and `p help` to view the other modules and information. Developed by <@704506180273438721> \n\nIf you want to invite me to your server, use the following authorization hyperlink: https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot -  All of my code can be viewed on GitHub. To view the repository, type `p gitrepo`.\n\nIf you have a suggestion, want to report a bug, or anything else, join my official server! https://discord.gg/W6JHRPWvJd\n\n')
+  await ctx.send(f'Hey! I am **Periodiccia**, a Discord bot designed to provide information about Chemistry and the Periodic Table of Elements. I house the basic element commands (hydrogen, tungsten, etc.), a helpful element list, an element group definition finder, and much more. Just type in `p help elements` to view the element commands, and `p help` to view the other modules and information. Developed by QuackerDeezlesYT#6969\n\nIf you want to invite me to your server, use the following authorization hyperlink: https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot -  All of my code can be viewed on GitHub. To view the repository, type `p gitrepo`.\n\nIf you have a suggestion, want to report a bug, or anything else, join my official server! https://discord.gg/W6JHRPWvJd\n\n')
 
 @client.command(aliases = ['simp'])
 async def simprate(ctx):
@@ -1030,128 +1032,254 @@ async def randtwitch(ctx):
 
 @client.command()
 async def topgg(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("https://tenor.com/view/dr-evil-how-about-no-gif-13114250")
+        return
   topgg = "Open this to view search results in the website top.gg: https://top.gg/search?q=" + ("%20".join(args[:]))
   await ctx.send(topgg)
 
 @client.command()
 async def youtube(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("yoooo wus poppin its your boi dalux here, and lets get riiiiight into the news!!! that word is blacklisted.")
+        return
   youtube = "Open this to view search results in the website youtube.com: https://www.youtube.com/results?search_query=" + ("+".join(args[:]))
   await ctx.send(youtube)
 
 @client.command()
 async def urban(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("even tho urban dictionary is dirty asf itself imma still make you search that thru the website and not thru me")
+        return
   urbandictionary = "Open this to view search results in the website urbandictionary.com - If it doesn't show the embed, that means what you wrote isn't a word listed in Urban Dictionary: https://www.urbandictionary.com/define.php?term=" + ("%20".join(args[:]))
   await ctx.send(urbandictionary)
 
 @client.command()
 async def wiki(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("oh hell naw")
+        return
   wiki = "Open this to view search results in the website wikipedia.org - If it doesn't show the embed, that means what you wrote isn't a word listed in Wikipedia: https://en.wikipedia.org/wiki/" + ("_".join(args[:]))
   await ctx.send(wiki)
 
 @client.command()
 async def twitch(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("go to horny jail")
+        return
   twitch = "Open this to view search results in the website twitch.tv: https://www.twitch.tv/search?term=" + ("%20".join(args[:]))
   await ctx.send(twitch)
 
 @client.command()
 async def tiktok(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("search that thru the internet and not thru me lol")
+        return
   tiktok = "Open this to view search results in the website tiktok.com: https://www.tiktok.com/search?q=" + ("%20".join(args[:])) + "&lang=en"
   await ctx.send(tiktok)
 
 @client.command()
 async def insta(ctx, *, msg):
+  for word in BLACKLISTEDWORDS:
+    if msg == word:
+      await ctx.send("blacklisted word entered try something else :pepeLaugh: ")
+      return
   insta = "Open this to view search results in the website instagram.com: https://www.instagram.com/explore/tags/" + msg + "/"
   await ctx.send(insta)
 
 @client.command()
 async def twitter(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("that word is le no-no dont use it again no-no")
+        return
   twitter = "Open this to view search results in the website twitter.com: https://twitter.com/search?q=" + ("%20".join(args[:])) + "&src=typed_query"
   await ctx.send(twitter)
 
 @client.command()
 async def soundcloud(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("that word is le no-no dont use it again no-no")
+        return
   twitter = "Open this to view search results in the website soundcloud.com: https://soundcloud.com/search?q=" + ("%20".join(args[:]))
   await ctx.send(twitter)
 
 @client.command()
 async def amazon(ctx, *args):
+  for word in BLACKLISTEDWORDS:
+    if msg == word:
+      await ctx.send("blacklisted word entered try something else :pepeLaugh: ")
+      return
   amazon = "Open this to view search results in the website amazon.com: https://www.amazon.com/s?k=" + ("%20".join(args[:])) + "&ref=nb_sb_noss_2"
   await ctx.send(amazon)
 
 @client.command()
 async def wired(ctx, *args):
+  for word in BLACKLISTEDWORDS:
+    if msg == word:
+      await ctx.send("blacklisted word entered try something else :pepeLaugh: ")
+      return
   wired = "Open this to view search results in the website wired.com: https://www.wired.com/search/?q=" + ("%20".join(args[:])) + "&page=1&sort=score"
   await ctx.send(wired)
 
 @client.command()
 async def fortune(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("i wont feed ur interest")
+        return
   fortune = "Open this to view search results in the website fortune.com: https://fortune.com/advanced-search/?query=" + ("%20".join(args[:]))
   await ctx.send(fortune)
 
 @client.command()
 async def nytimes(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("i wont feed ur interest")
+        return
   nytimes = "Open this to view search results in the website nytimes.com: https://www.nytimes.com/search?query=" + ("+".join(args[:]))
   await ctx.send(nytimes)
 
 @client.command()
 async def espn(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("i wont feed ur interest")
+        return
   espn = "Open this to view search results in the website espn.com: https://www.espn.com/search/_/q/" + ("%20".join(args[:]))
   await ctx.send(espn)
 
 @client.command()
 async def msft(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("that word is le no no dont use it again no no")
+        return
   msft = "Open this to view search results in the website microsoft.com: https://www.microsoft.com/en-us/search?q=" + ("+".join(args[:]))
   await ctx.send(msft)
 
 @client.command()
 async def github(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("BAHAHAAHAH no")
+        return
   github = "Open this to view search results in the website microsoft.com: https://github.com/search?q=" + ("+".join(args[:]))
   await ctx.send(github)
 
 @client.command()
 async def forbes(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("https://tenor.com/view/dr-evil-how-about-no-gif-13114250")
+        return
   forbes = "Open this to view search results in the website forbes.com: https://www.forbes.com/search/?q=" + ("+".join(args[:])) + "&sh=64a56bfa279f"
   await ctx.send(forbes)
 
 @client.command()
 async def stackoverflow(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("go to horny jail")
+        return
   stackoverflow = "Open this to view search results in the website stackoverflow.com: https://stackoverflow.com/search?q=" + ("+".join(args[:]))
   await ctx.send(stackoverflow)
 
 @client.command()
 async def quora(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("BAHAHAAHAH no")
+        return
   quora = "Open this to view search results in the website quora.com: https://www.quora.com/search?q=" + ("%20".join(args[:]))
   await ctx.send(quora)
 
 @client.command()
 async def theverge(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("yo you discovered a blacklisted word lessgoooooo")
+        return
   theverge = "Open this to view search results in the website theverge.com: https://www.theverge.com/search?q=" + ("+".join(args[:]))
   await ctx.send(theverge)
 
 @client.command()
 async def history(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("yo you discovered a blacklisted word lessgoooooo")
+        return
   history = "Open this to view search results in the website history.com: https://www.history.com/search?q=" + ("%20".join(args[:]))
   await ctx.send(history)
 
 @client.command()
 async def natgeo(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("go to horny jail")
+        return
   natgeo = "Open this to view search results in the website nationalgeographic.com: https://www.nationalgeographic.com/search?q=" + ("%20".join(args[:])) + "&location=srp&type=manual"
   await ctx.send(natgeo)
 
 @client.command()
 async def mrktwatch(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("yo you discovered a blacklisted word lessgoooooo")
+        return
   mrktwatch = "Open this to view search results in the website marketwatch.com: https://www.marketwatch.com/tools/quotes/lookup.asp?lookup=" + ("%20".join(args[:]))
   await ctx.send(mrktwatch)
 
 @client.command()
 async def reddit(ctx, *args):
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("https://tenor.com/view/dr-evil-how-about-no-gif-13114250")
+        return
   reddit = "Open this to view search results in the website reddit.com: https://www.reddit.com/search/?q=" + ("%20".join(args[:]))
   await ctx.send(reddit)
 
 @client.command()
 async def medium(ctx, *args):
-  medium = "Open this to view search results in the website medium.com: https://medium.com/search?q=" + ("%20".join(args[:]))
-  await ctx.send(medium)
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("yoooo wus poppin its your boi dalux here, and lets get riiiiight into the news!!! that word is blacklisted.")
+        return
+    medium = "Open this to view search results in the website medium.com: https://medium.com/search?q=" + ("%20".join(args[:]))
+    await ctx.send(medium)
+  
+@client.command()
+async def blacklist(ctx):
+  i dont want github to see lol
 
 keep_alive.keep_alive()
 token = os.environ.get("Token")
