@@ -12,7 +12,7 @@ To the peeps who want to view the code, **click the main.py page.**
 - 848 to lower 920s: Other p help chem commands
 - 923 to lower 960s: p help utility commands
 - 964 to lower 1030s: p help rand commands
-- 1030s to lower 1280s: p help websearch commands
+- 1030s to higher 1350s: p help websearch commands
 
 Invite -> https://dsc.gg/perio
 Official Server -> https://bit.ly/3b4JbPd
