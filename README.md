@@ -1,6 +1,6 @@
-# Periodiccia
+# Periodiccia - A Periodic-Table-of-Elements/Chemistry Discord Bot, with other shenanigans
 
-Yo. Welcome to the official GitHub Repository for Periodiccia!
+**Yo.** Welcome to the official GitHub Repository for Periodiccia!
 To the peeps who want to view the code, **click the main.py page.**
 
 **How is the main.py repository page organized?**
