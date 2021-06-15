@@ -3,6 +3,8 @@
 **Yo.** Welcome to the official GitHub Repository for Periodiccia!
 To the peeps who want to view the code, **click the main.py page.**
 
-Invite -> https://dsc.gg/perio
-Official Server -> https://bit.ly/3b4JbPd
-GitHub Repository -> https://github.com/QuackerDeezles/Periodiccia
+Made by Me (QuackerDeezlesYT#6969)
+
+[Invite Link](https://dsc.gg/perio) - 
+[Official Server](https://bit.ly/3b4JbPd) - 
+[GitHub Repository](https://github.com/QuackerDeezles/Periodiccia)
