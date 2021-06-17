@@ -7,12 +7,12 @@ from discord.ext import commands
 client = commands.Bot(commands.when_mentioned_or("p "), case_insensitive=True)
 client.remove_command('help')
 
-BLACKLISTEDWORDS = i dont want github to see lol
+BLACKLISTEDWORDS = i dont want github to see
 
 @client.event
 async def on_ready():
     print("The bot is ready!")
-    await client.change_presence(status=discord.Status.idle, activity=discord.Game("p help | I am back up and running"))
+    await client.change_presence(status=discord.Status.do_not_disturb, activity=discord.Game("p help | dsc.gg/perio | Just Got Verified"))
     for x in client.guilds:
       print(x.name)
 
@@ -37,30 +37,29 @@ async def help(ctx, args = None):
   em.add_field(name = 'Invite me!', value = '[Click here](https://bit.ly/39O9N7t)', inline = False)
   em.add_field(name = 'Join my official server!', value = '[Click here](https://bit.ly/3b4JbPd)', inline = False)
   em.add_field(name = 'Vote me on top.gg!', value = '[Click here](https://top.gg/bot/767190721534361631/vote)', inline = False)
-  em.add_field(name = 'Fun Fact:', value = 'My pronouns are she/her!', inline = False)
   em.set_footer(text = 'None of the links are rickrolls.')
   em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/817876187023015960/818955057197613106/periodiccia.gif')
   await ctx.send(embed = em)
  else:
   if args == 'chem':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:microscope: __Chemistry Commands__**\n\n - `p <element_symbol>` or `p <atomic_number>` - Gives information about an element\n - `p elements <page_number>` - Reference to symbols to use for the element commands. **12 pages**\n - `p bonds` - Explains the four types of bonds between molecules.\n - `p valence` (aliases = `val`, `electron`) - Explains what valence electrons are.\n - `p elemgroup` - Gives information about the groups of elements found in the Periodic Table (example: Transition Metal)!\n - `p mendeleev` (aliases = `dmitri`) - This command tells you a bit about who Mendeleev is, and some helpful resources to learn more about him.\n - `p lightningmyth` - A random lightning myth and a fact to go along with it.\n - `p table` - The Periodic Table of Elements as an image.', color = discord.Color.purple())
+    em = discord.Embed(title = 'Welcome to Periodiccia! :D', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:microscope: __Chemistry Commands__**\n\n - `p <element_symbol>` or `p <atomic_number>` - Gives information about an element\n - `p elements <page_number>` - Reference to symbols to use for the element commands. **12 pages**\n - `p bonds` - Explains the four types of bonds between molecules.\n - `p valence` (aliases = `val`, `electron`) - Explains what valence electrons are.\n - `p elemgroup` - Gives information about the groups of elements found in the Periodic Table (example: Transition Metal)!\n - `p mendeleev` (aliases = `dmitri`) - This command tells you a bit about who Mendeleev is, and some helpful resources to learn more about him.\n - `p lightningmyth` - A random lightning myth and a fact to go along with it.\n - `p table` - The Periodic Table of Elements as an image.', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/831783191198957613/833831137809006663/periodiccia-High-Quality.jpg")
     await ctx.send(embed = em)
   elif args == 'utility':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '<:settings:585767366743293952> **__Utility Commands__**\n\n - `p about` - See who I am!\n - `p yt` (aliases = `p quacker`) - His YouTube!\n - `p ping` - Check out the latency!\n - `p invite` - My invite link!\n - `p servcount` - Find how many servers I am in!\n - `p readdocs` (aliases = `docs`) - View the Discord documentation of popular programming Discord API languages\n - `p gitrepo` (aliases = `repo`, `repository`) - View my official GitHub Repository\n - `p vote` - Please vote me on top.gg!\n - `p server` (aliases = `serv`, `guild`) - My Official Server! :D\n\n<:pin_unread:658538492548218890> A Helpful Video made by my Dev: https://www.youtube.com/watch?v=yaaj5PkE290', color = discord.Color.purple())
+    em = discord.Embed(title = 'Welcome to Periodiccia! :D', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '<:settings:585767366743293952> **__Utility Commands__**\n\n - `p about` - See who I am!\n - `p aboutdev` (aliases = `p quacker`) - His Bio Page!\n - `p ping` - Check out the latency!\n - `p invite` - My invite link!\n - `p servcount` - Find how many servers I am in!\n - `p readdocs` (aliases = `docs`) - View the Discord documentation of popular programming Discord API languages\n - `p gitrepo` (aliases = `repo`, `repository`) - View my official GitHub Repository\n - `p vote` - Please vote me on top.gg!\n - `p server` (aliases = `serv`, `guild`) - My Official Server! :D\n\n<:pin_unread:658538492548218890> A Helpful Video made by my Dev: https://www.youtube.com/watch?v=yaaj5PkE290', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/831783191198957613/833831123431849994/periodiccia-High-Quality_1.jpg")
     await ctx.send(embed = em)
   elif args == 'rand':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:game_die: __Random Commands__**\n\n - `p simprate` (aliases = `simp`) - Rate how much of a simp are you\n - `p waifurate` (aliases = `waifu`) - Rate how much of a waifu are you\n - `p progamer` (aliases = `gamer`, `gamerrate`, `progamerrate`) - Rate how much of a gamer are you\n - `p randyt` (aliases = `randomyoutube`) - Gives a random popular YouTuber\'s channel link for you to check out\n - `p randtwitch` (aliases = `randomtwitch`) - Gives a random popular Twitch streamer\'s channel for you to check out\n - `p randletter <letter_count>` (aliases = `letter`, `randomletter`) - Sends a random string of letters (up to 10) at once.\n\n - `p coinflip` (aliases = `coin`, `flip`) - What side?\n - `p die` (aliases = `roll`) - Roll the die!\n - `p rng <any_integer>` - RNG from 1 to your number', color = discord.Color.purple())
+    em = discord.Embed(title = 'Welcome to Periodiccia! :D', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:game_die: __Random Commands__**\n\n - `p simprate` (aliases = `simp`) - Rate how much of a simp are you\n - `p waifurate` (aliases = `waifu`) - Rate how much of a waifu are you\n - `p progamer` (aliases = `gamer`, `gamerrate`, `progamerrate`) - Rate how much of a gamer are you\n - `p randyt` (aliases = `randomyoutube`) - Gives a random popular YouTuber\'s channel link for you to check out\n - `p randtwitch` (aliases = `randomtwitch`) - Gives a random popular Twitch streamer\'s channel for you to check out\n - `p randletter <letter_count>` (aliases = `letter`, `randomletter`) - Sends a random string of letters (up to 10) at once.\n\n - `p coinflip` (aliases = `coin`, `flip`) - What side?\n - `p die` (aliases = `roll`) - Roll the die!\n - `p rng <any_integer>` - RNG from 1 to your number', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/778322617211289653/837876280707383346/periodiccia-High-Quality_4.jpg")
     await ctx.send(embed = em)
   elif args == 'websearch':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`, `theverge`, `history`, `natgeo`, `mrktwatch`, `reddit`, `medium`\n\n - Blacklisted words are set up for this module. To view them, view the `blacklist` command.\n - When you enter in a blacklisted word, you will recieve a error message from me <:NOOOOOOO:817321315512877116>\n - If you want any blacklisted words to be added, DM <@704506180273438721>', color = discord.Color.purple())
+    em = discord.Embed(title = 'Welcome to Periodiccia! :D', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`google`, `topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`, `theverge`, `history`, `natgeo`, `mrktwatch`, `reddit`, `medium`\n\n - Blacklisted words are set up for this module. To view them, view the `blacklist` command.\n - When you enter in a blacklisted word, you will recieve a error message from me :(\n - If you want any blacklisted words to be added, DM <@704506180273438721>', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/841743778347614249/842990566836666388/periodiccia-High-Quality_5.jpg")
     em.set_footer(text="If you have any popular websites you want me to feature in this module, let my developer know through DMs or the support server!")
     await ctx.send(embed = em)
   elif args == 'web':
-    em = discord.Embed(title = '__Welcome to Periodiccia!__', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`, `theverge`, `history`, `natgeo`, `mrktwatch`, `reddit`, `medium`\n\n - Blacklisted words are set up for this module. To view them, view the `blacklist` command.\n - When you enter in a blacklisted word, you will recieve a error message from me <:NOOOOOOO:817321315512877116>\n - If you want any blacklisted words to be added, DM <@704506180273438721>', color = discord.Color.purple())
+    em = discord.Embed(title = 'Welcome to Periodiccia! :D', url = "https://discord.com/oauth2/authorize?client_id=767190721534361631&permissions=8&scope=bot", description = '**:globe_with_meridians: __Web Search Commands__**\n\nSearch popular websites without any hassle!\n**Syntax:** `p <command_name> <search_text>`\n\n`google`, `topgg`, `youtube`, `urban`, `wiki`, `twitch`, `tiktok`, `insta`, `twitter`, `soundcloud`, `amazon`, `wired`, `fortune`, `nytimes`, `espn`, `msft`, `github`, `forbes`, `stackoverflow`, `quora`, `theverge`, `history`, `natgeo`, `mrktwatch`, `reddit`, `medium`\n\n - Blacklisted words are set up for this module. To view them, view the `blacklist` command.\n - When you enter in a blacklisted word, you will recieve a error message from me :(\n - If you want any blacklisted words to be added, DM <@704506180273438721>', color = discord.Color.purple())
     em.set_image(url="https://cdn.discordapp.com/attachments/841743778347614249/842990566836666388/periodiccia-High-Quality_5.jpg")
     em.set_footer(text="If you have any popular websites you want me to feature in this module, let my developer know through DMs or the support server!")
     await ctx.send(embed = em)
@@ -745,7 +744,7 @@ async def Ds(ctx):
 
 @client.command(aliases = ['111'])
 async def Rg(ctx):
-  em = discord.Embed(title = '**Roentgenium**', description = '111th Element, Mass of 282, **Transition Metal**\n: Roentgenium is named for **scientist Wilhelm Conrad Röentgen, who discovered X-rays.** It is discovered by the **Gesellschaft fur Schwerionenforschung team** led by Peter Armbruster and Gottfried Münzenber in late 1994.', color = discord.Color.blue())
+  em = discord.Embed(title = '**Roentgenium**', description = '111th Element, Mass of 282, **Transition Metal**\nRoentgenium is named for **scientist Wilhelm Conrad Röentgen, who discovered X-rays.** It is discovered by the **Gesellschaft fur Schwerionenforschung team** led by Peter Armbruster and Gottfried Münzenber in late 1994.', color = discord.Color.blue())
   em.set_thumbnail(url = 'https://cdn.discordapp.com/emojis/807319083724832769.png?v=1')
   await ctx.send(embed = em)
 
@@ -929,8 +928,12 @@ async def ping(ctx):
   await ctx.send(f'The latency is {round(client.latency * 1000)} ms!')
 
 @client.command(aliases = ['quacker'])
-async def yt(ctx):
-  await ctx.send(f'https://www.youtube.com/channel/UC6PKOburRMFSjwTCQcL4wbQ https://www.youtube.com/watch?v=eOJONIkB6iI')
+async def aboutdev(ctx):
+  em = discord.Embed(title = 'This is QuackerDeezlesYT', description = 'Yo! I am QuackerDeezles, a 13 year old ambitious lad, dubstep + AJR lover, Geometry Dash gamer and layout creator, and bedroom developer of Periodiccia.\n\n**Random Information About Me**\nMy birthday is Dec 15.\nI love AJR!\nI am a senior moderator/partner manager of a bot list called Blade Bot List! https://bladebotlist.xyz\nMy Discord and DMs are open most of the day, so feel free to have a chat with me! (<@704506180273438721>)\nMy favorite video game is Geometry Dash\nDucks are my favorite animal.\n<:brilliance:585763004495298575> HypeSquad Brilliance is the best HypeSquad badge imo.\n\n**My Socials**', color = discord.Color.blue())
+  em.add_field(name = 'YouTube (Mostly GD Stuff)', value = '[Click here](https://www.youtube.com/channel/UC6PKOburRMFSjwTCQcL4wbQ)', inline = False)
+  em.add_field(name = 'GitHub', value = '[Click here](https://github.com/QuackerDeezles)', inline = False)
+  em.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/841743778347614249/850242435833528330/quackeranimated_2.gif')
+  await ctx.send(embed = em)
 
 @client.command(aliases = ['docs'])
 async def readdocs(ctx):
@@ -951,7 +954,7 @@ async def servcount(ctx):
 
 @client.command()
 async def invite(ctx):
-  await ctx.send(f'https://dsc.gg/perio I reached max servers so it would not work :( Waiting for Discord to approve my verification')
+  await ctx.send(f'https://dsc.gg/perio I JUST GOT VERIFIED LETS GO')
 
 @client.command(aliases = ['repo', 'repository'])
 async def gitrepo(ctx):
@@ -1031,255 +1034,347 @@ async def randtwitch(ctx):
   await ctx.send(f'You should watch {random.choice(twit)}')
 
 @client.command()
-async def topgg(ctx, *args):
+async def google(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("https://tenor.com/view/dr-evil-how-about-no-gif-13114250")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
+        return
+    google = "Open this to view search results in the website google.com: https://www.google.com/search?q=" + ("+".join(args[:]))
+    await ctx.send(google)
+
+@client.command()
+async def topgg(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
+  for arg in args:
+    for word in BLACKLISTEDWORDS:
+      if arg == word:
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   topgg = "Open this to view search results in the website top.gg: https://top.gg/search?q=" + ("%20".join(args[:]))
   await ctx.send(topgg)
 
 @client.command()
 async def youtube(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("yoooo wus poppin its your boi dalux here, and lets get riiiiight into the news!!! that word is blacklisted.")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   youtube = "Open this to view search results in the website youtube.com: https://www.youtube.com/results?search_query=" + ("+".join(args[:]))
   await ctx.send(youtube)
 
 @client.command()
-async def urban(ctx, *args):
+async def urban(ctx, *args): 
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("even tho urban dictionary is dirty asf itself imma still make you search that thru the website and not thru me")
+        await ctx.send("even tho urban dictionary is dirty asf imma have to make you search that thru the website and not thru me")
         return
   urbandictionary = "Open this to view search results in the website urbandictionary.com - If it doesn't show the embed, that means what you wrote isn't a word listed in Urban Dictionary: https://www.urbandictionary.com/define.php?term=" + ("%20".join(args[:]))
   await ctx.send(urbandictionary)
 
 @client.command()
 async def wiki(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("oh hell naw")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   wiki = "Open this to view search results in the website wikipedia.org - If it doesn't show the embed, that means what you wrote isn't a word listed in Wikipedia: https://en.wikipedia.org/wiki/" + ("_".join(args[:]))
   await ctx.send(wiki)
 
 @client.command()
-async def twitch(ctx, *args):
+async def twitch(ctx, *args): 
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("go to horny jail")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   twitch = "Open this to view search results in the website twitch.tv: https://www.twitch.tv/search?term=" + ("%20".join(args[:]))
   await ctx.send(twitch)
 
 @client.command()
-async def tiktok(ctx, *args):
+async def tiktok(ctx, *args): 
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("search that thru the internet and not thru me lol")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   tiktok = "Open this to view search results in the website tiktok.com: https://www.tiktok.com/search?q=" + ("%20".join(args[:])) + "&lang=en"
   await ctx.send(tiktok)
 
 @client.command()
-async def insta(ctx, *, msg):
+async def insta(ctx, *, msg): 
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for word in BLACKLISTEDWORDS:
     if msg == word:
-      await ctx.send("blacklisted word entered try something else :pepeLaugh: ")
+      await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
       return
   insta = "Open this to view search results in the website instagram.com: https://www.instagram.com/explore/tags/" + msg + "/"
   await ctx.send(insta)
 
 @client.command()
-async def twitter(ctx, *args):
+async def twitter(ctx, *args): 
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("that word is le no-no dont use it again no-no")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   twitter = "Open this to view search results in the website twitter.com: https://twitter.com/search?q=" + ("%20".join(args[:])) + "&src=typed_query"
   await ctx.send(twitter)
 
 @client.command()
 async def soundcloud(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("that word is le no-no dont use it again no-no")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   twitter = "Open this to view search results in the website soundcloud.com: https://soundcloud.com/search?q=" + ("%20".join(args[:]))
   await ctx.send(twitter)
 
 @client.command()
 async def amazon(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for word in BLACKLISTEDWORDS:
-    if msg == word:
-      await ctx.send("blacklisted word entered try something else :pepeLaugh: ")
+    if arg == word:
+      await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
       return
   amazon = "Open this to view search results in the website amazon.com: https://www.amazon.com/s?k=" + ("%20".join(args[:])) + "&ref=nb_sb_noss_2"
   await ctx.send(amazon)
 
 @client.command()
 async def wired(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for word in BLACKLISTEDWORDS:
-    if msg == word:
-      await ctx.send("blacklisted word entered try something else :pepeLaugh: ")
+    if arg == word:
+      await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
       return
   wired = "Open this to view search results in the website wired.com: https://www.wired.com/search/?q=" + ("%20".join(args[:])) + "&page=1&sort=score"
   await ctx.send(wired)
 
 @client.command()
 async def fortune(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("i wont feed ur interest")
+        await ctx.send(f'me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word')
         return
   fortune = "Open this to view search results in the website fortune.com: https://fortune.com/advanced-search/?query=" + ("%20".join(args[:]))
   await ctx.send(fortune)
 
 @client.command()
 async def nytimes(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("i wont feed ur interest")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   nytimes = "Open this to view search results in the website nytimes.com: https://www.nytimes.com/search?query=" + ("+".join(args[:]))
   await ctx.send(nytimes)
 
 @client.command()
 async def espn(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("i wont feed ur interest")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   espn = "Open this to view search results in the website espn.com: https://www.espn.com/search/_/q/" + ("%20".join(args[:]))
   await ctx.send(espn)
 
 @client.command()
 async def msft(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("that word is le no no dont use it again no no")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   msft = "Open this to view search results in the website microsoft.com: https://www.microsoft.com/en-us/search?q=" + ("+".join(args[:]))
   await ctx.send(msft)
 
 @client.command()
 async def github(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("BAHAHAAHAH no")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   github = "Open this to view search results in the website microsoft.com: https://github.com/search?q=" + ("+".join(args[:]))
   await ctx.send(github)
 
 @client.command()
 async def forbes(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("https://tenor.com/view/dr-evil-how-about-no-gif-13114250")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   forbes = "Open this to view search results in the website forbes.com: https://www.forbes.com/search/?q=" + ("+".join(args[:])) + "&sh=64a56bfa279f"
   await ctx.send(forbes)
 
 @client.command()
 async def stackoverflow(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("go to horny jail")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   stackoverflow = "Open this to view search results in the website stackoverflow.com: https://stackoverflow.com/search?q=" + ("+".join(args[:]))
   await ctx.send(stackoverflow)
 
 @client.command()
 async def quora(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("BAHAHAAHAH no")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   quora = "Open this to view search results in the website quora.com: https://www.quora.com/search?q=" + ("%20".join(args[:]))
   await ctx.send(quora)
 
 @client.command()
 async def theverge(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("yo you discovered a blacklisted word lessgoooooo")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   theverge = "Open this to view search results in the website theverge.com: https://www.theverge.com/search?q=" + ("+".join(args[:]))
   await ctx.send(theverge)
 
 @client.command()
 async def history(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("yo you discovered a blacklisted word lessgoooooo")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   history = "Open this to view search results in the website history.com: https://www.history.com/search?q=" + ("%20".join(args[:]))
   await ctx.send(history)
 
 @client.command()
 async def natgeo(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("go to horny jail")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   natgeo = "Open this to view search results in the website nationalgeographic.com: https://www.nationalgeographic.com/search?q=" + ("%20".join(args[:])) + "&location=srp&type=manual"
   await ctx.send(natgeo)
 
 @client.command()
 async def mrktwatch(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("yo you discovered a blacklisted word lessgoooooo")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   mrktwatch = "Open this to view search results in the website marketwatch.com: https://www.marketwatch.com/tools/quotes/lookup.asp?lookup=" + ("%20".join(args[:]))
   await ctx.send(mrktwatch)
 
 @client.command()
 async def reddit(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("https://tenor.com/view/dr-evil-how-about-no-gif-13114250")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
   reddit = "Open this to view search results in the website reddit.com: https://www.reddit.com/search/?q=" + ("%20".join(args[:]))
   await ctx.send(reddit)
 
 @client.command()
 async def medium(ctx, *args):
+  if len(args) == 0:
+    await ctx.send('u have to put something buddy lmao')
+    return
   for arg in args:
     for word in BLACKLISTEDWORDS:
       if arg == word:
-        await ctx.send("yoooo wus poppin its your boi dalux here, and lets get riiiiight into the news!!! that word is blacklisted.")
+        await ctx.send("me <:minigunhandle:845750714859782164><:minigunbarrel:845750733520764958><a:shots1:845750790266421329><a:shots2:845750808006885376><a:shots3:845750820841848833> ur message with a blacklisted word")
         return
     medium = "Open this to view search results in the website medium.com: https://medium.com/search?q=" + ("%20".join(args[:]))
     await ctx.send(medium)
   
 @client.command()
 async def blacklist(ctx):
-  i dont want github to see lol
+  if ctx.channel.is_nsfw():
+    em = discord.Embed(title = 'BLACKLISTED WORDS FOR THE WEBSEARCH MODULE', description = i dont want github to see lol
+    await ctx.send(embed = em)
+  else:
+    await ctx.send('Navigate to an NSFW channel to use this command!')
 
 keep_alive.keep_alive()
 token = os.environ.get("Token")
